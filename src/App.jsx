@@ -100,7 +100,10 @@ function App() {
 
       {phase === "loading" && <Loading onComplete={handleLoadingComplete} />}
 
-      <div ref={contentRef} style={{ position: "relative", zIndex: 1 }}>
+      <div
+        ref={contentRef}
+        style={{ position: "relative", zIndex: 1, display: "none" }}
+      >
         <Navbar />
         <main>
           <Routes>
