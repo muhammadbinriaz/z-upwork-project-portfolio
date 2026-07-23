@@ -28,16 +28,16 @@ const Contact = () => {
   return (
     <section className="section section--gradient" id="contact">
       {/* Atmosphere orbs */}
-      <div
-        className="gradient-orb gradient-orb--top-left"
-        aria-hidden="true"
-      />
+      <div className="gradient-orb gradient-orb--top-left" aria-hidden="true" />
       <div
         className="gradient-orb gradient-orb--bottom-left"
         aria-hidden="true"
       />
 
-      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
+      <div
+        className="container-page"
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <h2
           style={{
             color: "var(--color-ink)",
@@ -114,7 +114,7 @@ const Contact = () => {
                   Upwork
                 </span>
                 <a
-                  href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8"
+                  href="https://www.upwork.com/freelancers/muhammadz67"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

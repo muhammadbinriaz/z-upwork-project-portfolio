@@ -95,7 +95,7 @@ const Footer = () => {
               Contact
             </Link>
             <a
-              href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8"
+              href="https://www.upwork.com/freelancers/muhammadz67"
               target="_blank"
               rel="noopener noreferrer"
               style={{

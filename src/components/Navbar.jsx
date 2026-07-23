@@ -48,8 +48,11 @@ const Navbar = () => {
           ? "1px solid transparent"
           : "1px solid var(--color-rule)",
         backdropFilter: isFloating ? "blur(0)" : "saturate(1.4) blur(14px)",
-        WebkitBackdropFilter: isFloating ? "blur(0)" : "saturate(1.4) blur(14px)",
-        transition: "padding-block 520ms var(--ease-out), background-color 520ms var(--ease-out), border-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out)",
+        WebkitBackdropFilter: isFloating
+          ? "blur(0)"
+          : "saturate(1.4) blur(14px)",
+        transition:
+          "padding-block 520ms var(--ease-out), background-color 520ms var(--ease-out), border-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out)",
       }}
     >
       <div
@@ -69,7 +72,8 @@ const Navbar = () => {
             ? "0 8px 32px var(--color-shadow), 0 0 0 1px var(--color-rule) inset"
             : "none",
           transform: isFloating ? "translateY(12px)" : "translateY(0)",
-          transition: "max-width 520ms var(--ease-out), min-height 520ms var(--ease-out), padding-block 520ms var(--ease-out), border-radius 520ms var(--ease-out), background-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out), box-shadow 520ms var(--ease-out), transform 520ms var(--ease-out)",
+          transition:
+            "max-width 520ms var(--ease-out), min-height 520ms var(--ease-out), padding-block 520ms var(--ease-out), border-radius 520ms var(--ease-out), background-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out), box-shadow 520ms var(--ease-out), transform 520ms var(--ease-out)",
         }}
       >
         {/* Wordmark */}
@@ -119,7 +123,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
-            href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8"
+            href="https://www.upwork.com/freelancers/muhammadz67"
             target="_blank"
             rel="noopener noreferrer"
             className="chip"
@@ -159,7 +163,8 @@ const Navbar = () => {
           padding: "var(--space-sm)",
           marginTop: "var(--space-xs)",
           marginInline: "clamp(1rem, 4vw, 2rem)",
-          backgroundColor: "color-mix(in oklch, var(--color-paper-2) 95%, transparent)",
+          backgroundColor:
+            "color-mix(in oklch, var(--color-paper-2) 95%, transparent)",
           backdropFilter: "blur(18px)",
           WebkitBackdropFilter: "blur(18px)",
           borderRadius: "var(--radius-lg)",
@@ -181,7 +186,8 @@ const Navbar = () => {
                 backgroundColor: isActive
                   ? "var(--color-paper-3)"
                   : "transparent",
-                transition: "color 180ms var(--ease-out), background-color 180ms var(--ease-out)",
+                transition:
+                  "color 180ms var(--ease-out), background-color 180ms var(--ease-out)",
               })}
             >
               {link.name}
