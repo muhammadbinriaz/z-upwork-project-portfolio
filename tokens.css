@@ -10,76 +10,77 @@
 
 :root {
   /* === Paper — dark mode, blue-tinted === */
-  --color-paper:     oklch(14%  0.008 220);
-  --color-paper-2:   oklch(18%  0.010 220);
-  --color-paper-3:   oklch(24%  0.008 220);
+  --color-paper: oklch(14% 0.008 220);
+  --color-paper-2: oklch(18% 0.01 220);
+  --color-paper-3: oklch(24% 0.008 220);
 
   /* === Rule — thin separators === */
-  --color-rule:      oklch(30%  0.008 220);
-  --color-rule-2:    oklch(24%  0.010 220);
+  --color-rule: oklch(30% 0.008 220);
+  --color-rule-2: oklch(24% 0.01 220);
 
   /* === Neutrals === */
-  --color-neutral:   oklch(58%  0.008 220);
-  --color-muted:     oklch(72%  0.006 220);
+  --color-neutral: oklch(58% 0.008 220);
+  --color-muted: oklch(72% 0.006 220);
 
   /* === Ink — primary text === */
-  --color-ink:       oklch(94%  0.006 220);
-  --color-ink-2:     oklch(88%  0.006 220);
+  --color-ink: oklch(94% 0.006 220);
+  --color-ink-2: oklch(88% 0.006 220);
 
   /* === Accent — aurora blue-cyan === */
-  --color-accent:    oklch(55% 0.18 220);
+  --color-accent: oklch(55% 0.18 220);
   --color-accent-ink: oklch(14% 0.008 220);
-  --color-focus:     oklch(70% 0.19 220);
+  --color-focus: oklch(70% 0.19 220);
 
   /* === Shadows === */
-  --color-shadow:    oklch(12% 0.012 220);
-  --color-shadow-2:  oklch(10% 0.015 220);
+  --color-shadow: oklch(12% 0.012 220);
+  --color-shadow-2: oklch(10% 0.015 220);
 
   /* === Typography === */
-  --font-display:    "Instrument Serif", ui-serif, Georgia, serif;
-  --font-body:       "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier:    "Geist Mono", ui-monospace, monospace;
-  --font-wordmark:   "Fraunces", ui-serif, Georgia, serif;
+  /* === Typography === */
+  --font-display: "Neue Machina", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Manrope", ui-monospace, monospace;
+  --font-wordmark: "Neue Machina", ui-sans-serif, system-ui, sans-serif;
 
   /* === Spacing — 4pt scale === */
   --space-3xs: 0.25rem;
   --space-2xs: 0.5rem;
-  --space-xs:  0.75rem;
-  --space-sm:  1rem;
-  --space-md:  1.5rem;
-  --space-lg:  2rem;
-  --space-xl:  3rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
   --space-2xl: 4rem;
   --space-3xl: 6rem;
   --space-4xl: 9rem;
 
   /* === Typography scale — major third (1.25) === */
-  --text-xs:    0.75rem;
-  --text-sm:    0.875rem;
-  --text-base:  1rem;
-  --text-lg:    1.125rem;
-  --text-xl:    1.25rem;
-  --text-2xl:   1.5rem;
-  --text-3xl:   2.25rem;
-  --text-4xl:   3rem;
-  --text-5xl:   4.5rem;
-  --text-6xl:   6rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 6rem;
   --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
 
   /* === Motion === */
-  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   --dur-micro: 120ms;
   --dur-short: 220ms;
-  --dur-long:  420ms;
+  --dur-long: 420ms;
 
   /* === Radius === */
-  --radius-sm:  0.25rem;
-  --radius-md:  0.5rem;
-  --radius-lg:  1rem;
-  --radius-xl:  1.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
   /* === Rules === */
@@ -87,14 +88,14 @@
   --rule-fine: 1px;
 
   /* === Z-index scale === */
-  --z-base:     1;
-  --z-raised:   10;
+  --z-base: 1;
+  --z-raised: 10;
   --z-dropdown: 100;
-  --z-sticky:   200;
+  --z-sticky: 200;
   --z-sticky-nav: 300;
-  --z-modal:    400;
-  --z-toast:    500;
-  --z-tooltip:  600;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
 }
 
 /* === Base styles === */
@@ -116,7 +117,12 @@ body {
 }
 
 /* === Typography defaults === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-style: normal;
   font-weight: 400;
@@ -125,12 +131,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 { font-size: var(--text-display); }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); }
-h5 { font-size: var(--text-xl); }
-h6 { font-size: var(--text-lg); }
+h1 {
+  font-size: var(--text-display);
+}
+h2 {
+  font-size: var(--text-4xl);
+}
+h3 {
+  font-size: var(--text-3xl);
+}
+h4 {
+  font-size: var(--text-2xl);
+}
+h5 {
+  font-size: var(--text-xl);
+}
+h6 {
+  font-size: var(--text-lg);
+}
 
 a {
   color: var(--color-accent);
@@ -147,7 +165,9 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 150ms !important;

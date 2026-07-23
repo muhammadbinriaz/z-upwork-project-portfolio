@@ -41,7 +41,7 @@ const Footer = () => {
             style={{
               fontFamily: "var(--font-wordmark)",
               fontSize: "var(--text-xl)",
-              fontWeight: 600,
+              fontWeight: 400,
               color: "var(--color-ink)",
               textDecoration: "none",
               letterSpacing: "-0.015em",
