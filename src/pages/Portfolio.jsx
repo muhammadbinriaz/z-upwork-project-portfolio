@@ -7,10 +7,11 @@ const Portfolio = () => {
   return (
     <>
       <section
-        className="section--hero"
+        className="section--hero section--gradient"
         style={{ paddingBlockEnd: 'var(--space-2xl)', borderBottom: '1px solid var(--color-rule)' }}
       >
-        <div className="container-page">
+        <div className="gradient-orb gradient-orb--top-right" aria-hidden="true" />
+        <div className="container-page" style={{ position: 'relative', zIndex: 1 }}>
           <h1 style={{ color: 'var(--color-ink)' }}>
             Portfolio
           </h1>

@@ -15,8 +15,15 @@ const About = () => {
         </div>
       </section>
 
-      <section className="section--tight">
-        <div className="container-page">
+      <section className="section--tight section--gradient">
+        <div
+          className="gradient-orb gradient-orb--top-right"
+          aria-hidden="true"
+        />
+        <div
+          className="container-page"
+          style={{ position: "relative", zIndex: 1 }}
+        >
           <div
             style={{
               display: "grid",

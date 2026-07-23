@@ -10,13 +10,13 @@
 
 :root {
   /* === Paper — dark mode, blue-tinted === */
-  --color-paper: oklch(14% 0.008 220);
-  --color-paper-2: oklch(18% 0.01 220);
-  --color-paper-3: oklch(24% 0.008 220);
+  --color-paper: oklch(8% 0 0);
+  --color-paper-2: oklch(12% 0 0);
+  --color-paper-3: oklch(18% 0 0);
 
   /* === Rule — thin separators === */
-  --color-rule: oklch(30% 0.008 220);
-  --color-rule-2: oklch(24% 0.01 220);
+  --color-rule: oklch(22% 0 0);
+  --color-rule-2: oklch(18% 0 0);
 
   /* === Neutrals === */
   --color-neutral: oklch(58% 0.008 220);
@@ -32,8 +32,8 @@
   --color-focus: oklch(70% 0.19 220);
 
   /* === Shadows === */
-  --color-shadow: oklch(12% 0.012 220);
-  --color-shadow-2: oklch(10% 0.015 220);
+  --color-shadow: oklch(4% 0 0);
+  --color-shadow-2: oklch(2% 0 0);
 
   /* === Typography === */
   /* === Typography === */

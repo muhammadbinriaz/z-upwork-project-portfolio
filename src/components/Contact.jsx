@@ -26,8 +26,18 @@ const Contact = () => {
   };
 
   return (
-    <section className="section" id="contact">
-      <div className="container-page">
+    <section className="section section--gradient" id="contact">
+      {/* Atmosphere orbs */}
+      <div
+        className="gradient-orb gradient-orb--top-left"
+        aria-hidden="true"
+      />
+      <div
+        className="gradient-orb gradient-orb--bottom-left"
+        aria-hidden="true"
+      />
+
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <h2
           style={{
             color: "var(--color-ink)",

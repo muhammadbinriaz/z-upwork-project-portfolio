@@ -70,7 +70,10 @@ const Portfolio = () => {
           {projects.map((project) => (
             <div
               key={project.title}
+              className="card--gradient"
               style={{
+                position: "relative",
+                isolation: "isolate",
                 backgroundColor: "var(--color-paper-2)",
                 border: "1px solid var(--color-rule)",
                 borderRadius: "var(--radius-lg)",
@@ -90,75 +93,87 @@ const Portfolio = () => {
                 e.currentTarget.style.borderColor = "var(--color-rule)";
               }}
             >
-              {/* Rating badge */}
+              {/* Card content above gradient */}
               <div
                 style={{
+                  position: "relative",
+                  zIndex: 1,
                   display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "var(--text-xs)",
-                    color: "var(--color-muted)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                  }}
-                >
-                  {project.client}
-                </span>
-                <span
-                  style={{
-                    backgroundColor:
-                      "color-mix(in oklch, var(--color-accent) 20%, transparent)",
-                    color: "var(--color-accent)",
-                    padding: "2px 10px",
-                    borderRadius: "var(--radius-full)",
-                    fontSize: "var(--text-xs)",
-                    fontFamily: "var(--font-outlier)",
-                    fontWeight: 500,
-                  }}
-                >
-                  ★ {project.rating}
-                </span>
-              </div>
-
-              {/* Title */}
-              <h3
-                style={{
-                  fontSize: "var(--text-lg)",
-                  color: "var(--color-ink)",
-                  fontFamily: "var(--font-display)",
-                  lineHeight: 1.2,
-                }}
-              >
-                {project.title}
-              </h3>
-
-              {/* Result */}
-              <p
-                style={{
-                  fontSize: "var(--text-sm)",
-                  color: "var(--color-accent)",
-                  fontFamily: "var(--font-outlier)",
-                }}
-              >
-                {project.result}
-              </p>
-
-              {/* Review quote */}
-              <p
-                style={{
-                  fontSize: "var(--text-sm)",
-                  color: "var(--color-muted)",
-                  lineHeight: 1.5,
-                  fontStyle: "italic",
+                  flexDirection: "column",
+                  gap: "var(--space-sm)",
                   flex: 1,
                 }}
               >
-                "{project.review}"
-              </p>
+                {/* Rating badge */}
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: "var(--text-xs)",
+                      color: "var(--color-muted)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    {project.client}
+                  </span>
+                  <span
+                    style={{
+                      backgroundColor:
+                        "color-mix(in oklch, var(--color-accent) 20%, transparent)",
+                      color: "var(--color-accent)",
+                      padding: "2px 10px",
+                      borderRadius: "var(--radius-full)",
+                      fontSize: "var(--text-xs)",
+                      fontFamily: "var(--font-outlier)",
+                      fontWeight: 500,
+                    }}
+                  >
+                    ★ {project.rating}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3
+                  style={{
+                    fontSize: "var(--text-lg)",
+                    color: "var(--color-ink)",
+                    fontFamily: "var(--font-display)",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {project.title}
+                </h3>
+
+                {/* Result */}
+                <p
+                  style={{
+                    fontSize: "var(--text-sm)",
+                    color: "var(--color-accent)",
+                    fontFamily: "var(--font-outlier)",
+                  }}
+                >
+                  {project.result}
+                </p>
+
+                {/* Review quote */}
+                <p
+                  style={{
+                    fontSize: "var(--text-sm)",
+                    color: "var(--color-muted)",
+                    lineHeight: 1.5,
+                    fontStyle: "italic",
+                    flex: 1,
+                  }}
+                >
+                  "{project.review}"
+                </p>
+              </div>
             </div>
           ))}
         </div>
