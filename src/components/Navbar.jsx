@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isFloating, setIsFloating] = useState(false);
@@ -37,18 +38,18 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all`}
+      className={`fixed top-0 left-0 w-full z-50`}
       style={{
         paddingBlock: isFloating ? "var(--space-2xs)" : "0",
         backgroundColor: isFloating
           ? "transparent"
-          : "oklch(14% 0.008 220 / 0.62)",
+          : "color-mix(in oklch, var(--color-paper) 92%, transparent)",
         borderBottom: isFloating
           ? "1px solid transparent"
           : "1px solid var(--color-rule)",
         backdropFilter: isFloating ? "blur(0)" : "saturate(1.4) blur(14px)",
-        transitionDuration: "520ms",
-        transitionTimingFunction: "var(--ease-out)",
+        WebkitBackdropFilter: isFloating ? "blur(0)" : "saturate(1.4) blur(14px)",
+        transition: "padding-block 520ms var(--ease-out), background-color 520ms var(--ease-out), border-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out)",
       }}
     >
       <div
@@ -60,26 +61,24 @@ const Navbar = () => {
           paddingInline: "clamp(1rem, 4vw, 2rem)",
           borderRadius: isFloating ? "var(--radius-full)" : "0",
           backgroundColor: isFloating
-            ? "oklch(18% 0.010 220 / 0.82)"
+            ? "color-mix(in oklch, var(--color-paper-2) 88%, transparent)"
             : "transparent",
           backdropFilter: isFloating ? "blur(18px)" : "blur(0)",
+          WebkitBackdropFilter: isFloating ? "blur(18px)" : "blur(0)",
           boxShadow: isFloating
-            ? "0 8px 32px oklch(12% 0.012 220 / 0.4), 0 0 0 1px oklch(30% 0.008 220 / 0.3) inset"
+            ? "0 8px 32px var(--color-shadow), 0 0 0 1px var(--color-rule) inset"
             : "none",
           transform: isFloating ? "translateY(12px)" : "translateY(0)",
-          transitionDuration: "520ms",
-          transitionTimingFunction: "var(--ease-out)",
-          transitionProperty:
-            "max-width, min-height, padding-block, border-radius, background-color, backdrop-filter, box-shadow, transform",
+          transition: "max-width 520ms var(--ease-out), min-height 520ms var(--ease-out), padding-block 520ms var(--ease-out), border-radius 520ms var(--ease-out), background-color 520ms var(--ease-out), backdrop-filter 520ms var(--ease-out), box-shadow 520ms var(--ease-out), transform 520ms var(--ease-out)",
         }}
       >
         {/* Wordmark */}
         <Link
           to="/"
-          className="font-semibold text-lg tracking-tight"
           style={{
             fontFamily: "var(--font-wordmark)",
             fontWeight: 400,
+            fontSize: "var(--text-lg)",
             color: "var(--color-ink)",
             letterSpacing: "-0.015em",
             textDecoration: "none",
@@ -97,17 +96,16 @@ const Navbar = () => {
             <NavLink
               key={link.path}
               to={link.path}
-              className="text-sm font-medium transition-colors whitespace-nowrap"
+              className="text-sm font-medium whitespace-nowrap"
               style={({ isActive }) => ({
                 color: isActive ? "var(--color-accent)" : "var(--color-muted)",
+                transition: "color 180ms var(--ease-out)",
               })}
               onMouseEnter={(e) => {
-                if (!e.target.className.includes("active")) {
-                  e.target.style.color = "var(--color-ink)";
-                }
+                e.target.style.color = "var(--color-ink)";
               }}
               onMouseLeave={(e) => {
-                if (!e.target.className.includes("active")) {
+                if (!e.target.className?.includes?.("active")) {
                   e.target.style.color = "var(--color-muted)";
                 }
               }}
@@ -117,8 +115,9 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* CTA + Mobile toggle */}
+        {/* CTA + Theme toggle + Mobile toggle */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="https://www.upwork.com/freelancers/~01a1b2c3d4e5f6g7h8"
             target="_blank"
@@ -133,7 +132,7 @@ const Navbar = () => {
             className="md:hidden p-2"
             onClick={() => {
               const menu = document.getElementById("mobile-menu");
-              menu.classList.toggle("hidden");
+              if (menu) menu.classList.toggle("hidden");
             }}
             aria-label="Toggle menu"
             style={{ color: "var(--color-muted)" }}
@@ -160,8 +159,9 @@ const Navbar = () => {
           padding: "var(--space-sm)",
           marginTop: "var(--space-xs)",
           marginInline: "clamp(1rem, 4vw, 2rem)",
-          backgroundColor: "oklch(18% 0.010 220 / 0.95)",
+          backgroundColor: "color-mix(in oklch, var(--color-paper-2) 95%, transparent)",
           backdropFilter: "blur(18px)",
+          WebkitBackdropFilter: "blur(18px)",
           borderRadius: "var(--radius-lg)",
           border: "1px solid var(--color-rule)",
         }}
@@ -172,14 +172,16 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={() => {
-                document.getElementById("mobile-menu").classList.add("hidden");
+                const menu = document.getElementById("mobile-menu");
+                if (menu) menu.classList.add("hidden");
               }}
-              className="text-sm font-medium py-2 px-3 rounded-md transition-colors"
+              className="text-sm font-medium py-2 px-3 rounded-md"
               style={({ isActive }) => ({
                 color: isActive ? "var(--color-accent)" : "var(--color-muted)",
                 backgroundColor: isActive
                   ? "var(--color-paper-3)"
                   : "transparent",
+                transition: "color 180ms var(--ease-out), background-color 180ms var(--ease-out)",
               })}
             >
               {link.name}
