@@ -481,9 +481,156 @@ body {
   margin: 0;
 }
 
-
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-md);
+}
+
+/* === Light Theme — Gradient Overrides === */
+
+[data-theme="light"] .hero-bg::before {
+  background:
+    radial-gradient(
+      circle at 40% 40%,
+      oklch(58% 0.22 75 / 0.18) 0%,
+      oklch(58% 0.22 75 / 0.06) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 60% 60%,
+      oklch(55% 0.18 65 / 0.1) 0%,
+      transparent 60%
+    );
+  filter: blur(100px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .hero-bg::after {
+  background: radial-gradient(
+    circle at 50% 50%,
+    oklch(58% 0.22 75 / 0.15) 0%,
+    oklch(58% 0.22 75 / 0.04) 40%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .gradient-orb--top-right {
+  background: radial-gradient(
+    circle at 35% 35%,
+    oklch(58% 0.22 75 / 0.16) 0%,
+    oklch(58% 0.22 75 / 0.04) 45%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .gradient-orb--bottom-left {
+  background: radial-gradient(
+    circle at 60% 60%,
+    oklch(55% 0.18 65 / 0.12) 0%,
+    oklch(55% 0.18 65 / 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .gradient-orb--center-right {
+  background: radial-gradient(
+    circle at 40% 50%,
+    oklch(58% 0.22 75 / 0.12) 0%,
+    oklch(58% 0.22 75 / 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(85px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .gradient-orb--top-left {
+  background: radial-gradient(
+    circle at 55% 45%,
+    oklch(55% 0.18 65 / 0.1) 0%,
+    oklch(55% 0.18 65 / 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .hero-spotlight {
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 30%),
+    oklch(58% 0.22 75 / 0.18) 0%,
+    oklch(58% 0.22 75 / 0.06) 35%,
+    transparent 60%
+  );
+}
+
+[data-theme="light"] .card--gradient::before {
+  background: radial-gradient(
+    400px circle at var(--mx, 50%) var(--my, 50%),
+    oklch(58% 0.22 75 / 0.1) 0%,
+    oklch(58% 0.22 75 / 0.03) 40%,
+    transparent 65%
+  );
+}
+
+@media (hover: none) and (pointer: coarse) {
+  [data-theme="light"] .card--gradient::before {
+    background: radial-gradient(
+      300px circle at 50% 30%,
+      oklch(58% 0.22 75 / 0.08) 0%,
+      oklch(58% 0.22 75 / 0.02) 40%,
+      transparent 65%
+    );
+  }
+}
+
+[data-theme="light"] .mobile-static-gradient::before {
+  background: radial-gradient(
+    circle at 40% 40%,
+    oklch(58% 0.22 75 / 0.14) 0%,
+    oklch(58% 0.22 75 / 0.04) 45%,
+    transparent 70%
+  );
+  filter: blur(90px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .mobile-static-gradient::after {
+  background: radial-gradient(
+    circle at 60% 55%,
+    oklch(55% 0.18 65 / 0.1) 0%,
+    oklch(55% 0.18 65 / 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(75px);
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .gradient-divider {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(58% 0.22 75 / 0.3) 20%,
+    oklch(58% 0.22 75 / 0.5) 50%,
+    oklch(55% 0.18 65 / 0.3) 80%,
+    transparent 100%
+  );
+}
+
+/* Reduced motion fallback for light theme */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="light"] .hero-spotlight {
+    background: radial-gradient(
+      600px circle at 50% 30%,
+      oklch(58% 0.22 75 / 0.14) 0%,
+      oklch(58% 0.22 75 / 0.04) 35%,
+      transparent 60%
+    );
+  }
 }
