@@ -1,45 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const heroRef = useRef(null);
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    setIsTouch(
-      window.matchMedia("(hover: none) and (pointer: coarse)").matches,
-    );
-  }, []);
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero || isTouch) return;
-
-    const onMove = (e) => {
-      const r = hero.getBoundingClientRect();
-      hero.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      hero.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-
-    hero.addEventListener("pointermove", onMove);
-    return () => hero.removeEventListener("pointermove", onMove);
-  }, [isTouch]);
-
   return (
     <section
-      ref={heroRef}
-      className="section--hero relative overflow-hidden"
-      style={{ isolation: "isolate", minHeight: "clamp(60vh, 75dvh, 88dvh)" }}
+      className="section--hero relative"
+      style={{ minHeight: "clamp(60vh, 75dvh, 88dvh)" }}
     >
-      {/* Abstract background — desktop */}
-      <div className="hero-bg" aria-hidden="true" />
-
-      {/* Cursor spotlight — desktop only */}
-      {!isTouch && <div className="hero-spotlight" aria-hidden="true" />}
-
-      {/* Static gradient — mobile/touch only */}
-      {isTouch && <div className="mobile-static-gradient" aria-hidden="true" />}
-
       {/* Content */}
       <div className="container-page relative" style={{ zIndex: 1 }}>
         <div

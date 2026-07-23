@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
@@ -13,9 +13,57 @@ const ThemeToggle = () => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggle = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const toggle = useCallback(() => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    const styleId = "theme-transition-style";
+    let styleEl = document.getElementById(styleId);
+    if (!styleEl) {
+      styleEl = document.createElement("style");
+      styleEl.id = styleId;
+      document.head.appendChild(styleEl);
+    }
+
+    // Rectangle clip-path expanding from bottom to top — super smooth
+    styleEl.textContent = `
+      ::view-transition-group(root) {
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      ::view-transition-new(root) {
+        animation-name: reveal-theme;
+      }
+
+      ::view-transition-old(root) {
+        animation: none;
+        z-index: -1;
+      }
+
+      @keyframes reveal-theme {
+        from {
+          clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+        }
+        to {
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+      }
+    `;
+
+    const switchTheme = () => {
+      setTheme(newTheme);
+      setTimeout(() => {
+        const el = document.getElementById(styleId);
+        if (el) el.remove();
+      }, 800);
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(switchTheme);
+    } else {
+      switchTheme();
+    }
+  }, [theme]);
 
   return (
     <button
