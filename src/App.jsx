@@ -9,6 +9,17 @@ import Portfolio from "./pages/Portfolio";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+// Scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
@@ -21,6 +32,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       {isLoading && <Loading />}
       <div
         style={{
