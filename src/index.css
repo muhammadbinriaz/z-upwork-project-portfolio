@@ -263,3 +263,16 @@ textarea.input {
   .section { padding-block: var(--space-2xl); }
   .section--hero { padding-block-start: var(--space-3xl); padding-block-end: var(--space-2xl); }
 }
+
+
+body {
+  overflow-x: clip;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 350;
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
