@@ -2,6 +2,14 @@
 @import "../tokens.css";
 
 /* Additional utility classes that Tailwind v4 + tokens don't cover */
+/* Hide scrollbars everywhere */
+* {
+  scrollbar-width: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
 
 .gradient-border {
   border: 1px solid transparent;
@@ -632,5 +640,33 @@ body {
       oklch(58% 0.22 75 / 0.04) 35%,
       transparent 60%
     );
+  }
+}
+
+
+/* Swiper reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .swiper-wrapper {
+    transition-duration: 0ms !important;
+    
+    
+  }
+}
+
+
+
+/* Global gradient container — show correct gradient per device */
+@media (hover: none) and (pointer: coarse) {
+  #global-spotlight {
+    display: none;
+  }
+  #global-mobile-gradient {
+    display: block;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #global-mobile-gradient {
+    display: none;
   }
 }
