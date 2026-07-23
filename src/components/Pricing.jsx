@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
-    <section className="section--tight">
-      <div className="container-page">
+    <section className="section--tight section--gradient">
+      {/* Subtle orb */}
+      <div
+        className="gradient-orb gradient-orb--center-right"
+        aria-hidden="true"
+      />
+
+      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
         <h2
           style={{
             color: "var(--color-ink)",
