@@ -88,7 +88,7 @@ const Loading = ({ onComplete }) => {
             perspective: "400px",
           }}
         >
-          Muhammad Zaryab
+          GoLeadFinder 
         </h1>
       </div>
 

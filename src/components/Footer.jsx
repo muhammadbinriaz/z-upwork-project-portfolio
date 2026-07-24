@@ -47,7 +47,7 @@ const Footer = () => {
               letterSpacing: "-0.015em",
             }}
           >
-            Zaryab Lead Solutions
+            GoLeadFinder
           </Link>
 
           {/* Links */}
