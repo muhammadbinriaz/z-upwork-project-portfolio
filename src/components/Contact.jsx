@@ -90,7 +90,7 @@ const Contact = () => {
                   Email
                 </span>
                 <a
-                  href="mailto:muhammad.zaryab@example.com"
+                  href="mailto:zaryabmuhammad@goleadfinder.com"
                   style={{
                     fontSize: "var(--text-base)",
                     color: "var(--color-accent)",

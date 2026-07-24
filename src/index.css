@@ -669,4 +669,18 @@ body {
   #global-mobile-gradient {
     display: none;
   }
+}.stack-card {
+  width: min(90vw, 36rem);
+}
+
+@media (min-width: 80rem) {
+  .stack-card {
+    width: min(60vw, 48rem);
+  }
+}
+
+@media (min-width: 100rem) {
+  .stack-card {
+    width: min(55vw, 56rem);
+  }
 }
