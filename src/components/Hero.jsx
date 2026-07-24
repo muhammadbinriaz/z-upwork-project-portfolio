@@ -68,7 +68,7 @@ const Hero = () => {
                   <span>lead pipelines</span>
                   <span>sales databases</span>
                   <span>contact rosters</span>
-                  <span>web development</span>
+                  <span>web dev</span>
                   <span>automation</span>
                 </span>
               </span>
@@ -86,8 +86,8 @@ const Hero = () => {
               }}
             >
               GoLeadFinder — Top Rated Plus B2B lead generation for SaaS,
-              agencies, and sales teams. Verified contacts, CRM-ready data,
-              zero fluff.
+              agencies, and sales teams. Verified contacts, CRM-ready data, zero
+              fluff.
             </p>
 
             <div
@@ -184,7 +184,7 @@ const Hero = () => {
         .typewriter-text {
           display: flex;
           flex-direction: column;
-          animation: typewriter-swap 10s ease-in-out infinite;
+          animation: typewriter-swap 8s ease-in-out infinite;
         }
 
         .typewriter-text span {
@@ -193,23 +193,15 @@ const Hero = () => {
           line-height: 1.15em;
         }
 
-        @keyframes typewriter-swap {
-          0%, 18% {
-            transform: translateY(0);
-          }
-          22%, 40% {
-            transform: translateY(-1.15em);
-          }
-          44%, 62% {
-            transform: translateY(-2.3em);
-          }
-          66%, 84% {
-            transform: translateY(-3.45em);
-          }
-          88%, 100% {
-            transform: translateY(0);
-          }
-        }
+@keyframes typewriter-swap {
+  0%, 12%   { transform: translateY(0); }
+  15%, 27%  { transform: translateY(-1.15em); }
+  30%, 42%  { transform: translateY(-2.3em); }
+  45%, 57%  { transform: translateY(-3.45em); }
+  60%, 72%  { transform: translateY(-4.6em); }
+  75%, 87%  { transform: translateY(-5.75em); }
+  90%, 100% { transform: translateY(0); }
+}
 
         @media (prefers-reduced-motion: reduce) {
           .typewriter-text {
