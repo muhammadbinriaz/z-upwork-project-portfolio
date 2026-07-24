@@ -114,7 +114,7 @@ const About = () => {
               </p>
             </div>
 
-            {/* Right: Placeholder Image */}
+            {/* Right: Photo */}
             <div style={{ display: "flex", justifyContent: "center" }}>
               <div
                 style={{
@@ -122,43 +122,20 @@ const About = () => {
                   maxWidth: "400px",
                   aspectRatio: "1 / 1",
                   borderRadius: "var(--radius-xl)",
-                  backgroundColor: "var(--color-paper-2)",
                   border: "1px solid var(--color-rule)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   overflow: "hidden",
-                  position: "relative",
                 }}
               >
-                {/* TODO: Replace with real photo, target size: 800×800 */}
-                <div
+                <img
+                  src="/z.jpeg"
+                  alt="Muhammad Zaryab"
                   style={{
-                    width: "120px",
-                    height: "120px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--color-accent)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontFamily: "var(--font-wordmark)",
-                    fontSize: "var(--text-4xl)",
-                    fontWeight: 400,
-                    color: "var(--color-accent-ink)",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
                   }}
-                >
-                  MZ
-                </div>
-                <p
-                  style={{
-                    position: "absolute",
-                    bottom: "var(--space-md)",
-                    fontSize: "var(--text-xs)",
-                    color: "var(--color-muted)",
-                  }}
-                >
-                  Photo placeholder
-                </p>
+                />
               </div>
             </div>
           </div>
