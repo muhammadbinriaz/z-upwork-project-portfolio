@@ -88,7 +88,7 @@ const Navbar = () => {
             textDecoration: "none",
           }}
         >
-          Zaryab Lead Solutions
+          GoLeadFinder
         </Link>
 
         {/* Desktop links */}
