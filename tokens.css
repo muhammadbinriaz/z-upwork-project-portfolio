@@ -37,10 +37,10 @@
 
   /* === Typography === */
   /* === Typography === */
-  --font-display: "Neue Machina", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Manrope", ui-monospace, monospace;
-  --font-wordmark: "Neue Machina", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "Google Sans", ui-monospace, monospace;
+  --font-wordmark: "Google Sans", ui-sans-serif, system-ui, sans-serif;
 
   /* === Spacing — 4pt scale === */
   --space-3xs: 0.25rem;
