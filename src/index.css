@@ -60,11 +60,11 @@ body {
 .btn--md { padding: 0.8rem 1.4rem; font-size: 0.9375rem; }
 .btn--lg { padding: 1rem 1.7rem; font-size: 1.0625rem; }
 .btn--block { width: 100%; }
-.btn--mint  { --btn-face: var(--color-mint);     --btn-ink: var(--color-ink);   --btn-edge: var(--color-mint-deep);     --btn-cast: oklch(70% 0.18 150 / 0.42); --btn-line: var(--color-mint-deep); }
-.btn--pear  { --btn-face: var(--color-accent);   --btn-ink: var(--color-ink);   --btn-edge: var(--color-accent-deep);   --btn-cast: oklch(76% 0.20 95 / 0.45); --btn-line: var(--color-accent-deep); }
+.btn--mint  { --btn-face: var(--color-mint);     --btn-ink: var(--color-on-accent); --btn-edge: var(--color-mint-deep);     --btn-cast: oklch(70% 0.18 150 / 0.42); --btn-line: var(--color-mint-deep); }
+.btn--pear  { --btn-face: var(--color-accent);   --btn-ink: var(--color-on-accent); --btn-edge: var(--color-accent-deep);   --btn-cast: oklch(76% 0.20 95 / 0.45); --btn-line: var(--color-accent-deep); }
 .btn--coral { --btn-face: var(--color-accent-3); --btn-ink: var(--color-on-dark); --btn-edge: var(--color-accent-3-deep); --btn-cast: oklch(58% 0.26 18 / 0.42);  --btn-line: var(--color-accent-3-deep); }
 .btn--cyan  { --btn-face: var(--color-accent-2); --btn-ink: var(--color-on-dark); --btn-edge: var(--color-accent-2-deep); --btn-cast: oklch(56% 0.20 235 / 0.40); --btn-line: var(--color-accent-2-deep); }
-.btn--lav   { --btn-face: var(--color-lavender); --btn-ink: var(--color-ink);   --btn-edge: var(--color-lavender-deep); --btn-cast: oklch(64% 0.18 305 / 0.42); --btn-line: var(--color-lavender-deep); }
+.btn--lav   { --btn-face: var(--color-lavender); --btn-ink: var(--color-on-accent); --btn-edge: var(--color-lavender-deep); --btn-cast: oklch(64% 0.18 305 / 0.42); --btn-line: var(--color-lavender-deep); }
 .btn--ink   { --btn-face: var(--color-ink);      --btn-ink: var(--color-paper); --btn-edge: oklch(8% 0.01 250);          --btn-cast: oklch(20% 0.012 250 / 0.4); --btn-line: var(--color-ink); }
 .btn--soft { box-shadow: 0 1px 2px oklch(20% 0.012 250 / 0.12), 0 1px 1px oklch(20% 0.012 250 / 0.05); }
 .btn--soft:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px var(--btn-cast), 0 2px 6px oklch(20% 0.012 250 / 0.08); }
@@ -161,15 +161,16 @@ body {
 .nav__mobile.is-open {
   display: flex; opacity: 1; pointer-events: auto; transform: translateY(0);
 }
-.nav__mobile a {
+.nav__mobile a:not(.btn) {
   padding: 0.85rem 1rem; font-size: 1.05rem; font-weight: 500;
   color: var(--color-ink-2); border-radius: 12px;
   border: 1px solid transparent;
   transition: color 160ms, background 160ms, border-color 160ms;
 }
-.nav__mobile a:hover, .nav__mobile a.active {
+.nav__mobile a:not(.btn):hover, .nav__mobile a:not(.btn).active {
   color: var(--color-ink); background: var(--color-paper-2); border-color: var(--color-rule);
 }
+.nav__mobile .btn { color: var(--btn-ink); }
 .nav__mobile-cta { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
 
 @media (max-width: 880px) {
@@ -728,14 +729,6 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 
 /* Dark mode — buttons & cards */
-[data-theme="hum-dark"] .btn--mint,
-[data-theme="dark"] .btn--mint {
-  --btn-ink: var(--color-on-accent);
-}
-[data-theme="hum-dark"] .btn--pear,
-[data-theme="dark"] .btn--pear {
-  --btn-ink: var(--color-on-accent);
-}
 [data-theme="hum-dark"] .btn--ink,
 [data-theme="dark"] .btn--ink {
   --btn-edge: oklch(6% 0.01 250);
