@@ -299,8 +299,16 @@ body {
   .nav__actions .btn--soft { display: none; }
   .nav__toggle { display: inline-flex; }
   .nav__actions { margin-left: 0.35rem; }
-  .nav.is-floating .nav__inner { padding-inline: 0.85rem; }
-  .nav.is-floating .nav__inner,
+  .nav.is-floating .nav__inner {
+    max-width: min(calc(100% - 1rem), 36rem);
+    transform: translateY(0.55rem);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-rule);
+    padding-inline: 0.85rem;
+    background: var(--nav-bg-float);
+  }
+  /* Keep full-width flat bar while mobile menu is open */
   .nav.is-menu-open .nav__inner {
     max-width: 100%; transform: none; border-radius: 0;
     box-shadow: none; border-color: transparent;
