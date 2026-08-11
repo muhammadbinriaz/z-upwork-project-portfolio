@@ -9,7 +9,7 @@ const Services = () => {
     <>
       {/* Hero */}
       <section
-        className="section section--hero"
+        className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
       >
         <div className="container-page">
@@ -31,7 +31,7 @@ const Services = () => {
       </section>
 
       {/* Services grid */}
-      <ServicesComponent />
+      <ServicesComponent showHead={false} />
 
       {/* Tools */}
       <Tools />

@@ -37,7 +37,7 @@ const Contact = ({ embedded = true }) => {
 
   return (
     <section
-      className="section"
+      className={`section${embedded ? "" : " section--tight"}`}
       id={embedded ? "contact" : undefined}
       style={{ borderTop: embedded ? "1px solid var(--color-rule)" : undefined }}
     >
