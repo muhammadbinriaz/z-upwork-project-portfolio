@@ -54,8 +54,7 @@ const Navbar = ({ navRef }) => {
     <>
       <header className="nav" ref={navRef} id="nav">
         <div className="nav__inner">
-          <Link to="/" className="nav__brand" aria-label="GoLeadFinder — home">
-            <span className="bub-mark" aria-hidden="true"></span>
+          <Link to="/" className="nav__brand nav__brand--clonix" aria-label="GoLeadFinder — home">
             GoLeadFinder
           </Link>
 
@@ -78,7 +77,7 @@ const Navbar = ({ navRef }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View Muhammad Zaryab's Upwork profile (opens in new tab)"
-              className="btn btn--mint btn--sm btn--hire"
+              className="btn btn--ink btn--sm btn--hire"
             >
               Hire Me
             </a>
@@ -113,10 +112,9 @@ const Navbar = ({ navRef }) => {
           <div className="nav__mobile-head">
             <Link
               to="/"
-              className="nav__brand nav__brand--mobile"
+              className="nav__brand nav__brand--mobile nav__brand--clonix"
               onClick={closeMenu}
             >
-              <span className="bub-mark" aria-hidden="true"></span>
               GoLeadFinder
             </Link>
             <button
@@ -135,7 +133,7 @@ const Navbar = ({ navRef }) => {
 
           <nav className="nav__mobile-body" aria-label="Mobile">
             <p className="nav__mobile-eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--mint"></span>
+              <span className="eyebrow__dot eyebrow__dot--accent"></span>
               Navigate
             </p>
             <div className="nav__mobile-links">
@@ -161,7 +159,7 @@ const Navbar = ({ navRef }) => {
 
           <div className="nav__mobile-foot">
             <p className="nav__mobile-eyebrow nav__mobile-eyebrow--foot">
-              <span className="eyebrow__dot eyebrow__dot--cyan"></span>
+              <span className="eyebrow__dot eyebrow__dot--accent"></span>
               Connect
             </p>
             <div className="nav__mobile-connect">
@@ -188,7 +186,7 @@ const Navbar = ({ navRef }) => {
                 href="https://www.upwork.com/freelancers/muhammadz67"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn--mint btn--block"
+                className="btn btn--ink btn--block"
                 onClick={closeMenu}
               >
                 Hire Me on Upwork
