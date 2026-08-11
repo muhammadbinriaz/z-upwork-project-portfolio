@@ -1,196 +1,141 @@
 import React from "react";
 
+const ACCENTS = ["mint", "cyan", "pear", "coral"];
+
+const projects = [
+  {
+    title: "SaaS Lead Generation",
+    client: "B2B SaaS Company",
+    result: "10,000+ verified contacts",
+    rating: "5.0",
+    review:
+      "Outstanding work on the B2B lead generation project. The prospects matched our target audience perfectly, and the final list was CRM-ready.",
+    tags: ["Lead Gen", "SaaS", "CRM-Ready"],
+  },
+  {
+    title: "Real Estate Prospect List",
+    client: "Commercial Real Estate Firm",
+    result: "5,000+ targeted prospects",
+    rating: "5.0",
+    review:
+      "Clean, accurate data delivered ahead of schedule. Muhammad understood exactly what we needed.",
+    tags: ["Real Estate", "Prospects", "Verified"],
+  },
+  {
+    title: "Marketing Agency Research",
+    client: "Digital Marketing Agency",
+    result: "2,500+ decision-makers",
+    rating: "5.0",
+    review:
+      "Working with Muhammad on contact list building was a great experience. Detail-oriented and reliable.",
+    tags: ["Agency", "Decision-Makers", "ICP"],
+  },
+  {
+    title: "HubSpot Data Cleanup",
+    client: "Enterprise SaaS",
+    result: "50,000+ records cleaned",
+    rating: "5.0",
+    review:
+      "Muhammad was a great communicator. Database was organized, error-free, and ready for immediate use.",
+    tags: ["CRM", "HubSpot", "Data Cleanup"],
+  },
+];
+
 const Portfolio = () => {
-  const projects = [
-    {
-      title: "SaaS Lead Generation",
-      client: "B2B SaaS Company",
-      result: "10,000+ verified contacts",
-      rating: "5.0",
-      review:
-        "Outstanding work. Prospects matched our target audience perfectly.",
-    },
-    {
-      title: "Real Estate Prospect List",
-      client: "Commercial Real Estate Firm",
-      result: "5,000+ targeted prospects",
-      rating: "5.0",
-      review: "Clean, accurate data delivered ahead of schedule.",
-    },
-    {
-      title: "Marketing Agency Research",
-      client: "Digital Marketing Agency",
-      result: "2,500+ decision-makers",
-      rating: "5.0",
-      review: "Detail-oriented, reliable, and genuinely cares about quality.",
-    },
-    {
-      title: "HubSpot Data Cleanup",
-      client: "Enterprise SaaS",
-      result: "50,000+ records cleaned",
-      rating: "5.0",
-      review: "Great communicator, followed directions perfectly.",
-    },
-    {
-      title: "Email Research Campaign",
-      client: "Growth-Stage Startup",
-      result: "1,000+ verified emails",
-      rating: "5.0",
-      review: "Accurate, well-targeted, delivered in clean format.",
-    },
-    {
-      title: "Commercial Cleaning Leads",
-      client: "Facility Services Company",
-      result: "750+ qualified prospects",
-      rating: "5.0",
-      review: "Excellent work. Database organized and error-free.",
-    },
-  ];
-
   return (
-    <section className="section--tight">
+    <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
       <div className="container-page">
-        <h2
-          style={{
-            color: "var(--color-ink)",
-            marginBottom: "var(--space-2xl)",
-          }}
-        >
-          Completed Projects
-        </h2>
+        <div className="section__head">
+          <span className="eyebrow">
+            <span className="eyebrow__dot eyebrow__dot--pear"></span>
+            Completed work
+          </span>
+          <h2 className="section__title">
+            Selected Projects
+          </h2>
+          <p className="section__lede">
+            Projects completed for clients across SaaS, real estate, marketing,
+            and enterprise industries.
+          </p>
+        </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-            gap: "var(--space-md)",
-          }}
-          className="portfolio-grid"
-        >
-          {projects.map((project) => (
+        <div className="grid grid--2">
+          {projects.map((project, i) => (
             <div
               key={project.title}
-              className="card--gradient"
-              style={{
-                position: "relative",
-                isolation: "isolate",
-                backgroundColor: "var(--color-paper-2)",
-                border: "1px solid var(--color-rule)",
-                borderRadius: "var(--radius-lg)",
-                padding: "var(--space-lg)",
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-sm)",
-                transition:
-                  "transform 180ms var(--ease-out), border-color 180ms var(--ease-out)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.borderColor = "var(--color-rule)";
-              }}
+              className={`premium-card service-card service-card--${ACCENTS[i % ACCENTS.length]}`}
+              style={{ padding: "var(--space-lg)" }}
             >
-              {/* Card content above gradient */}
               <div
                 style={{
-                  position: "relative",
-                  zIndex: 1,
                   display: "flex",
-                  flexDirection: "column",
-                  gap: "var(--space-sm)",
-                  flex: 1,
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  gap: "var(--space-md)",
+                  marginBottom: "var(--space-sm)",
                 }}
               >
-                {/* Rating badge */}
-                <div
+                <span
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "var(--text-xs)",
-                      color: "var(--color-muted)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    {project.client}
-                  </span>
-                  <span
-                    style={{
-                      backgroundColor:
-                        "color-mix(in oklch, var(--color-accent) 20%, transparent)",
-                      color: "var(--color-accent)",
-                      padding: "2px 10px",
-                      borderRadius: "var(--radius-full)",
-                      fontSize: "var(--text-xs)",
-                      fontFamily: "var(--font-outlier)",
-                      fontWeight: 500,
-                    }}
-                  >
-                    ★ {project.rating}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3
-                  style={{
-                    fontSize: "var(--text-lg)",
-                    color: "var(--color-ink)",
-                    fontFamily: "var(--font-display)",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {project.title}
-                </h3>
-
-                {/* Result */}
-                <p
-                  style={{
-                    fontSize: "var(--text-sm)",
-                    color: "var(--color-accent)",
-                    fontFamily: "var(--font-outlier)",
-                  }}
-                >
-                  {project.result}
-                </p>
-
-                {/* Review quote */}
-                <p
-                  style={{
-                    fontSize: "var(--text-sm)",
+                    fontSize: "var(--text-xs)",
                     color: "var(--color-muted)",
-                    lineHeight: 1.5,
-                    fontStyle: "italic",
-                    flex: 1,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
                   }}
                 >
-                  "{project.review}"
-                </p>
+                  {project.client}
+                </span>
+                <span className="rating-badge">
+                  ★ {project.rating}
+                </span>
+              </div>
+
+              <h3
+                style={{
+                  fontSize: "var(--text-2xl)",
+                  color: "var(--color-ink)",
+                  lineHeight: 1.1,
+                  marginBottom: "var(--space-sm)",
+                }}
+              >
+                {project.title}
+              </h3>
+
+              <p
+                style={{
+                  fontSize: "var(--text-lg)",
+                  color: "var(--color-accent-2-deep)",
+                  fontFamily: "var(--font-label)",
+                  fontWeight: 500,
+                  marginBottom: "var(--space-md)",
+                }}
+              >
+                {project.result}
+              </p>
+
+              <p
+                style={{
+                  fontSize: "var(--text-sm)",
+                  color: "var(--color-muted)",
+                  lineHeight: 1.6,
+                  fontStyle: "italic",
+                  marginBottom: "var(--space-md)",
+                }}
+              >
+                "{project.review}"
+              </p>
+
+              <div style={{ display: "flex", gap: "var(--space-xs)", flexWrap: "wrap" }}>
+                {project.tags.map((tag) => (
+                  <span key={tag} className="chip" style={{ fontSize: "var(--text-xs)" }}>
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 60rem) {
-          .portfolio-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-          }
-        }
-        @media (max-width: 40rem) {
-          .portfolio-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

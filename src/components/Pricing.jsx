@@ -3,57 +3,37 @@ import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
-    <section className="section--tight section--gradient">
-      {/* Subtle orb */}
-      <div
-        className="gradient-orb gradient-orb--center-right"
-        aria-hidden="true"
-      />
+    <section className="section" id="pricing" style={{ borderTop: "1px solid var(--color-rule)" }}>
+      <div className="container-page">
+        <div className="section__head">
+          <span className="eyebrow">
+            <span className="eyebrow__dot eyebrow__dot--pear"></span>
+            Rates
+          </span>
+          <h2 className="section__title">
+            Simple Pricing
+          </h2>
+        </div>
 
-      <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
-        <h2
-          style={{
-            color: "var(--color-ink)",
-            marginBottom: "var(--space-2xl)",
-          }}
-        >
-          Rates
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-            gap: "var(--space-md)",
-          }}
-          className="pricing-grid"
-        >
+        <div className="plans">
           {/* Hourly rate card */}
-          <div
-            className="gradient-border"
-            style={{
-              padding: "var(--space-xl)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "var(--space-md)",
-            }}
-          >
-            <div>
+          <div className="premium-card" style={{ padding: "var(--space-xl)" }}>
+            <span
+              style={{
+                fontSize: "var(--text-xs)",
+                color: "var(--color-muted)",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                display: "block",
+                marginBottom: "var(--space-md)",
+              }}
+            >
+              Hourly Projects
+            </span>
+            <div style={{ marginBottom: "var(--space-md)" }}>
               <span
                 style={{
-                  fontSize: "var(--text-xs)",
-                  color: "var(--color-muted)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Hourly Projects
-              </span>
-            </div>
-            <div>
-              <span
-                style={{
-                  fontFamily: "var(--font-outlier)",
+                  fontFamily: "var(--font-label)",
                   fontSize: "var(--text-5xl)",
                   color: "var(--color-ink)",
                   lineHeight: 1,
@@ -61,13 +41,7 @@ const Pricing = () => {
               >
                 $5
               </span>
-              <span
-                style={{
-                  fontSize: "var(--text-lg)",
-                  color: "var(--color-muted)",
-                  marginLeft: "var(--space-xs)",
-                }}
-              >
+              <span style={{ fontSize: "var(--text-lg)", color: "var(--color-muted)", marginLeft: "var(--space-xs)" }}>
                 /hr
               </span>
             </div>
@@ -76,46 +50,35 @@ const Pricing = () => {
                 fontSize: "var(--text-sm)",
                 color: "var(--color-muted)",
                 lineHeight: 1.5,
+                marginBottom: "var(--space-xl)",
               }}
             >
-              Standard hourly rate for all B2B lead generation, contact
-              research, data enrichment, and CRM data cleaning services.
+              Standard hourly rate for all B2B lead generation, contact research,
+              data enrichment, and CRM data cleaning services.
             </p>
-            <div>
-              <Link to="/contact" className="chip">
-                Start a Project
-              </Link>
-            </div>
+            <Link to="/contact" className="btn btn--mint">
+              Start a Project
+            </Link>
           </div>
 
-          {/* Consultation card */}
-          <div
-            style={{
-              padding: "var(--space-xl)",
-              backgroundColor: "var(--color-paper-2)",
-              borderRadius: "var(--radius-lg)",
-              border: "1px solid var(--color-rule)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "var(--space-md)",
-            }}
-          >
-            <div>
+          {/* Consultation card — featured (Bubble plan--feature pattern) */}
+          <div className="premium-card plan--feature" style={{ padding: "var(--space-xl)" }}>
+            <span
+              style={{
+                fontSize: "var(--text-xs)",
+                color: "var(--color-muted)",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                display: "block",
+                marginBottom: "var(--space-md)",
+              }}
+            >
+              Consultation
+            </span>
+            <div style={{ marginBottom: "var(--space-md)" }}>
               <span
                 style={{
-                  fontSize: "var(--text-xs)",
-                  color: "var(--color-muted)",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                Consultation
-              </span>
-            </div>
-            <div>
-              <span
-                style={{
-                  fontFamily: "var(--font-outlier)",
+                  fontFamily: "var(--font-label)",
                   fontSize: "var(--text-5xl)",
                   color: "var(--color-ink)",
                   lineHeight: 1,
@@ -123,13 +86,7 @@ const Pricing = () => {
               >
                 $20
               </span>
-              <span
-                style={{
-                  fontSize: "var(--text-lg)",
-                  color: "var(--color-muted)",
-                  marginLeft: "var(--space-xs)",
-                }}
-              >
+              <span style={{ fontSize: "var(--text-lg)", color: "var(--color-muted)", marginLeft: "var(--space-xs)" }}>
                 /30 min
               </span>
             </div>
@@ -138,40 +95,29 @@ const Pricing = () => {
                 fontSize: "var(--text-sm)",
                 color: "var(--color-muted)",
                 lineHeight: 1.5,
+                marginBottom: "var(--space-xl)",
               }}
             >
-              Zoom meeting to discuss your project requirements, target
-              audience, and how I can help you build qualified prospect lists.
+              Zoom meeting to discuss your project requirements, target audience,
+              and how I can help you build qualified prospect lists.
             </p>
-            <div>
-              <Link to="/contact" className="chip chip--outline">
-                Book a Call
-              </Link>
-            </div>
+            <Link to="/contact" className="btn btn--outline btn--mint">
+              Book a Call
+            </Link>
           </div>
         </div>
 
-        {/* Trust note */}
         <p
           style={{
-            marginTop: "var(--space-lg)",
+            marginTop: "var(--space-xl)",
             fontSize: "var(--text-sm)",
             color: "var(--color-muted)",
             textAlign: "center",
           }}
         >
-          Top Rated Plus on Upwork · 128 projects · 5.0 rating · 7+ years
-          experience
+          Top Rated Plus on Upwork · 128 projects · 5.0 rating · 7+ years experience
         </p>
       </div>
-
-      <style>{`
-        @media (max-width: 60rem) {
-          .pricing-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

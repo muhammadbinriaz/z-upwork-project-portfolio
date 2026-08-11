@@ -1,214 +1,125 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import RotatingWords from "./RotatingWords";
+
+const steps = [
+  { num: "01", label: "research", color: "var(--color-mint)" },
+  { num: "02", label: "verify", color: "var(--color-accent-2)" },
+  { num: "03", label: "enrich", color: "var(--color-accent)" },
+  { num: "04", label: "deliver", color: "var(--color-accent-3)" },
+];
+
+const rotatingPhrases = [
+  "prospect lists",
+  "cold email lists",
+  "verified contacts",
+  "CRM-ready data",
+  "LinkedIn research",
+  "Clay automations",
+  "data enrichment",
+];
+
+const sheetRows = [
+  { name: "Sarah K.", email: "s.kim@techflow.io", company: "TechFlow", ok: true },
+  { name: "Michael C.", email: "m.chen@growth.co", company: "Growth Co", ok: true },
+  { name: "Emma R.", email: "e.rodriguez@…", company: "Real Estate Pro", ok: false },
+  { name: "David K.", email: "david@launch.io", company: "StartupLaunch", ok: true },
+  { name: "James W.", email: "j.wilson@ent-saas.com", company: "Enterprise SaaS", ok: true },
+];
 
 const Hero = () => {
-  const heroRef = useRef(null);
-  const [isTouch, setIsTouch] = useState(false);
-
-  useEffect(() => {
-    setIsTouch(
-      window.matchMedia("(hover: none) and (pointer: coarse)").matches,
-    );
-  }, []);
-
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero || isTouch) return;
-
-    const onMove = (e) => {
-      const r = hero.getBoundingClientRect();
-      hero.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      hero.style.setProperty("--my", `${e.clientY - r.top}px`);
-    };
-
-    hero.addEventListener("pointermove", onMove);
-    return () => hero.removeEventListener("pointermove", onMove);
-  }, [isTouch]);
-
   return (
-    <section
-      ref={heroRef}
-      className="section--hero relative"
-      style={{ minHeight: "clamp(60vh, 75dvh, 88dvh)" }}
-    >
-      <div className="container-page relative" style={{ zIndex: 1 }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)",
-            gap: "var(--space-2xl)",
-            alignItems: "center",
-          }}
-          className="split-grid-hero"
-        >
-          {/* Left: Headline + lede */}
+    <section className="section section--hero">
+      <div className="container-page">
+        <div className="hero__grid">
           <div>
-            <h1
-              style={{
-                color: "var(--color-ink)",
-                marginBottom: "var(--space-md)",
-                maxWidth: "20ch",
-                fontSize: "clamp(2.5rem, 5.5vw, 5rem)",
-                lineHeight: 1.05,
-                fontWeight: 700,
-                fontFamily: "var(--font-display)",
-              }}
-            >
-              We build
-              <br />
-              <span
-                className="typewriter-word"
-                style={{
-                  color: "var(--color-accent)",
-                  display: "inline-block",
-                }}
-              >
-                <span className="typewriter-text">
-                  <span>prospect lists</span>
-                  <span>lead pipelines</span>
-                  <span>sales databases</span>
-                  <span>contact rosters</span>
-                  <span>web dev</span>
-                  <span>automation</span>
-                </span>
+            <div className="process" aria-label="The four stages">
+              {steps.map((step, i) => (
+                <React.Fragment key={step.label}>
+                  {i > 0 && <span className="process__link" aria-hidden="true"></span>}
+                  <span className="process__step">
+                    <span className="process__dot" style={{ background: step.color }}></span>
+                    <span className="num">{step.num}</span> {step.label}
+                  </span>
+                </React.Fragment>
+              ))}
+            </div>
+
+            <h1 className="hero__title">
+              <span className="hero__title-line">We build</span>
+              <span className="hero__title-rotate">
+                <RotatingWords words={rotatingPhrases} />
               </span>
-              <br />
-              that actually convert.
+              <span className="hero__title-line">that actually convert.</span>
             </h1>
 
-            <p
-              style={{
-                fontSize: "var(--text-lg)",
-                color: "var(--color-muted)",
-                maxWidth: "50ch",
-                marginBottom: "var(--space-xl)",
-                lineHeight: 1.6,
-              }}
-            >
-              GoLeadFinder — Top Rated Plus B2B lead generation for SaaS,
-              agencies, and sales teams. Verified contacts, CRM-ready data, zero
-              fluff.
+            <p className="hero__lede">
+              Freelance B2B lead gen &amp; contact research on Upwork — Top Rated Plus,
+              128 projects done. You send the ICP, I hand back a clean sheet your
+              sales team can use today.
             </p>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                gap: "var(--space-sm)",
-                flexWrap: "wrap",
-              }}
-            >
-              <Link to="/contact" className="chip">
-                Book a Consultation
+            <div className="hero__cta">
+              <Link to="/contact" className="btn btn--mint btn--md">
+                Send Your Brief
               </Link>
-              <Link to="/services" className="chip chip--outline">
-                View Services →
+              <Link to="/services" className="btn btn--outline btn--mint btn--md">
+                See What I Do <span className="btn__arrow" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
 
-          {/* Right: Stat block */}
-          <div
-            className="gradient-border"
-            style={{
-              padding: "var(--space-xl)",
-              textAlign: "center",
-            }}
-          >
-            <div className="stat-figure">
-              128<span className="unit">.</span>
-            </div>
-            <p className="stat-qualifier" style={{ marginInline: "auto" }}>
-              Projects completed on Upwork
-            </p>
-
-            <div
-              style={{
-                marginTop: "var(--space-lg)",
-                paddingTop: "var(--space-lg)",
-                borderTop: "1px solid var(--color-rule)",
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "var(--space-md)",
-              }}
-            >
-              <div>
-                <div
-                  className="stat-figure"
-                  style={{ fontSize: "var(--text-4xl)" }}
-                >
-                  5<span className="unit">.0</span>
-                </div>
-                <p
-                  className="stat-qualifier"
-                  style={{ fontSize: "var(--text-sm)" }}
-                >
-                  Client rating
-                </p>
+          <div className="hero__stage">
+            <div className="sheet-preview" aria-hidden="true">
+              <div className="sheet-preview__bar">
+                <span className="sheet-preview__label">client_delivery.xlsx</span>
+                <span className="sheet-preview__meta">Google Sheets · v3</span>
               </div>
-              <div>
-                <div
-                  className="stat-figure"
-                  style={{ fontSize: "var(--text-4xl)" }}
-                >
-                  7<span className="unit">+</span>
+
+              <div className="sheet-preview__grid">
+                <div className="sheet-preview__row sheet-preview__row--head">
+                  <span>Name</span>
+                  <span>Email</span>
+                  <span>Company</span>
+                  <span></span>
                 </div>
-                <p
-                  className="stat-qualifier"
-                  style={{ fontSize: "var(--text-sm)" }}
-                >
-                  Years experience
+                {sheetRows.map((row, i) => (
+                  <div
+                    key={row.email}
+                    className="sheet-preview__row"
+                    style={{ animationDelay: `${0.15 + i * 0.12}s` }}
+                  >
+                    <span>{row.name}</span>
+                    <span className="sheet-preview__email">{row.email}</span>
+                    <span>{row.company}</span>
+                    <span className={`sheet-preview__check${row.ok ? "" : " sheet-preview__check--pending"}`}>
+                      {row.ok ? "✓" : "…"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="sheet-preview__foot">
+                <span>847 rows · <b>98.2%</b> emails found</span>
+                <span className="sheet-preview__tag">bounce &lt;2%</span>
+              </div>
+            </div>
+
+            <div className="remind remind--delivery" role="status">
+              <span className="remind__icon remind__icon--cyan" aria-hidden="true"></span>
+              <div>
+                <p className="remind__head">
+                  <b>Delivered</b> · Upwork milestone
+                </p>
+                <p className="remind__body">
+                  Sheet shared with client —{" "}
+                  <span className="remind__time">formatted for HubSpot import.</span>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 60rem) {
-          .split-grid-hero {
-            grid-template-columns: 1fr !important;
-            gap: var(--space-xl) !important;
-          }
-        }
-
-        .typewriter-word {
-          position: relative;
-          display: inline-block;
-          overflow: hidden;
-          vertical-align: bottom;
-          height: 1.15em;
-        }
-
-        .typewriter-text {
-          display: flex;
-          flex-direction: column;
-          animation: typewriter-swap 8s ease-in-out infinite;
-        }
-
-        .typewriter-text span {
-          display: block;
-          height: 1.15em;
-          line-height: 1.15em;
-        }
-
-@keyframes typewriter-swap {
-  0%, 12%   { transform: translateY(0); }
-  15%, 27%  { transform: translateY(-1.15em); }
-  30%, 42%  { transform: translateY(-2.3em); }
-  45%, 57%  { transform: translateY(-3.45em); }
-  60%, 72%  { transform: translateY(-4.6em); }
-  75%, 87%  { transform: translateY(-5.75em); }
-  90%, 100% { transform: translateY(0); }
-}
-
-        @media (prefers-reduced-motion: reduce) {
-          .typewriter-text {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 };

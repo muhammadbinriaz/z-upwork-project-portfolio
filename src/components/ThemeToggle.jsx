@@ -3,18 +3,23 @@ import React, { useState, useEffect, useCallback } from "react";
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "dark";
+      return localStorage.getItem("theme") || "hum";
     }
-    return "dark";
+    return "hum";
   });
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+
+    const meta = document.querySelector('meta[name="theme-color"]:not([media])');
+    if (meta) {
+      meta.setAttribute("content", theme === "hum-dark" ? "#1a1f28" : "#faf6ee");
+    }
   }, [theme]);
 
   const toggle = useCallback(() => {
-    const newTheme = theme === "dark" ? "light" : "dark";
+    const newTheme = theme === "hum" ? "hum-dark" : "hum";
 
     const styleId = "theme-transition-style";
     let styleEl = document.getElementById(styleId);
@@ -24,29 +29,21 @@ const ThemeToggle = () => {
       document.head.appendChild(styleEl);
     }
 
-    // Rectangle clip-path expanding from bottom to top — super smooth
     styleEl.textContent = `
       ::view-transition-group(root) {
         animation-duration: 0.7s;
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
-
       ::view-transition-new(root) {
         animation-name: reveal-theme;
       }
-
       ::view-transition-old(root) {
         animation: none;
         z-index: -1;
       }
-
       @keyframes reveal-theme {
-        from {
-          clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-        }
-        to {
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
+        from { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+        to { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
       }
     `;
 
@@ -68,43 +65,21 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggle}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-label={`Switch to ${theme === "hum" ? "dark" : "light"} mode`}
+      className="btn btn--soft btn--sm"
       style={{
         width: "40px",
         height: "40px",
-        borderRadius: "50%",
+        borderRadius: "9999px",
+        padding: 0,
+        gap: 0,
+        background: "var(--color-paper-2)",
         border: "1px solid var(--color-rule)",
-        backgroundColor: "var(--color-paper-2)",
         color: "var(--color-ink)",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "18px",
-        transition:
-          "background-color 220ms var(--ease-out), border-color 220ms var(--ease-out), transform 150ms var(--ease-out)",
-        flexShrink: 0,
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "var(--color-accent)";
-        e.currentTarget.style.transform = "scale(1.05)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "var(--color-rule)";
-        e.currentTarget.style.transform = "scale(1)";
       }}
     >
-      {theme === "dark" ? (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+      {theme === "hum-dark" ? (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -116,17 +91,10 @@ const ThemeToggle = () => {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
       ) : (
-        <svg
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          <line x1="12" y1="3" x2="12" y2="12" />
+          <line x1="12" y1="12" x2="17" y2="17" />
         </svg>
       )}
     </button>
