@@ -8,7 +8,7 @@ const Portfolio = () => {
     <>
       {/* Hero */}
       <section
-        className="section section--hero"
+        className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
       >
         <div className="container-page">
@@ -29,7 +29,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio grid */}
-      <PortfolioComponent />
+      <PortfolioComponent showHead={false} />
 
       {/* Testimonials */}
       <Testimonials />

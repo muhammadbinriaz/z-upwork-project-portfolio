@@ -6,7 +6,7 @@ const About = () => {
     <>
       {/* Hero */}
       <section
-        className="section section--hero"
+        className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
       >
         <div className="container-page">
@@ -25,7 +25,7 @@ const About = () => {
           </div>
 
           {/* Bignum stat */}
-          <div style={{ marginTop: "var(--space-4xl)" }}>
+          <div className="page-hero__bignum">
             <div className="bignum">
               <span className="bignum__pre">128</span>+
             </div>
@@ -395,7 +395,7 @@ const About = () => {
 
       {/* CTA */}
       <section
-        className="section--mint"
+        className="section section--mint"
         style={{
           borderTop: "1px solid var(--color-rule)",
           textAlign: "center",

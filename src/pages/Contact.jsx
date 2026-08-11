@@ -52,7 +52,7 @@ const Contact = () => {
     <>
       {/* Hero */}
       <section
-        className="section section--hero"
+        className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
       >
         <div className="container-page">

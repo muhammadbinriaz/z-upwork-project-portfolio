@@ -42,23 +42,28 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Services = ({ showHead = true }) => {
   return (
-    <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <section
+      className={`section${showHead ? "" : " section--tight"}`}
+      style={{ borderTop: "1px solid var(--color-rule)" }}
+    >
       <div className="container-page">
-        <div className="section__head">
-          <span className="eyebrow">
-            <span className="eyebrow__dot eyebrow__dot--mint"></span>
-            What I do
-          </span>
-          <h2 className="section__title">
-            Services
-          </h2>
-          <p className="section__lede">
-            Comprehensive B2B lead generation and data research services tailored
-            to your business needs.
-          </p>
-        </div>
+        {showHead && (
+          <div className="section__head">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--mint"></span>
+              What I do
+            </span>
+            <h2 className="section__title">
+              Services
+            </h2>
+            <p className="section__lede">
+              Comprehensive B2B lead generation and data research services tailored
+              to your business needs.
+            </p>
+          </div>
+        )}
 
         <div className="grid grid--3">
           {services.map((service, i) => (

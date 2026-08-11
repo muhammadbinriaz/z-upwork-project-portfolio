@@ -41,23 +41,28 @@ const projects = [
   },
 ];
 
-const Portfolio = () => {
+const Portfolio = ({ showHead = true }) => {
   return (
-    <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <section
+      className={`section${showHead ? "" : " section--tight"}`}
+      style={{ borderTop: "1px solid var(--color-rule)" }}
+    >
       <div className="container-page">
-        <div className="section__head">
-          <span className="eyebrow">
-            <span className="eyebrow__dot eyebrow__dot--pear"></span>
-            Completed work
-          </span>
-          <h2 className="section__title">
-            Selected Projects
-          </h2>
-          <p className="section__lede">
-            Projects completed for clients across SaaS, real estate, marketing,
-            and enterprise industries.
-          </p>
-        </div>
+        {showHead && (
+          <div className="section__head">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--pear"></span>
+              Completed work
+            </span>
+            <h2 className="section__title">
+              Selected Projects
+            </h2>
+            <p className="section__lede">
+              Projects completed for clients across SaaS, real estate, marketing,
+              and enterprise industries.
+            </p>
+          </div>
+        )}
 
         <div className="grid grid--2">
           {projects.map((project, i) => (
