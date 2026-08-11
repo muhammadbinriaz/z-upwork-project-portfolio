@@ -20,8 +20,18 @@ const Navbar = ({ navRef }) => {
   }, [location.pathname, closeMenu]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const root = document.documentElement;
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      root.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      root.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      root.style.overflow = "";
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -37,7 +47,8 @@ const Navbar = ({ navRef }) => {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [closeMenu]);
 
-  const linkClass = ({ isActive }) => (isActive ? "active" : undefined);
+  const linkClass = ({ isActive }) =>
+    isActive ? "nav__mobile-link active" : "nav__mobile-link";
 
   return (
     <>
@@ -50,7 +61,11 @@ const Navbar = ({ navRef }) => {
 
           <nav className="nav__links" aria-label="Primary">
             {navLinks.map((link) => (
-              <NavLink key={link.path} to={link.path} className={linkClass}>
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) => (isActive ? "active" : undefined)}
+              >
                 {link.name}
               </NavLink>
             ))}
@@ -77,8 +92,10 @@ const Navbar = ({ navRef }) => {
             aria-controls="nav-mobile"
             onClick={() => setMenuOpen((open) => !open)}
           >
+            <span className="nav__toggle-label" aria-hidden="true">
+              {menuOpen ? "Close" : "Menu"}
+            </span>
             <span className="nav__toggle-icon" aria-hidden="true">
-              <span></span>
               <span></span>
               <span></span>
             </span>
@@ -86,34 +103,100 @@ const Navbar = ({ navRef }) => {
         </div>
       </header>
 
-      <nav
+      <div
         id="nav-mobile"
         className={`nav__mobile${menuOpen ? " is-open" : ""}`}
-        aria-label="Mobile"
         aria-hidden={!menuOpen}
+        inert={!menuOpen || undefined}
       >
-        {navLinks.map((link) => (
-          <NavLink
-            key={link.path}
-            to={link.path}
-            className={linkClass}
-            onClick={closeMenu}
-          >
-            {link.name}
-          </NavLink>
-        ))}
-        <div className="nav__mobile-cta">
-          <a
-            href="https://www.upwork.com/freelancers/muhammadz67"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn--mint btn--block"
-            onClick={closeMenu}
-          >
-            Hire Me on Upwork
-          </a>
+        <div className="nav__mobile-panel">
+          <div className="nav__mobile-head">
+            <Link
+              to="/"
+              className="nav__brand nav__brand--mobile"
+              onClick={closeMenu}
+            >
+              <span className="bub-mark" aria-hidden="true"></span>
+              GoLeadFinder
+            </Link>
+            <button
+              type="button"
+              className="nav__mobile-close"
+              aria-label="Close menu"
+              onClick={closeMenu}
+            >
+              <span className="nav__mobile-close-text">Close</span>
+              <span className="nav__mobile-close-icon" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          </div>
+
+          <nav className="nav__mobile-body" aria-label="Mobile">
+            <p className="nav__mobile-eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--mint"></span>
+              Navigate
+            </p>
+            <div className="nav__mobile-links">
+              {navLinks.map((link, i) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={linkClass}
+                  onClick={closeMenu}
+                  style={{ "--i": i }}
+                >
+                  <span className="nav__mobile-link-num">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="nav__mobile-link-label">{link.name}</span>
+                  <span className="nav__mobile-link-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </NavLink>
+              ))}
+            </div>
+          </nav>
+
+          <div className="nav__mobile-foot">
+            <p className="nav__mobile-eyebrow nav__mobile-eyebrow--foot">
+              <span className="eyebrow__dot eyebrow__dot--cyan"></span>
+              Connect
+            </p>
+            <div className="nav__mobile-connect">
+              <a
+                href="mailto:zaryabmuhammad@goleadfinder.com"
+                className="nav__mobile-connect-link"
+                onClick={closeMenu}
+              >
+                zaryabmuhammad@goleadfinder.com
+              </a>
+              <a
+                href="https://www.upwork.com/freelancers/muhammadz67"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav__mobile-connect-link"
+                onClick={closeMenu}
+              >
+                Upwork profile ↗
+              </a>
+            </div>
+            <div className="nav__mobile-actions">
+              <ThemeToggle />
+              <a
+                href="https://www.upwork.com/freelancers/muhammadz67"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--mint btn--block"
+                onClick={closeMenu}
+              >
+                Hire Me on Upwork
+              </a>
+            </div>
+          </div>
         </div>
-      </nav>
+      </div>
     </>
   );
 };
