@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 
-const Contact = () => {
+const services = [
+  "B2B Lead Generation",
+  "Contact Research",
+  "Data Enrichment",
+  "Email List Building",
+  "LinkedIn Research",
+  "CRM Data Cleaning",
+];
+
+const Contact = ({ embedded = true }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,7 +26,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Placeholder — replace with actual form handling
     console.log("Form submitted:", formData);
     alert(
       "Thank you for your message. I will get back to you within 24 hours.",
@@ -25,147 +33,172 @@ const Contact = () => {
     setFormData({ name: "", email: "", service: "", message: "" });
   };
 
+  const idPrefix = embedded ? "" : "contact-";
+
   return (
-    <section className="section section--gradient" id="contact">
-      {/* Atmosphere orbs */}
-      <div className="gradient-orb gradient-orb--top-left" aria-hidden="true" />
-      <div
-        className="gradient-orb gradient-orb--bottom-left"
-        aria-hidden="true"
-      />
-
-      <div
-        className="container-page"
-        style={{ position: "relative", zIndex: 1 }}
-      >
-        <h2
-          style={{
-            color: "var(--color-ink)",
-            marginBottom: "var(--space-2xl)",
-          }}
-        >
-          Get In Touch
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.2fr)",
-            gap: "var(--space-3xl)",
-          }}
-          className="contact-grid"
-        >
-          {/* Left: Contact info */}
-          <div>
-            <p
-              style={{
-                fontSize: "var(--text-lg)",
-                color: "var(--color-muted)",
-                lineHeight: 1.6,
-                marginBottom: "var(--space-xl)",
-              }}
-            >
-              Ready to get accurate B2B leads that your sales team can actually
-              use? Send me a message or find me on Upwork.
+    <section
+      className="section"
+      id={embedded ? "contact" : undefined}
+      style={{ borderTop: embedded ? "1px solid var(--color-rule)" : undefined }}
+    >
+      <div className="container-page">
+        {embedded && (
+          <div className="section__head">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--coral"></span>
+              Get in touch
+            </span>
+            <h2 className="section__title">
+              Ready to get accurate B2B leads?
+            </h2>
+            <p className="section__lede">
+              Send me a message or book a consultation to discuss your project.
             </p>
+          </div>
+        )}
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "var(--space-md)",
-              }}
-            >
-              <div>
-                <span
-                  style={{
-                    fontSize: "var(--text-xs)",
-                    color: "var(--color-muted)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    display: "block",
-                    marginBottom: "var(--space-2xs)",
-                  }}
-                >
-                  Email
-                </span>
-                <a
-                  href="mailto:zaryabmuhammad@goleadfinder.com"
-                  style={{
-                    fontSize: "var(--text-base)",
-                    color: "var(--color-accent)",
-                  }}
-                >
-                  muhammad.zaryab@example.com
-                </a>
-              </div>
+        <div className="grid grid--contact">
+          <div>
+            <div className="premium-card contact-info-card">
+              <span className="contact-info-card__label">Email</span>
+              <a
+                href="mailto:zaryabmuhammad@goleadfinder.com"
+                className="text-link contact-info-card__value"
+              >
+                zaryabmuhammad@goleadfinder.com
+              </a>
+            </div>
 
-              <div>
-                <span
-                  style={{
-                    fontSize: "var(--text-xs)",
-                    color: "var(--color-muted)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    display: "block",
-                    marginBottom: "var(--space-2xs)",
-                  }}
-                >
-                  Upwork
+            <div className="premium-card contact-info-card">
+              <span className="contact-info-card__label">Upwork</span>
+              <a
+                href="https://www.upwork.com/freelancers/muhammadz67"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link contact-info-card__value"
+              >
+                Top Rated Plus · View profile →
+              </a>
+            </div>
+
+            <div className="premium-card contact-info-card">
+              <span className="contact-info-card__label">Availability</span>
+              <p className="contact-info-card__value" style={{ margin: 0 }}>
+                Mon–Fri, 9 AM – 6 PM PST
+                <br />
+                <span style={{ color: "var(--color-muted)", fontSize: "var(--text-sm)" }}>
+                  30+ hrs/week · Open to contract-to-hire
                 </span>
+              </p>
+            </div>
+
+            <div className="premium-card contact-info-card">
+              <span className="contact-info-card__label">Response time</span>
+              <p className="contact-info-card__value" style={{ margin: 0 }}>
+                Within 24 hours
+                <br />
+                <span style={{ color: "var(--color-muted)", fontSize: "var(--text-sm)" }}>
+                  Avg. reply: 0–4 hours on Upwork
+                </span>
+              </p>
+            </div>
+
+            {!embedded && (
+              <>
+                <div className="premium-card contact-info-card">
+                  <span className="contact-info-card__label">Rates</span>
+                  <p className="contact-info-card__value" style={{ margin: 0 }}>
+                    <strong style={{ fontWeight: 600 }}>$5/hr</strong> for lead gen &amp; research
+                    <br />
+                    <strong style={{ fontWeight: 600 }}>$20</strong> for a 30-min consultation
+                  </p>
+                </div>
+
+                <div className="premium-card contact-info-card">
+                  <span className="contact-info-card__label">Services</span>
+                  <ul
+                    style={{
+                      margin: 0,
+                      padding: 0,
+                      listStyle: "none",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.4rem",
+                    }}
+                  >
+                    {services.map((service) => (
+                      <li
+                        key={service}
+                        style={{
+                          fontSize: "var(--text-sm)",
+                          color: "var(--color-ink-2)",
+                          paddingLeft: "1rem",
+                          position: "relative",
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: "absolute",
+                            left: 0,
+                            color: "var(--color-mint-deep)",
+                          }}
+                        >
+                          ·
+                        </span>
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <a
                   href="https://www.upwork.com/freelancers/muhammadz67"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    fontSize: "var(--text-base)",
-                    color: "var(--color-accent)",
-                  }}
+                  className="btn btn--mint btn--block"
+                  style={{ marginTop: "var(--space-md)" }}
                 >
-                  View my profile →
+                  Hire Me on Upwork
                 </a>
-              </div>
-
-              <div>
-                <span
-                  style={{
-                    fontSize: "var(--text-xs)",
-                    color: "var(--color-muted)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    display: "block",
-                    marginBottom: "var(--space-2xs)",
-                  }}
-                >
-                  Availability
-                </span>
-                <span
-                  style={{
-                    fontSize: "var(--text-base)",
-                    color: "var(--color-ink-2)",
-                  }}
-                >
-                  Mon–Fri, 9 AM – 6 PM PST
-                </span>
-              </div>
-            </div>
+              </>
+            )}
           </div>
 
-          {/* Right: Form */}
           <form
             onSubmit={handleSubmit}
+            className="premium-card"
             style={{
+              padding: "var(--space-xl)",
               display: "flex",
               flexDirection: "column",
               gap: "var(--space-md)",
             }}
           >
+            {!embedded && (
+              <div style={{ marginBottom: "var(--space-xs)" }}>
+                <h2
+                  style={{
+                    fontSize: "var(--text-2xl)",
+                    color: "var(--color-ink)",
+                    marginBottom: "var(--space-xs)",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Send a message
+                </h2>
+                <p style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)", margin: 0 }}>
+                  Tell me about your target audience, industry, and how many leads you need.
+                  I&apos;ll reply with a plan and timeline.
+                </p>
+              </div>
+            )}
+
             <div>
-              <label className="label" htmlFor="name">
+              <label className="label" htmlFor={`${idPrefix}name`}>
                 Name
               </label>
               <input
-                id="name"
+                id={`${idPrefix}name`}
                 type="text"
                 name="name"
                 value={formData.name}
@@ -177,11 +210,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="label" htmlFor="email">
+              <label className="label" htmlFor={`${idPrefix}email`}>
                 Email
               </label>
               <input
-                id="email"
+                id={`${idPrefix}email`}
                 type="email"
                 name="email"
                 value={formData.email}
@@ -193,11 +226,11 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="label" htmlFor="service">
+              <label className="label" htmlFor={`${idPrefix}service`}>
                 Service Needed
               </label>
               <select
-                id="service"
+                id={`${idPrefix}service`}
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
@@ -216,37 +249,29 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="label" htmlFor="message">
+              <label className="label" htmlFor={`${idPrefix}message`}>
                 Message
               </label>
               <textarea
-                id="message"
+                id={`${idPrefix}message`}
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={5}
+                rows={embedded ? 5 : 6}
                 className="input"
-                placeholder="Tell me about your project and target audience..."
+                placeholder="Tell me about your project, target audience, and ideal contact criteria..."
               />
             </div>
 
             <div style={{ marginTop: "var(--space-xs)" }}>
-              <button type="submit" className="chip">
+              <button type="submit" className="btn btn--mint btn--block">
                 Send Message
               </button>
             </div>
           </form>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 60rem) {
-          .contact-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

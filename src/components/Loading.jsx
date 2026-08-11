@@ -6,6 +6,7 @@ const Loading = ({ onComplete }) => {
   const curtainRef = useRef(null);
   const textRef = useRef(null);
   const containerRef = useRef(null);
+  const completedRef = useRef(false);
 
   useEffect(() => {
     const curtain = curtainRef.current;
@@ -14,15 +15,17 @@ const Loading = ({ onComplete }) => {
 
     const split = new SplitType(text, { types: "chars" });
 
+    const finish = () => {
+      if (completedRef.current) return;
+      completedRef.current = true;
+      split.revert();
+      if (onComplete) onComplete();
+    };
+
     gsap.set(split.chars, { opacity: 0 });
     gsap.set(container, { visibility: "visible" });
 
-    const tl = gsap.timeline({
-      onComplete: () => {
-        split.revert();
-        if (onComplete) onComplete();
-      },
-    });
+    const tl = gsap.timeline({ onComplete: finish });
 
     tl.fromTo(
       curtain,
@@ -48,6 +51,7 @@ const Loading = ({ onComplete }) => {
     tl.to(curtain, { y: "-100%", duration: 0.6, ease: "power3.inOut" }, "lift");
 
     return () => {
+      if (!completedRef.current && tl.progress() >= 0.95) finish();
       tl.kill();
     };
   }, [onComplete]);
@@ -81,37 +85,16 @@ const Loading = ({ onComplete }) => {
             fontFamily: "var(--font-wordmark)",
             fontSize: "clamp(2.5rem, 6vw, 5rem)",
             fontWeight: 400,
-            color: "var(--loading-text)",
+            color: "var(--color-ink)",
             letterSpacing: "-0.02em",
             textAlign: "center",
             paddingInline: "1rem",
             perspective: "400px",
           }}
         >
-          GoLeadFinder 
+          GoLeadFinder
         </h1>
       </div>
-
-      <style>{`
-  .loading-curtain {
-    background: linear-gradient(
-      180deg,
-      oklch(12% 0.015 260) 0%,
-      oklch(18% 0.02 250) 30%,
-      oklch(22% 0.018 240) 60%,
-      oklch(15% 0.012 250) 100%
-    );
-  }
-  [data-theme="light"] .loading-curtain {
-    background: linear-gradient(
-      180deg,
-      oklch(72% 0.08 75) 0%,
-      oklch(78% 0.09 72) 30%,
-      oklch(82% 0.07 70) 60%,
-      oklch(75% 0.08 73) 100%
-    );
-  }
-`}</style>
     </div>
   );
 };

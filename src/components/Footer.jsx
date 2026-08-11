@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        paddingBlockStart: "var(--space-4xl)",
-        paddingBlockEnd: "var(--space-xl)",
-      }}
-    >
+    <footer className="section section--tight" style={{ borderTop: "1px solid var(--color-rule)" }}>
       <div className="container-page">
         {/* Statement */}
         <h2
@@ -58,50 +53,23 @@ const Footer = () => {
               flexWrap: "wrap",
             }}
           >
-            <Link
-              to="/services"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-              }}
-            >
+            <Link to="/services" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
               Services
             </Link>
-            <Link
-              to="/portfolio"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-              }}
-            >
+            <Link to="/portfolio" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
               Portfolio
             </Link>
-            <Link
-              to="/about"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-              }}
-            >
+            <Link to="/about" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
               About
             </Link>
-            <Link
-              to="/contact"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-              }}
-            >
+            <Link to="/contact" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
               Contact
             </Link>
             <a
               href="https://www.upwork.com/freelancers/muhammadz67"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-              }}
+              style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}
             >
               Upwork ↗
             </a>

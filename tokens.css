@@ -1,195 +1,168 @@
-/* Hallmark · macrostructure: Stat-Led · H4 hero knobs: number=tabular-display, qualifier=below, secondary=row-of-4
- * theme: custom · vibe: "industrial precision, aurora, data-verified"
- * paper: oklch(14% 0.008 220) · accent: oklch(55% 0.18 220)
- * display: Instrument Serif (roman) · body: Geist · outlier: Geist Mono (wordmark + hero stat)
- * wordmark: Fraunces SemiBold · axes: dark / roman-serif / cool
- * enrichment: E7 Abstract Background + HP3 Cursor-spotlight
- * nav: N10 Floating-on-scroll morph · footer: Ft5 Statement
- * studied: no · context: user-provided · gates: all-pass
+/* Hallmark · Hum · GoLeadFinder (adapted from Bubble template)
+ * macrostructure: Narrative Workflow · theme: Hum
+ * lead accent: mint · + cyan · pear · coral
+ * display/body: Plus Jakarta Sans · labels: JetBrains Mono
+ * v1.1.0
  */
 
-:root {
-  /* === Paper — dark mode, blue-tinted === */
-  --color-paper: oklch(8% 0 0);
-  --color-paper-2: oklch(12% 0 0);
-  --color-paper-3: oklch(18% 0 0);
+:root, [data-theme="hum"] {
+  color-scheme: light;
 
-  /* === Rule — thin separators === */
-  --color-rule: oklch(22% 0 0);
-  --color-rule-2: oklch(18% 0 0);
+  /* Multi-accent palette on cream */
+  --color-paper:      oklch(97% 0.012 95);
+  --color-paper-2:    oklch(94% 0.016 95);
+  --color-paper-3:    oklch(91% 0.020 95);
+  --color-rule:       oklch(86% 0.014 90);
+  --color-rule-2:     oklch(70% 0.018 85);
+  --color-muted:      oklch(52% 0.014 90);
+  --color-neutral:    oklch(38% 0.014 100);
+  --color-ink-2:      oklch(28% 0.014 250);
+  --color-ink:        oklch(20% 0.012 250);
+  --color-accent:     oklch(86% 0.18 95);
+  --color-accent-deep: oklch(76% 0.20 95);
+  --color-accent-2:   oklch(66% 0.18 235);
+  --color-accent-2-deep: oklch(56% 0.20 235);
+  --color-accent-3:   oklch(68% 0.24 18);
+  --color-accent-3-deep: oklch(58% 0.26 18);
+  --color-mint:       oklch(80% 0.16 150);
+  --color-mint-deep:  oklch(70% 0.18 150);
+  --color-lavender:   oklch(74% 0.16 305);
+  --color-lavender-deep: oklch(64% 0.18 305);
+  --color-accent-ink: oklch(20% 0.012 250);
+  --color-focus:      oklch(56% 0.20 235);
 
-  /* === Neutrals === */
-  --color-neutral: oklch(58% 0.008 220);
-  --color-muted: oklch(72% 0.006 220);
+  /* Semantic — button & surface contrast */
+  --color-on-dark:    oklch(97% 0.012 95);
+  --color-on-accent:  oklch(20% 0.012 250);
+  --nav-bg:           oklch(97% 0.012 95 / 0.82);
+  --nav-bg-float:     oklch(97% 0.012 95 / 0.9);
+  --selection-bg:     oklch(80% 0.16 150 / 0.32);
 
-  /* === Ink — primary text === */
-  --color-ink: oklch(94% 0.006 220);
-  --color-ink-2: oklch(88% 0.006 220);
+  /* Per-tile tint surfaces */
+  --tint-pear:     oklch(86% 0.18 95 / 0.16);
+  --tint-cyan:     oklch(66% 0.18 235 / 0.18);
+  --tint-coral:    oklch(68% 0.24 18 / 0.12);
+  --tint-mint:     oklch(80% 0.16 150 / 0.18);
+  --tint-lavender: oklch(74% 0.16 305 / 0.14);
 
-  /* === Accent — aurora blue-cyan === */
-  --color-accent: oklch(55% 0.18 220);
-  --color-accent-ink: oklch(14% 0.008 220);
-  --color-focus: oklch(70% 0.19 220);
+  /* Type */
+  --font-display: "Plus Jakarta Sans", "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Plus Jakarta Sans", "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-label:   "JetBrains Mono", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono:    "JetBrains Mono", "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-wordmark: "Plus Jakarta Sans", "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* === Shadows === */
-  --color-shadow: oklch(4% 0 0);
-  --color-shadow-2: oklch(2% 0 0);
+  --text-xs:        0.75rem;
+  --text-sm:        0.8125rem;
+  --text-base:      1rem;
+  --text-md:        1.0625rem;
+  --text-lg:        1.25rem;
+  --text-xl:        1.5rem;
+  --text-2xl:       2rem;
+  --text-3xl:       2.5rem;
+  --text-4xl:       3.25rem;
+  --text-5xl:       4.25rem;
+  --text-6xl:       5.25rem;
+  --text-display:   clamp(2.75rem, 5.5vw + 0.75rem, 5.25rem);
+  --text-display-s: clamp(2rem, 3.25vw + 1rem, 3.25rem);
 
-  /* === Typography === */
-  /* === Typography === */
-  --font-display: "Google Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Google Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Google Sans", ui-monospace, monospace;
-  --font-wordmark: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+  --tracking-display: -0.025em;
+  --tracking-tight:   -0.014em;
+  --tracking-normal:   0;
+  --tracking-label:    0.10em;
+  --tracking-micro:    0.16em;
 
-  /* === Spacing — 4pt scale === */
-  --space-3xs: 0.25rem;
-  --space-2xs: 0.5rem;
-  --space-xs: 0.75rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
+  --lh-tight:   1.05;
+  --lh-snug:    1.18;
+  --lh-normal:  1.55;
+  --lh-relaxed: 1.7;
+
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
   --space-2xl: 4rem;
-  --space-3xl: 6rem;
-  --space-4xl: 9rem;
+  --space-3xl: 6.5rem;
+  --space-4xl: 10rem;
 
-  /* === Typography scale — major third (1.25) === */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 2.25rem;
-  --text-4xl: 3rem;
-  --text-5xl: 4.5rem;
-  --text-6xl: 6rem;
-  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --section-gap:      clamp(3.5rem, 8vw, 6.5rem);
+  --section-head-gap: 1.75rem;
 
-  /* === Motion === */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --page-max:    78rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure:     60ch;
 
-  --dur-micro: 120ms;
-  --dur-short: 220ms;
-  --dur-long: 420ms;
+  --radius-sm:    0.25rem;
+  --radius-md:    0.5rem;
+  --radius-lg:    1rem;
+  --radius-xl:    1.5rem;
+  --radius-card:  20px;
+  --radius-pill:  999px;
+  --radius-input: 12px;
+  --rule-card:    1px;
 
-  /* === Radius === */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-full: 9999px;
+  --shadow-card:        0 12px 32px -16px oklch(20% 0.012 250 / 0.14),
+                        0 1px 2px oklch(20% 0.012 250 / 0.06);
+  --shadow-card-hover:  0 24px 56px -20px oklch(20% 0.012 250 / 0.18),
+                        0 2px 6px oklch(20% 0.012 250 / 0.08);
 
-  /* === Rules === */
-  --rule-hair: 0.5px;
-  --rule-fine: 1px;
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-snap:    cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro:    120ms;
+  --dur-short:    220ms;
+  --dur-long:     420ms;
+  --dur-wobble:   480ms;
+  --dur-burst:    420ms;
+  --dur-tick:     1200ms;
 
-  /* === Z-index scale === */
-  --z-base: 1;
-  --z-raised: 10;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-sticky-nav: 300;
-  --z-modal: 400;
-  --z-toast: 500;
-  --z-tooltip: 600;
-}
-/* === Light Theme === */
-[data-theme="light"] {
-  --color-paper:     oklch(98% 0.002 90);
-  --color-paper-2:   oklch(94% 0.004 85);
-  --color-paper-3:   oklch(89% 0.005 85);
-  --color-rule:      oklch(84% 0.006 85);
-  --color-rule-2:    oklch(78% 0.005 85);
-  --color-neutral:   oklch(42% 0.008 80);
-  --color-muted:     oklch(35% 0.010 80);
-  --color-ink:       oklch(14% 0.012 80);
-  --color-ink-2:     oklch(26% 0.012 80);
-  --color-accent:    oklch(55% 0.18 75);
-  --color-accent-ink: oklch(98% 0.002 90);
-  --color-focus:     oklch(58% 0.20 75);
-  --color-shadow:    oklch(88% 0.006 85 / 0.6);
-  --color-shadow-2:  oklch(82% 0.008 85 / 0.4);
+  --bar-h: 66px;
 }
 
-[data-theme="light"] body {
-  font-weight: 400;
-}
-/* === Base styles === */
-html {
-  scroll-behavior: smooth;
-  overflow-x: clip;
-}
+[data-theme="dark"], [data-theme="hum-dark"] {
+  color-scheme: dark;
 
-body {
-  overflow-x: clip;
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-weight: 350;
-  line-height: 1.6;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Dark paper — warm ink-hued, not flat black */
+  --color-paper:      oklch(13% 0.014 250);
+  --color-paper-2:    oklch(17% 0.016 250);
+  --color-paper-3:    oklch(21% 0.018 250);
+  --color-rule:       oklch(28% 0.014 250);
+  --color-rule-2:     oklch(36% 0.012 250);
+  --color-muted:      oklch(62% 0.014 250);
+  --color-ink-2:      oklch(82% 0.012 250);
+  --color-ink:        oklch(94% 0.008 250);
+  --color-accent-ink: oklch(94% 0.008 250);
+  --color-focus:      oklch(70% 0.19 235);
 
-/* === Typography defaults === */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin: 0;
-}
+  /* Four accents stay vivid on dark surfaces */
+  --color-accent:     oklch(88% 0.19 95);
+  --color-accent-deep: oklch(78% 0.21 95);
+  --color-accent-2:   oklch(72% 0.19 235);
+  --color-accent-2-deep: oklch(62% 0.21 235);
+  --color-accent-3:   oklch(72% 0.26 18);
+  --color-accent-3-deep: oklch(62% 0.28 18);
+  --color-mint:       oklch(82% 0.17 150);
+  --color-mint-deep:  oklch(72% 0.19 150);
+  --color-lavender:   oklch(76% 0.17 305);
+  --color-lavender-deep: oklch(66% 0.19 305);
 
-h1 {
-  font-size: var(--text-display);
-}
-h2 {
-  font-size: var(--text-4xl);
-}
-h3 {
-  font-size: var(--text-3xl);
-}
-h4 {
-  font-size: var(--text-2xl);
-}
-h5 {
-  font-size: var(--text-xl);
-}
-h6 {
-  font-size: var(--text-lg);
-}
+  --color-on-dark:    oklch(97% 0.012 95);
+  --color-on-accent:  oklch(14% 0.012 250);
+  --nav-bg:           oklch(13% 0.014 250 / 0.86);
+  --nav-bg-float:     oklch(16% 0.016 250 / 0.94);
+  --selection-bg:     oklch(80% 0.16 150 / 0.28);
 
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-}
+  --tint-pear:     oklch(88% 0.19 95 / 0.14);
+  --tint-cyan:     oklch(72% 0.19 235 / 0.16);
+  --tint-coral:    oklch(72% 0.26 18 / 0.11);
+  --tint-mint:     oklch(82% 0.17 150 / 0.15);
+  --tint-lavender: oklch(76% 0.17 305 / 0.12);
 
-a:hover {
-  text-decoration: underline;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 150ms !important;
-  }
+  --shadow-card:        0 12px 32px -16px oklch(0% 0 0 / 0.45),
+                        0 1px 2px oklch(0% 0 0 / 0.18);
+  --shadow-card-hover:  0 24px 56px -20px oklch(0% 0 0 / 0.55),
+                        0 2px 6px oklch(0% 0 0 / 0.22);
 }

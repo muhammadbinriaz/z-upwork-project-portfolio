@@ -1,239 +1,148 @@
 import React from "react";
-import ContactComponent from "../components/Contact";
-import { Link } from "react-router-dom";
+import ContactForm from "../components/Contact";
+
+const steps = [
+  {
+    num: "01",
+    color: "var(--color-mint)",
+    title: "You reach out",
+    text: "Send the form or book a consultation. Include your ICP, industry, and list size.",
+  },
+  {
+    num: "02",
+    color: "var(--color-accent-2)",
+    title: "We align on scope",
+    text: "I confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
+  },
+  {
+    num: "03",
+    color: "var(--color-accent)",
+    title: "I build your list",
+    text: "Research, verify emails, enrich data, and format everything CRM-ready.",
+  },
+  {
+    num: "04",
+    color: "var(--color-accent-3)",
+    title: "You get clean data",
+    text: "Delivered in Google Sheets, Excel, or direct CRM import — ready for outreach.",
+  },
+];
+
+const faqs = [
+  {
+    q: "What information do you need to get started?",
+    a: "Your ideal customer profile (industry, company size, job titles, geography), expected list size, and preferred deliverable format (Google Sheets, Excel, HubSpot, etc.).",
+  },
+  {
+    q: "How quickly can you deliver a prospect list?",
+    a: "Most projects are delivered within 3–7 business days depending on list size and complexity. Rush delivery is available for smaller lists.",
+  },
+  {
+    q: "What tools do you use for verification?",
+    a: "Apollo, LinkedIn Sales Navigator, Hunter, NeverBounce, ZeroBounce, Clay, and ContactOut — chosen based on your data requirements.",
+  },
+  {
+    q: "Do you work with agencies and teams?",
+    a: "Yes. I work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
+  },
+];
 
 const Contact = () => {
   return (
     <>
+      {/* Hero */}
       <section
-        className="section--hero section--gradient"
-        style={{
-          paddingBlockEnd: "var(--space-2xl)",
-          borderBottom: "1px solid var(--color-rule)",
-        }}
+        className="section section--hero"
+        style={{ borderBottom: "1px solid var(--color-rule)" }}
       >
-        <div
-          className="gradient-orb gradient-orb--top-right"
-          aria-hidden="true"
-        />
-        <div
-          className="container-page"
-          style={{ position: "relative", zIndex: 1 }}
-        >
-          <h1 style={{ color: "var(--color-ink)" }}>Get In Touch</h1>
-          <p
-            style={{
-              fontSize: "var(--text-lg)",
-              color: "var(--color-muted)",
-              maxWidth: "55ch",
-              marginTop: "var(--space-sm)",
-            }}
-          >
-            Ready to get accurate B2B leads that your sales team can actually
-            use? Send me a message or book a consultation.
-          </p>
-        </div>
-      </section>
-
-      <ContactComponent />
-
-      {/* Quick Links — Stacking Cards */}
-      <section style={{ position: 'relative' }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-
-          {/* Upwork Card */}
-          <div className="sticky top-0" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1 }}>
-            <a
-              href="https://www.upwork.com/freelancers/muhammadz67"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card--gradient"
-              style={{
-                transform: 'rotate(2deg)',
-                width: 'min(88vw, 34rem)',
-                borderRadius: 'var(--radius-xl)',
-                backgroundColor: 'var(--color-paper-2)',
-                border: '1px solid var(--color-rule)',
-                padding: 'clamp(2.5rem, 6vw, 4rem)',
-                boxShadow: '0 20px 60px var(--color-shadow)',
-                textDecoration: 'none',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 'var(--space-xl)',
-                textAlign: 'center',
-                position: 'relative',
-                isolation: 'isolate',
-                transition: 'border-color 220ms var(--ease-out), transform 220ms var(--ease-out)',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-accent)'; e.currentTarget.style.transform = 'rotate(2deg) translateY(-4px)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-rule)'; e.currentTarget.style.transform = 'rotate(2deg)' }}
-            >
-              <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-md)' }}>
-                <div style={{
-                  width: '64px', height: '64px', borderRadius: '50%',
-                  backgroundColor: 'color-mix(in oklch, var(--color-accent) 18%, transparent)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M18 20V10" /><path d="M12 20V4" /><path d="M6 20v-6" />
-                  </svg>
-                </div>
-                <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'var(--color-ink)', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
-                  Hire on Upwork
-                </h2>
-                <div style={{ width: '40px', height: '3px', borderRadius: '2px', backgroundColor: 'var(--color-accent)', opacity: 0.6 }} />
-                <p style={{ fontSize: 'var(--text-lg)', color: 'var(--color-muted)', lineHeight: 1.6, maxWidth: '28ch' }}>
-                  View my profile with 128+ completed projects, 5.0 rating, and verified client reviews.
-                </p>
-                <div style={{ display: 'flex', gap: 'var(--space-xs)', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  {['Top Rated Plus', '128 Projects', '5.0 Rating', 'Verified'].map(t => (
-                    <span key={t} style={{ fontSize: 'var(--text-xs)', color: 'var(--color-muted)', border: '1px solid var(--color-rule)', borderRadius: 'var(--radius-full)', padding: '4px 12px' }}>{t}</span>
-                  ))}
-                </div>
-                <span className="chip" style={{ marginTop: 'var(--space-sm)' }}>
-                  View Profile →
-                </span>
-              </div>
-            </a>
-          </div>
-
-          {/* Services Card */}
-          <div className="sticky top-0" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }}>
-            <Link
-              to="/services"
-              className="card--gradient"
-              style={{
-                transform: 'rotate(-2deg)',
-                width: 'min(88vw, 34rem)',
-                borderRadius: 'var(--radius-xl)',
-                backgroundColor: 'var(--color-paper-2)',
-                border: '1px solid var(--color-rule)',
-                padding: 'clamp(2.5rem, 6vw, 4rem)',
-                boxShadow: '0 20px 60px var(--color-shadow)',
-                textDecoration: 'none',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 'var(--space-xl)',
-                textAlign: 'center',
-                position: 'relative',
-                isolation: 'isolate',
-                transition: 'border-color 220ms var(--ease-out), transform 220ms var(--ease-out)',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-accent)'; e.currentTarget.style.transform = 'rotate(-2deg) translateY(-4px)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-rule)'; e.currentTarget.style.transform = 'rotate(-2deg)' }}
-            >
-              <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-md)' }}>
-                <div style={{
-                  width: '64px', height: '64px', borderRadius: '50%',
-                  backgroundColor: 'color-mix(in oklch, var(--color-accent) 18%, transparent)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" />
-                  </svg>
-                </div>
-                <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'var(--color-ink)', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
-                  View Services
-                </h2>
-                <div style={{ width: '40px', height: '3px', borderRadius: '2px', backgroundColor: 'var(--color-accent)', opacity: 0.6 }} />
-                <p style={{ fontSize: 'var(--text-lg)', color: 'var(--color-muted)', lineHeight: 1.6, maxWidth: '28ch' }}>
-                  B2B lead generation, contact research, data enrichment, email lists, CRM cleanup, and more.
-                </p>
-                <div style={{ display: 'flex', gap: 'var(--space-xs)', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  {['Lead Gen', 'Research', 'Data', 'CRM', 'Email'].map(t => (
-                    <span key={t} style={{ fontSize: 'var(--text-xs)', color: 'var(--color-muted)', border: '1px solid var(--color-rule)', borderRadius: 'var(--radius-full)', padding: '4px 12px' }}>{t}</span>
-                  ))}
-                </div>
-                <span className="chip chip--outline" style={{ marginTop: 'var(--space-sm)' }}>
-                  Browse Services →
-                </span>
-              </div>
-            </Link>
-          </div>
-
-          {/* Email Card */}
-          <div className="sticky top-0" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 3 }}>
-            <a
-              href="mailto:zaryabmuhammad@goleadfinder.com"
-              className="card--gradient"
-              style={{
-                transform: 'rotate(2.5deg)',
-                width: 'min(88vw, 34rem)',
-                borderRadius: 'var(--radius-xl)',
-                backgroundColor: 'var(--color-paper-2)',
-                border: '1px solid var(--color-rule)',
-                padding: 'clamp(2.5rem, 6vw, 4rem)',
-                boxShadow: '0 20px 60px var(--color-shadow)',
-                textDecoration: 'none',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 'var(--space-xl)',
-                textAlign: 'center',
-                position: 'relative',
-                isolation: 'isolate',
-                transition: 'border-color 220ms var(--ease-out), transform 220ms var(--ease-out)',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-accent)'; e.currentTarget.style.transform = 'rotate(2.5deg) translateY(-4px)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--color-rule)'; e.currentTarget.style.transform = 'rotate(2.5deg)' }}
-            >
-              <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--space-md)' }}>
-                <div style={{
-                  width: '64px', height: '64px', borderRadius: '50%',
-                  backgroundColor: 'color-mix(in oklch, var(--color-accent) 18%, transparent)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                  </svg>
-                </div>
-                <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', color: 'var(--color-ink)', fontFamily: 'var(--font-display)', lineHeight: 1.1 }}>
-                  Email Directly
-                </h2>
-                <div style={{ width: '40px', height: '3px', borderRadius: '2px', backgroundColor: 'var(--color-accent)', opacity: 0.6 }} />
-                <p style={{ fontSize: 'var(--text-lg)', color: 'var(--color-muted)', lineHeight: 1.6, maxWidth: '28ch' }}>
-                  Reach out for custom project inquiries, bulk orders, or ongoing lead generation partnerships.
-                </p>
-                <div style={{ display: 'flex', gap: 'var(--space-xs)', flexWrap: 'wrap', justifyContent: 'center' }}>
-                  {['Custom Projects', 'Bulk Orders', 'Partnerships'].map(t => (
-                    <span key={t} style={{ fontSize: 'var(--text-xs)', color: 'var(--color-muted)', border: '1px solid var(--color-rule)', borderRadius: 'var(--radius-full)', padding: '4px 12px' }}>{t}</span>
-                  ))}
-                </div>
-                <span className="chip" style={{ marginTop: 'var(--space-sm)' }}>
-                  Send Email →
-                </span>
-              </div>
-            </a>
-          </div>
-
-        </div>
-        <div style={{ height: '20vh' }} />
-      </section>
-
-      {/* Trust Strip */}
-      <section className="section--tight" style={{ borderTop: "1px solid var(--color-rule)" }}>
         <div className="container-page">
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 'clamp(2rem, 6vw, 6rem)',
-            flexWrap: 'wrap',
-            textAlign: 'center',
-          }}>
-            {[
-              { value: '128', label: 'Projects' },
-              { value: '5.0', label: 'Rating' },
-              { value: '7+', label: 'Years' },
-              { value: '0-4hrs', label: 'Response' },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div className="stat-figure" style={{ fontSize: 'var(--text-3xl)', marginBottom: 'var(--space-xs)' }}>
-                  {stat.value}
-                </div>
-                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-muted)' }}>{stat.label}</p>
-              </div>
+          <div className="section__head">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--coral"></span>
+              Let&apos;s talk
+            </span>
+            <h1 className="section__title" style={{ maxWidth: "none" }}>
+              Get in <em className="hl hl--mint">touch</em>
+            </h1>
+            <p className="section__lede">
+              Ready to get accurate B2B leads that your sales team can actually
+              use? Send me a message or book a consultation — I reply within 24 hours.
+            </p>
+          </div>
+
+          <div className="contact-stats">
+            <div className="premium-card contact-stat">
+              <div className="contact-stat__num">128+</div>
+              <p className="contact-stat__label">Projects completed on Upwork</p>
+            </div>
+            <div className="premium-card contact-stat">
+              <div className="contact-stat__num">5.0</div>
+              <p className="contact-stat__label">Client rating · Top Rated Plus</p>
+            </div>
+            <div className="premium-card contact-stat">
+              <div className="contact-stat__num">&lt;4h</div>
+              <p className="contact-stat__label">Average response time</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Form + contact info */}
+      <ContactForm embedded={false} />
+
+      {/* What happens next */}
+      <section
+        className="section section--band section--mint"
+        style={{ borderBlock: "1px solid var(--color-rule)" }}
+      >
+        <div className="container-page">
+          <div className="section__head section__head--center">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--mint"></span>
+              What happens next
+            </span>
+            <h2 className="section__title" style={{ maxWidth: "none" }}>
+              From first message to CRM-ready list.
+            </h2>
+            <p className="section__lede">
+              A straightforward process — no endless back-and-forth, no mystery deliverables.
+            </p>
+          </div>
+
+          <div className="contact-steps">
+            {steps.map((step) => (
+              <article key={step.num} className="premium-card contact-step">
+                <p className="contact-step__num">
+                  <span className="contact-step__dot" style={{ background: step.color }}></span>
+                  {step.num}
+                </p>
+                <h3 className="contact-step__title">{step.title}</h3>
+                <p className="contact-step__text">{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
+        <div className="container-page">
+          <div className="section__head">
+            <span className="eyebrow">
+              <span className="eyebrow__dot eyebrow__dot--cyan"></span>
+              Common questions
+            </span>
+            <h2 className="section__title" style={{ maxWidth: "none" }}>
+              Before you reach out
+            </h2>
+          </div>
+
+          <div className="faq-list">
+            {faqs.map((faq) => (
+              <article key={faq.q} className="premium-card faq-item">
+                <h3 className="faq-item__q">{faq.q}</h3>
+                <p className="faq-item__a">{faq.a}</p>
+              </article>
             ))}
           </div>
         </div>
