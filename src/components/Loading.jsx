@@ -77,6 +77,7 @@ const Loading = ({ onComplete }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          background: "var(--color-paper)",
         }}
       >
         <h1

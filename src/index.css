@@ -35,6 +35,12 @@ body {
   padding-top: var(--bar-h);
 }
 
+/* Loading entrance — follows active theme (default dark on first visit) */
+.loading-curtain {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
 /* ═══ THE CANONICAL HUM BUTTON SYSTEM ═══ */
 .btn {
   --btn-face: var(--color-accent); --btn-ink: var(--color-ink); --btn-edge: var(--color-accent-deep);
