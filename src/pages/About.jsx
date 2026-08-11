@@ -1,40 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PageHero from "../components/PageHero";
 
 const About = () => {
   return (
     <>
-      {/* Hero */}
-      <section
-        className="section section--page-hero"
-        style={{ borderBottom: "1px solid var(--color-rule)" }}
+      <PageHero
+        eyebrow="About"
+        title="Muhammad Zaryab."
+        lede="Top Rated Plus B2B lead generation & contact research specialist with 7+ years of experience."
       >
-        <div className="container-page">
-          <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--mint"></span>
-              About me
-            </span>
-            <h1 className="section__title">
-              Muhammad Zaryab
-            </h1>
-            <p className="section__lede">
-              Top Rated Plus B2B lead generation &amp; contact research specialist
-              with 7+ years of experience.
-            </p>
+        <div className="page-hero__bignum">
+          <div className="bignum">
+            <span className="bignum__pre">128</span>+
           </div>
-
-          {/* Bignum stat */}
-          <div className="page-hero__bignum">
-            <div className="bignum">
-              <span className="bignum__pre">128</span>+
-            </div>
-            <p className="bignum__k">
-              Projects completed on Upwork with a 5.0 client rating
-            </p>
-          </div>
+          <p className="bignum__k">
+            Projects completed on Upwork with a 5.0 client rating
+          </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* Introduction */}
       <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
@@ -50,7 +34,7 @@ const About = () => {
                 }}
               >
                 I'm{" "}
-                <strong className="text-mint" style={{ fontWeight: 600 }}>
+                <strong style={{ fontWeight: 600 }}>
                   Muhammad Zaryab
                 </strong>
                 , a Top Rated Plus Lead Generation &amp; Contact Research Specialist.
@@ -393,26 +377,13 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        className="section section--mint"
-        style={{
-          borderTop: "1px solid var(--color-rule)",
-          textAlign: "center",
-        }}
-      >
-        <div className="container-page">
-          <h2
-            style={{
-              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
-              color: "var(--color-ink)",
-              marginBottom: "var(--space-lg)",
-            }}
-          >
+      <section className="section section--band section-cta-block">
+        <div className="container-page section-cta-block__inner">
+          <h2 className="section-cta-block__title">
             Ready to build your next prospect list?
           </h2>
-          <Link to="/contact" className="btn btn--mint">
-            Get in Touch
+          <Link to="/contact" className="btn btn--ink btn--md">
+            Get in touch
           </Link>
         </div>
       </section>

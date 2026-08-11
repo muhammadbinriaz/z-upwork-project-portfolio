@@ -1,6 +1,5 @@
 import React from "react";
-
-const ACCENTS = ["mint", "cyan", "pear", "coral"];
+import SectionIntro from "./SectionIntro";
 
 const tools = [
   { name: "Apollo", use: "Sales intelligence & lead database" },
@@ -21,42 +20,36 @@ const tools = [
 
 const Tools = () => {
   return (
-    <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <section className="section" id="tools" style={{ borderTop: "1px solid var(--color-rule)" }}>
       <div className="container-page">
-        <div className="section__head">
-          <span className="eyebrow">
-            <span className="eyebrow__dot eyebrow__dot--cyan"></span>
-            Tools & platforms
-          </span>
-          <h2 className="section__title">
-            What I Use
-          </h2>
-        </div>
+        <SectionIntro
+          eyebrow="Stack"
+          title="Tools we use to deliver clean data."
+          lede="Industry-standard platforms for research, verification, enrichment, and CRM delivery."
+        />
 
-        <div className="premium-card" style={{ overflow: "hidden", padding: 0 }}>
-          <div style={{ overflowX: "auto" }}>
-            <table className="spec-sheet">
-              <thead>
-                <tr>
-                  <th>Tool</th>
-                  <th>Use</th>
+        <div className="premium-card tools-table-wrap">
+          <table className="spec-sheet">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tools.map((tool) => (
+                <tr key={tool.name} data-accent="neutral">
+                  <td>
+                    <span className="spec-sheet__tool">
+                      <span className="spec-sheet__dot" aria-hidden="true"></span>
+                      {tool.name}
+                    </span>
+                  </td>
+                  <td>{tool.use}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {tools.map((tool, i) => (
-                  <tr key={tool.name} data-accent={ACCENTS[i % ACCENTS.length]}>
-                    <td>
-                      <span className="spec-sheet__tool">
-                        <span className="spec-sheet__dot" aria-hidden="true"></span>
-                        {tool.name}
-                      </span>
-                    </td>
-                    <td>{tool.use}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

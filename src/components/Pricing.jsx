@@ -1,120 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SectionIntro from "./SectionIntro";
 
 const Pricing = () => {
   return (
-    <section className="section" id="pricing" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <section className="section section--band" id="pricing">
       <div className="container-page">
-        <div className="section__head">
-          <span className="eyebrow">
-            <span className="eyebrow__dot eyebrow__dot--pear"></span>
-            Rates
-          </span>
-          <h2 className="section__title">
-            Simple Pricing
-          </h2>
-        </div>
+        <SectionIntro
+          eyebrow="Rates"
+          title="Simple pricing. No surprises."
+          lede="Hourly projects for ongoing work, or a consultation to scope your list before you commit."
+          centered
+        />
 
         <div className="plans">
-          {/* Hourly rate card */}
-          <div className="premium-card" style={{ padding: "var(--space-xl)" }}>
-            <span
-              style={{
-                fontSize: "var(--text-xs)",
-                color: "var(--color-muted)",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                display: "block",
-                marginBottom: "var(--space-md)",
-              }}
-            >
-              Hourly Projects
-            </span>
-            <div style={{ marginBottom: "var(--space-md)" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-label)",
-                  fontSize: "var(--text-5xl)",
-                  color: "var(--color-ink)",
-                  lineHeight: 1,
-                }}
-              >
-                $5
-              </span>
-              <span style={{ fontSize: "var(--text-lg)", color: "var(--color-muted)", marginLeft: "var(--space-xs)" }}>
-                /hr
-              </span>
+          <div className="premium-card plan-card">
+            <span className="plan-card__label">Hourly projects</span>
+            <div className="plan-card__price">
+              <span className="plan-card__amount">$5</span>
+              <span className="plan-card__unit">/hr</span>
             </div>
-            <p
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-                lineHeight: 1.5,
-                marginBottom: "var(--space-xl)",
-              }}
-            >
-              Standard hourly rate for all B2B lead generation, contact research,
-              data enrichment, and CRM data cleaning services.
+            <p className="plan-card__text">
+              Standard hourly rate for B2B lead generation, contact research,
+              data enrichment, and CRM data cleaning.
             </p>
-            <Link to="/contact" className="btn btn--mint">
-              Start a Project
+            <Link to="/contact" className="btn btn--ink btn--md">
+              Start a project
             </Link>
           </div>
 
-          {/* Consultation card — featured (Bubble plan--feature pattern) */}
-          <div className="premium-card plan--feature" style={{ padding: "var(--space-xl)" }}>
-            <span
-              style={{
-                fontSize: "var(--text-xs)",
-                color: "var(--color-muted)",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                display: "block",
-                marginBottom: "var(--space-md)",
-              }}
-            >
-              Consultation
-            </span>
-            <div style={{ marginBottom: "var(--space-md)" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-label)",
-                  fontSize: "var(--text-5xl)",
-                  color: "var(--color-ink)",
-                  lineHeight: 1,
-                }}
-              >
-                $20
-              </span>
-              <span style={{ fontSize: "var(--text-lg)", color: "var(--color-muted)", marginLeft: "var(--space-xs)" }}>
-                /30 min
-              </span>
+          <div className="premium-card plan-card plan-card--featured">
+            <span className="plan-card__label">Consultation</span>
+            <div className="plan-card__price">
+              <span className="plan-card__amount">$20</span>
+              <span className="plan-card__unit">/30 min</span>
             </div>
-            <p
-              style={{
-                fontSize: "var(--text-sm)",
-                color: "var(--color-muted)",
-                lineHeight: 1.5,
-                marginBottom: "var(--space-xl)",
-              }}
-            >
-              Zoom meeting to discuss your project requirements, target audience,
-              and how I can help you build qualified prospect lists.
+            <p className="plan-card__text">
+              Zoom call to discuss your ICP, list size, deliverable format, and
+              timeline before we start.
             </p>
-            <Link to="/contact" className="btn btn--outline btn--mint">
-              Book a Call
+            <Link to="/contact" className="btn btn--outline btn--ink btn--md">
+              Book a call
             </Link>
           </div>
         </div>
 
-        <p
-          style={{
-            marginTop: "var(--space-xl)",
-            fontSize: "var(--text-sm)",
-            color: "var(--color-muted)",
-            textAlign: "center",
-          }}
-        >
+        <p className="plan-footnote">
           Top Rated Plus on Upwork · 128 projects · 5.0 rating · 7+ years experience
         </p>
       </div>

@@ -1,27 +1,27 @@
 import React from "react";
+import SectionIntro from "./SectionIntro";
 
-const ACCENTS = ["mint", "cyan", "pear", "mint", "cyan"];
-const DURATION_BASE = 40000;
 const ROWS = 2;
-
+const DURATION_BASE = 40000;
 const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
-const InfiniteLoopSlider = ({ children, duration, reverse = false }) => {
-  return (
-    <div
-      className="loop-slider"
-      style={{
-        "--duration": `${duration}ms`,
-        "--direction": reverse ? "reverse" : "normal",
-      }}
-    >
-      <div className="loop-slider__inner">
-        {children}
-        {children}
-      </div>
-    </div>
-  );
-};
+const InfiniteLoopSlider = ({ children, duration, reverse = false }) => (
+  <div
+    className="loop-slider"
+    style={{
+      "--duration": `${duration}ms`,
+      "--direction": reverse ? "reverse" : "normal",
+    }}
+  >
+    <div className="loop-slider__inner">{children}{children}</div>
+  </div>
+);
+
+const stats = [
+  { value: "5.0", label: "Average rating" },
+  { value: "128+", label: "Projects delivered" },
+  { value: "<4h", label: "Response time" },
+];
 
 const testimonials = [
   {
@@ -63,29 +63,25 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="section" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <section className="section section--band" id="testimonials">
       <div className="container-page">
-        <div className="section__head">
-          <span className="eyebrow">
-            <span className="eyebrow__dot eyebrow__dot--cyan"></span>
-            Client feedback
-          </span>
-          <h2 className="section__title">
-            What They Say
-          </h2>
+        <SectionIntro
+          eyebrow="Client feedback"
+          title="Trusted by teams who need accurate data."
+          lede="Real reviews from SaaS, agency, and enterprise clients on Upwork."
+          centered
+        />
+
+        <div className="stats-band">
+          {stats.map((stat) => (
+            <div key={stat.label} className="stats-band__item">
+              <span className="stats-band__value">{stat.value}</span>
+              <span className="stats-band__label">{stat.label}</span>
+            </div>
+          ))}
         </div>
 
-        {/* Infinite loop carousel */}
-        <div
-          className="testimonial-carousel"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--space-md)",
-            overflow: "hidden",
-            paddingBlock: "var(--space-md)",
-          }}
-        >
+        <div className="testimonial-carousel">
           {[...new Array(ROWS)].map((_, i) => (
             <InfiniteLoopSlider
               key={i}
@@ -96,7 +92,6 @@ const Testimonials = () => {
                 <div
                   key={`${i}-${j}`}
                   className="premium-card voice"
-                  data-accent={ACCENTS[j % ACCENTS.length]}
                   style={{
                     flexShrink: 0,
                     width: "clamp(300px, 28vw, 380px)",
@@ -104,9 +99,7 @@ const Testimonials = () => {
                     marginRight: "var(--space-md)",
                   }}
                 >
-                  <p className="voice__text">
-                    "{testimonial.content}"
-                  </p>
+                  <p className="voice__text">&ldquo;{testimonial.content}&rdquo;</p>
                   <p className="voice__by">
                     <span className="voice__chip" aria-hidden="true"></span>
                     <span>
@@ -119,32 +112,6 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        .loop-slider {
-          flex-shrink: 0;
-          width: 100%;
-          overflow: hidden;
-        }
-        .loop-slider__inner {
-          display: flex;
-          width: fit-content;
-          animation: testimonial-loop var(--duration) linear infinite;
-          animation-direction: var(--direction);
-        }
-        .loop-slider:hover .loop-slider__inner {
-          animation-play-state: paused;
-        }
-        @keyframes testimonial-loop {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .loop-slider__inner {
-            animation-duration: 0ms !important;
-          }
-        }
-      `}</style>
     </section>
   );
 };

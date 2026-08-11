@@ -1,9 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SectionIntro from "./SectionIntro";
 
-const ACCENTS = ["mint", "cyan", "pear", "coral"];
+const pillars = [
+  {
+    num: "01",
+    title: "Lead Generation & Research",
+    description:
+      "Targeted prospect lists built from your ICP — decision-makers, verified emails, and company data your sales team can act on.",
+    tags: ["B2B Lead Gen", "Contact Research", "LinkedIn Sales Nav"],
+  },
+  {
+    num: "02",
+    title: "Data Enrichment & Verification",
+    description:
+      "Clean, enrich, and validate existing databases. Email verification, enrichment workflows, and list building at scale.",
+    tags: ["Data Enrichment", "Email Lists", "Apollo & Clay"],
+  },
+  {
+    num: "03",
+    title: "CRM Delivery & Cleanup",
+    description:
+      "Formatted deliverables ready for HubSpot, Salesforce, or Google Sheets — plus deduplication and CRM-ready cleanup.",
+    tags: ["CRM Cleaning", "HubSpot", "Formatted Export"],
+  },
+];
 
-const services = [
+const allServices = [
   {
     title: "B2B Lead Generation",
     description:
@@ -42,69 +65,79 @@ const services = [
   },
 ];
 
-const Services = ({ showHead = true }) => {
+const Services = ({ showHead = true, variant = "pillars" }) => {
   return (
     <section
-      className={`section${showHead ? "" : " section--tight"}`}
-      style={{ borderTop: "1px solid var(--color-rule)" }}
+      className={`section${variant === "pillars" ? " section--band" : ""}${showHead ? "" : " section--tight"}`}
+      id="services"
+      style={variant === "full" ? { borderTop: "1px solid var(--color-rule)" } : undefined}
     >
       <div className="container-page">
         {showHead && (
-          <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--mint"></span>
-              What I do
-            </span>
-            <h2 className="section__title">
-              Services
-            </h2>
-            <p className="section__lede">
-              Comprehensive B2B lead generation and data research services tailored
-              to your business needs.
-            </p>
+          <SectionIntro
+            eyebrow="What we do"
+            title={
+              variant === "full"
+                ? "Every service built for pipeline."
+                : "Strategy-first lead gen that drives pipeline."
+            }
+            lede={
+              variant === "full"
+                ? "Comprehensive B2B lead generation and data research — tailored to SaaS companies, agencies, and sales teams."
+                : "Research, verification, enrichment, and delivery — every list is built to your ICP, not generic databases."
+            }
+          />
+        )}
+
+        {variant === "pillars" ? (
+          <div className="feature-grid">
+            {pillars.map((pillar) => (
+              <article key={pillar.num} className="feature-card premium-card">
+                <p className="feature-card__num">{pillar.num}</p>
+                <h3 className="feature-card__title">{pillar.title}</h3>
+                <p className="feature-card__text">{pillar.description}</p>
+                <div className="feature-card__tags">
+                  {pillar.tags.map((tag) => (
+                    <span key={tag} className="chip">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link to="/contact" className="feature-card__link">
+                  Explore more <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="service-grid">
+            {allServices.map((service, i) => (
+              <article key={service.title} className="service-item premium-card">
+                <span className="service-item__num">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="service-item__title">{service.title}</h3>
+                <p className="service-item__text">{service.description}</p>
+                <div className="feature-card__tags">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="chip">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         )}
 
-        <div className="grid grid--3">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className={`premium-card service-card service-card--${ACCENTS[i % ACCENTS.length]}`}
-              style={{ padding: "var(--space-lg)" }}
-            >
-              <h3
-                style={{
-                  fontSize: "var(--text-xl)",
-                  color: "var(--color-ink)",
-                  marginBottom: "var(--space-xs)",
-                }}
-              >
-                {service.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "var(--text-sm)",
-                  color: "var(--color-muted)",
-                  lineHeight: 1.5,
-                  marginBottom: "var(--space-md)",
-                }}
-              >
-                {service.description}
-              </p>
-              <div style={{ display: "flex", gap: "var(--space-xs)", flexWrap: "wrap" }}>
-                {service.tags.map((tag) => (
-                  <span key={tag} className="chip" style={{ fontSize: "var(--text-xs)" }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: "var(--space-3xl)", textAlign: "center" }}>
-          <Link to="/contact" className="btn btn--mint">
-            View Rates
+        <div className={`section-cta${variant === "full" ? " section-cta--center" : ""}`}>
+          {variant === "pillars" && (
+            <Link to="/services" className="btn btn--outline btn--ink btn--md">
+              All services <span className="btn__arrow" aria-hidden="true">→</span>
+            </Link>
+          )}
+          <Link to="/contact" className="btn btn--ink btn--md">
+            Get started
           </Link>
         </div>
       </div>

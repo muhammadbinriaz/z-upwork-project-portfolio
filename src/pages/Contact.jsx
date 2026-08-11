@@ -1,28 +1,26 @@
 import React from "react";
+import PageHero from "../components/PageHero";
+import SectionIntro from "../components/SectionIntro";
 import ContactForm from "../components/Contact";
 
 const steps = [
   {
     num: "01",
-    color: "var(--color-mint)",
     title: "You reach out",
     text: "Send the form or book a consultation. Include your ICP, industry, and list size.",
   },
   {
     num: "02",
-    color: "var(--color-accent-2)",
     title: "We align on scope",
-    text: "I confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
+    text: "We confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
   },
   {
     num: "03",
-    color: "var(--color-accent)",
-    title: "I build your list",
+    title: "We build your list",
     text: "Research, verify emails, enrich data, and format everything CRM-ready.",
   },
   {
     num: "04",
-    color: "var(--color-accent-3)",
     title: "You get clean data",
     text: "Delivered in Google Sheets, Excel, or direct CRM import — ready for outreach.",
   },
@@ -43,77 +41,49 @@ const faqs = [
   },
   {
     q: "Do you work with agencies and teams?",
-    a: "Yes. I work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
+    a: "Yes. We work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
   },
 ];
 
 const Contact = () => {
   return (
     <>
-      {/* Hero */}
-      <section
-        className="section section--page-hero"
-        style={{ borderBottom: "1px solid var(--color-rule)" }}
+      <PageHero
+        eyebrow="Contact"
+        title="Get in touch."
+        lede="Ready for accurate B2B leads your sales team can actually use? Send a message — we reply within 24 hours."
       >
-        <div className="container-page">
-          <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--coral"></span>
-              Let&apos;s talk
-            </span>
-            <h1 className="section__title" style={{ maxWidth: "none" }}>
-              Get in <em className="hl hl--mint">touch</em>
-            </h1>
-            <p className="section__lede">
-              Ready to get accurate B2B leads that your sales team can actually
-              use? Send me a message or book a consultation — I reply within 24 hours.
-            </p>
+        <div className="contact-stats">
+          <div className="premium-card contact-stat">
+            <div className="contact-stat__num">128+</div>
+            <p className="contact-stat__label">Projects on Upwork</p>
           </div>
-
-          <div className="contact-stats">
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">128+</div>
-              <p className="contact-stat__label">Projects completed on Upwork</p>
-            </div>
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">5.0</div>
-              <p className="contact-stat__label">Client rating · Top Rated Plus</p>
-            </div>
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">&lt;4h</div>
-              <p className="contact-stat__label">Average response time</p>
-            </div>
+          <div className="premium-card contact-stat">
+            <div className="contact-stat__num">5.0</div>
+            <p className="contact-stat__label">Client rating · Top Rated Plus</p>
+          </div>
+          <div className="premium-card contact-stat">
+            <div className="contact-stat__num">&lt;4h</div>
+            <p className="contact-stat__label">Average response time</p>
           </div>
         </div>
-      </section>
+      </PageHero>
 
-      {/* Form + contact info */}
       <ContactForm embedded={false} />
 
-      {/* What happens next */}
-      <section
-        className="section section--band section--mint"
-        style={{ borderBlock: "1px solid var(--color-rule)" }}
-      >
+      <section className="section section--band">
         <div className="container-page">
-          <div className="section__head section__head--center">
-            <span className="eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--mint"></span>
-              What happens next
-            </span>
-            <h2 className="section__title" style={{ maxWidth: "none" }}>
-              From first message to CRM-ready list.
-            </h2>
-            <p className="section__lede">
-              A straightforward process — no endless back-and-forth, no mystery deliverables.
-            </p>
-          </div>
-
+          <SectionIntro
+            eyebrow="Process"
+            title="From first message to CRM-ready list."
+            lede="A straightforward workflow — no endless back-and-forth, no mystery deliverables."
+            centered
+          />
           <div className="contact-steps">
             {steps.map((step) => (
               <article key={step.num} className="premium-card contact-step">
                 <p className="contact-step__num">
-                  <span className="contact-step__dot" style={{ background: step.color }}></span>
+                  <span className="contact-step__dot" aria-hidden="true"></span>
                   {step.num}
                 </p>
                 <h3 className="contact-step__title">{step.title}</h3>
@@ -124,19 +94,13 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="section">
         <div className="container-page">
-          <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot eyebrow__dot--cyan"></span>
-              Common questions
-            </span>
-            <h2 className="section__title" style={{ maxWidth: "none" }}>
-              Before you reach out
-            </h2>
-          </div>
-
+          <SectionIntro
+            eyebrow="FAQ"
+            title="Before you reach out."
+            lede="Common questions about scope, timeline, and deliverables."
+          />
           <div className="faq-list">
             {faqs.map((faq) => (
               <article key={faq.q} className="premium-card faq-item">

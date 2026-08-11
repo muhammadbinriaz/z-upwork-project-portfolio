@@ -3,88 +3,60 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="section section--tight" style={{ borderTop: "1px solid var(--color-rule)" }}>
-      <div className="container-page">
-        {/* Statement */}
-        <h2
-          style={{
-            fontSize: "clamp(2rem, 4vw, 3.5rem)",
-            color: "var(--color-ink)",
-            lineHeight: 1.1,
-            maxWidth: "28ch",
-            marginBottom: "var(--space-2xl)",
-          }}
-        >
-          Let's build your next prospect list.
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            flexWrap: "wrap",
-            gap: "var(--space-lg)",
-            paddingTop: "var(--space-xl)",
-            borderTop: "1px solid var(--color-rule)",
-          }}
-        >
-          {/* Wordmark */}
-          <Link
-            to="/"
-            style={{
-              fontFamily: "var(--font-wordmark)",
-              fontSize: "var(--text-xl)",
-              fontWeight: 400,
-              color: "var(--color-ink)",
-              textDecoration: "none",
-              letterSpacing: "-0.015em",
-            }}
-          >
-            GoLeadFinder
+    <footer className="footer-clonix">
+      <div className="container-page footer-clonix__inner">
+        <div className="footer-clonix__cta">
+          <p className="footer-clonix__eyebrow">
+            <span className="hero-clonix__slash">//</span> Work with us
+          </p>
+          <h2 className="footer-clonix__title">
+            Ready to build your next prospect list?
+          </h2>
+          <Link to="/contact" className="btn btn--ink btn--md">
+            Get in touch
           </Link>
+        </div>
 
-          {/* Links */}
-          <div
-            style={{
-              display: "flex",
-              gap: "var(--space-lg)",
-              flexWrap: "wrap",
-            }}
-          >
-            <Link to="/services" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
-              Services
+        <div className="footer-clonix__grid">
+          <div>
+            <Link to="/" className="footer-clonix__brand">
+              GoLeadFinder
             </Link>
-            <Link to="/portfolio" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
-              Portfolio
-            </Link>
-            <Link to="/about" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
-              About
-            </Link>
-            <Link to="/contact" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
-              Contact
-            </Link>
-            <a
-              href="https://www.upwork.com/freelancers/muhammadz67"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}
-            >
-              Upwork ↗
-            </a>
+            <p className="footer-clonix__tagline">
+              B2B lead generation &amp; contact research — CRM-ready data for
+              sales teams worldwide.
+            </p>
+          </div>
+
+          <div>
+            <p className="footer-clonix__col-label">Navigate</p>
+            <nav className="footer-clonix__links" aria-label="Footer">
+              <Link to="/services">Services</Link>
+              <Link to="/portfolio">Portfolio</Link>
+              <Link to="/about">About</Link>
+              <Link to="/contact">Contact</Link>
+            </nav>
+          </div>
+
+          <div>
+            <p className="footer-clonix__col-label">Connect</p>
+            <div className="footer-clonix__links">
+              <a href="mailto:zaryabmuhammad@goleadfinder.com">
+                zaryabmuhammad@goleadfinder.com
+              </a>
+              <a
+                href="https://www.upwork.com/freelancers/muhammadz67"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Upwork ↗
+              </a>
+            </div>
           </div>
         </div>
 
-        <p
-          style={{
-            marginTop: "var(--space-xl)",
-            fontSize: "var(--text-xs)",
-            color: "var(--color-muted)",
-          }}
-        >
-          &copy; {new Date().getFullYear()} GoLeadFinder. Available for
-          freelance projects worldwide.
+        <p className="footer-clonix__copy">
+          &copy; {new Date().getFullYear()} GoLeadFinder. All rights reserved.
         </p>
       </div>
     </footer>
