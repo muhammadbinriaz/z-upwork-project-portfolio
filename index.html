@@ -1,7 +1,18 @@
 <!doctype html>
-<html lang="en" data-theme="hum">
+<html lang="en" data-theme="hum-dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var theme = saved === "hum" || saved === "hum-dark" ? saved : "hum-dark";
+          document.documentElement.setAttribute("data-theme", theme);
+          var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+          if (meta) meta.setAttribute("content", theme === "hum-dark" ? "#1a1f28" : "#faf6ee");
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content="Muhammad Zaryab — Top Rated Plus B2B lead generation & contact research specialist. Accurate prospect lists with verified contact data." />
     <meta name="keywords" content="B2B lead generation, contact research, prospect lists, data enrichment, CRM data cleaning, email list building, LinkedIn Sales Navigator, Apollo, Clay, HubSpot" />
@@ -9,7 +20,7 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#faf6ee" />
+    <meta name="theme-color" content="#1a1f28" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1f28" />
 
     <!-- Open Graph / Social -->

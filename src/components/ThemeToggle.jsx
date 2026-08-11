@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
 
+const DEFAULT_THEME = "hum-dark";
+
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "hum";
+      const saved = localStorage.getItem("theme");
+      if (saved === "hum" || saved === "hum-dark") return saved;
+      return DEFAULT_THEME;
     }
-    return "hum";
+    return DEFAULT_THEME;
   });
 
   useEffect(() => {

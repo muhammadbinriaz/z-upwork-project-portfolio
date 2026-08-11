@@ -83,7 +83,7 @@ const Footer = () => {
             color: "var(--color-muted)",
           }}
         >
-          &copy; {new Date().getFullYear()} Zaryab Lead Solutions. Available for
+          &copy; {new Date().getFullYear()} GoLeadFinder. Available for
           freelance projects worldwide.
         </p>
       </div>
