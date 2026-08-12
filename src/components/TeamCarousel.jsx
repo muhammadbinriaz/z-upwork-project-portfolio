@@ -32,14 +32,12 @@ const TeamCarousel = () => {
   const cursorRef = useRef(null);
   const swiperRef = useRef(null);
   const detailRef = useRef(null);
-  const userPickedRef = useRef(false);
 
   const member = teamMembers[active];
 
-  const selectMember = useCallback((index, fromUser = false) => {
+  const selectMember = useCallback((index) => {
     setActive(index);
     swiperRef.current?.slideTo(index);
-    if (fromUser) userPickedRef.current = true;
   }, []);
 
   useEffect(() => {
@@ -82,16 +80,6 @@ const TeamCarousel = () => {
       gsap.killTweensOf(cursor);
     };
   }, []);
-
-  useEffect(() => {
-    if (window.matchMedia("(min-width: 960px)").matches) return;
-
-    const detail = detailRef.current;
-    if (!detail || !userPickedRef.current) return;
-
-    userPickedRef.current = false;
-    detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [active]);
 
   const renderPortrait = (person, className, isPhoto = Boolean(person.photo)) => {
     const photoStyle = person.photoPosition
@@ -188,9 +176,14 @@ const TeamCarousel = () => {
           <h2 id={`${navId}-title`} className="section__title">
             Six specialists. One pipeline engine.
           </h2>
-          <p className="section__lede">
-            Pick someone below — their full profile updates instantly beside
-            the carousel.
+          <p className="section__lede team-section__lede">
+            <span className="team-section__lede-desktop">
+              Pick someone below — their full profile updates instantly beside
+              the carousel.
+            </span>
+            <span className="team-section__lede-mobile">
+              Tap a name — their full profile appears right below.
+            </span>
           </p>
         </div>
 
@@ -205,7 +198,7 @@ const TeamCarousel = () => {
                   role="tab"
                   aria-selected={active === i}
                   className={`team-picker__chip${active === i ? " is-active" : ""} team-picker__chip--${person.accent}`}
-                  onClick={() => selectMember(i, true)}
+                  onClick={() => selectMember(i)}
                 >
                   <span className="team-picker__thumb">
                     {renderPortrait(person, "team-picker__photo")}
@@ -217,6 +210,8 @@ const TeamCarousel = () => {
           </div>
 
           <div className="team-carousel__workspace">
+            <div className="team-carousel__detail">{detailPanel}</div>
+
             <div className="team-carousel__picker">
               <div
                 ref={stageRef}
@@ -276,11 +271,11 @@ const TeamCarousel = () => {
                         role="button"
                         tabIndex={0}
                         className={`team-card premium-card team-card--${person.accent}${active === i ? " is-active" : ""}`}
-                        onClick={() => selectMember(i, true)}
+                        onClick={() => selectMember(i)}
                         onKeyDown={(e) => {
                           if (e.key === "Enter" || e.key === " ") {
                             e.preventDefault();
-                            selectMember(i, true);
+                            selectMember(i);
                           }
                         }}
                         aria-pressed={active === i}
@@ -324,8 +319,6 @@ const TeamCarousel = () => {
                 </button>
               </div>
             </div>
-
-            <div className="team-carousel__detail">{detailPanel}</div>
           </div>
         </div>
       </div>
