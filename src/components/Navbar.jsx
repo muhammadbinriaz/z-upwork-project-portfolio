@@ -77,10 +77,10 @@ const Navbar = ({ navRef }) => {
               href="https://www.upwork.com/freelancers/muhammadz67"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="View Muhammad Zaryab's Upwork profile (opens in new tab)"
+              aria-label="View GoLeadFinder on Upwork (opens in new tab)"
               className="btn btn--mint btn--sm btn--hire"
             >
-              Hire Me
+              Hire on Upwork
             </a>
           </div>
 
@@ -191,7 +191,7 @@ const Navbar = ({ navRef }) => {
                 className="btn btn--mint btn--block"
                 onClick={closeMenu}
               >
-                Hire Me on Upwork
+                Hire on Upwork
               </a>
             </div>
           </div>

@@ -99,7 +99,7 @@ const Pricing = () => {
               }}
             >
               Zoom meeting to discuss your project requirements, target audience,
-              and how I can help you build qualified prospect lists.
+              and how our team can build qualified prospect lists for you.
             </p>
             <Link to="/contact" className="btn btn--outline btn--mint">
               Book a Call
@@ -115,7 +115,7 @@ const Pricing = () => {
             textAlign: "center",
           }}
         >
-          Top Rated Plus on Upwork · 128 projects · 5.0 rating · 7+ years experience
+          Top Rated Plus on Upwork · 128+ projects · 5.0 rating · 6-person team
         </p>
       </div>
     </section>

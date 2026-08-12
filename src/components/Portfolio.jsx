@@ -18,7 +18,7 @@ const projects = [
     result: "5,000+ targeted prospects",
     rating: "5.0",
     review:
-      "Clean, accurate data delivered ahead of schedule. Muhammad understood exactly what we needed.",
+      "Clean, accurate data delivered ahead of schedule. The team understood exactly what we needed.",
     tags: ["Real Estate", "Prospects", "Verified"],
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     result: "2,500+ decision-makers",
     rating: "5.0",
     review:
-      "Working with Muhammad on contact list building was a great experience. Detail-oriented and reliable.",
+      "Working with GoLeadFinder on contact list building was a great experience. Detail-oriented and reliable.",
     tags: ["Agency", "Decision-Makers", "ICP"],
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     result: "50,000+ records cleaned",
     rating: "5.0",
     review:
-      "Muhammad was a great communicator. Database was organized, error-free, and ready for immediate use.",
+      "GoLeadFinder was a great communicator throughout. Database was organized, error-free, and ready for immediate use.",
     tags: ["CRM", "HubSpot", "Data Cleanup"],
   },
 ];

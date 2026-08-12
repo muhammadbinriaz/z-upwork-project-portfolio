@@ -89,7 +89,7 @@ const Contact = () => {
                 GoLeadFinder · Agency track record
               </span>
               <p className="contact-trust__note">
-                Not a solo freelancer — a coordinated research crew on every project.
+                A coordinated research crew on every project.
               </p>
             </div>
             <ul className="contact-trust__metrics">

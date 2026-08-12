@@ -83,8 +83,8 @@ const Footer = () => {
             color: "var(--color-muted)",
           }}
         >
-          &copy; {new Date().getFullYear()} GoLeadFinder. Available for
-          freelance projects worldwide.
+          &copy; {new Date().getFullYear()} GoLeadFinder. B2B research and
+          data projects delivered worldwide.
         </p>
       </div>
     </footer>
