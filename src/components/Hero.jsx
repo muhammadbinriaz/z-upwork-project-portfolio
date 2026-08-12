@@ -54,9 +54,8 @@ const Hero = () => {
             </h1>
 
             <p className="hero__lede">
-              Freelance B2B lead gen &amp; contact research on Upwork — Top Rated Plus,
-              128 projects done. You send the ICP, I hand back a clean sheet your
-              sales team can use today.
+              A senior B2B agency on Upwork — Top Rated Plus, 128+ projects delivered.
+              You send the ICP, we hand back a clean sheet your sales team can use today.
             </p>
 
             <div className="hero__cta">
@@ -64,7 +63,7 @@ const Hero = () => {
                 Send Your Brief
               </Link>
               <Link to="/services" className="btn btn--outline btn--mint btn--md">
-                See What I Do <span className="btn__arrow" aria-hidden="true">→</span>
+                See Our Services <span className="btn__arrow" aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

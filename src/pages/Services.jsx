@@ -22,9 +22,9 @@ const Services = () => {
               Simple. <em className="hl hl--cyan">Focused.</em>
             </h1>
             <p className="section__lede">
-              I specialize in B2B lead generation, contact research, data
-              enrichment, email list building, and CRM data cleaning for SaaS
-              companies, agencies, and sales teams.
+              We specialize in B2B lead generation, contact research, data
+              enrichment, email list building, and CRM data cleaning — plus web
+              builds and automations for SaaS companies, agencies, and sales teams.
             </p>
           </div>
         </div>

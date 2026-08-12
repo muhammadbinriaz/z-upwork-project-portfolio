@@ -35,10 +35,10 @@ const services = [
     tags: ["LinkedIn", "Prospecting", "Research"],
   },
   {
-    title: "CRM Data Cleaning",
+    title: "Web Development",
     description:
-      "Duplicate removal, formatting, and enrichment for HubSpot & Salesforce.",
-    tags: ["Cleanup", "De-dup", "Formatted"],
+      "Creating websites and web applications for businesses and agencies.",
+    tags: ["Custom", "Agency", "Business"],
   },
 ];
 
@@ -53,14 +53,14 @@ const Services = ({ showHead = true }) => {
           <div className="section__head">
             <span className="eyebrow">
               <span className="eyebrow__dot eyebrow__dot--mint"></span>
-              What I do
+              What we do
             </span>
             <h2 className="section__title">
               Services
             </h2>
             <p className="section__lede">
-              Comprehensive B2B lead generation and data research services tailored
-              to your business needs.
+              Lead research, data ops, automations, email, and web — scoped and
+              delivered by the right specialists on our team.
             </p>
           </div>
         )}

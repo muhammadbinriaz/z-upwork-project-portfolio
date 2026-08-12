@@ -28,7 +28,7 @@ const Contact = ({ embedded = true }) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     alert(
-      "Thank you for your message. I will get back to you within 24 hours.",
+      "Thank you for your message. Our team will get back to you within 24 hours.",
     );
     setFormData({ name: "", email: "", service: "", message: "" });
   };
@@ -52,7 +52,7 @@ const Contact = ({ embedded = true }) => {
               Ready to get accurate B2B leads?
             </h2>
             <p className="section__lede">
-              Send me a message or book a consultation to discuss your project.
+              Send us a message or book a consultation to discuss your project.
             </p>
           </div>
         )}
@@ -67,7 +67,7 @@ const Contact = ({ embedded = true }) => {
                 </span>
                 <p className="contact-aside__lede">
                   {embedded
-                    ? "Reach out directly — I reply within 24 hours."
+                    ? "Reach out directly — we reply within 24 hours."
                     : "Prefer email or Upwork? Either works."}
                 </p>
               </div>
@@ -87,7 +87,7 @@ const Contact = ({ embedded = true }) => {
                   className="contact-aside__link contact-aside__link--cyan"
                 >
                   <span className="contact-aside__link-label">Upwork</span>
-                  <span className="contact-aside__link-value">Top Rated Plus · View profile →</span>
+                  <span className="contact-aside__link-value">Top Rated Plus · Our Upwork profile →</span>
                 </a>
               </div>
 
@@ -130,7 +130,7 @@ const Contact = ({ embedded = true }) => {
                     rel="noopener noreferrer"
                     className="btn btn--outline btn--mint btn--block contact-aside__cta"
                   >
-                    Hire Me on Upwork
+                    Hire on Upwork
                   </a>
                 </>
               )}
@@ -142,8 +142,8 @@ const Contact = ({ embedded = true }) => {
               <div className="contact-form__head">
                 <h2 className="contact-form__title">Send a message</h2>
                 <p className="contact-form__lede">
-                  Tell me about your target audience, industry, and how many leads you need.
-                  I&apos;ll reply with a plan and timeline.
+                  Tell us about your target audience, industry, and how many leads you need.
+                  We&apos;ll reply with a plan and timeline.
                 </p>
               </div>
             )}
@@ -215,7 +215,7 @@ const Contact = ({ embedded = true }) => {
                 required
                 rows={embedded ? 5 : 6}
                 className="input"
-                placeholder="Tell me about your project, target audience, and ideal contact criteria..."
+                placeholder="Tell us about your project, target audience, and ideal contact criteria..."
               />
             </div>
 

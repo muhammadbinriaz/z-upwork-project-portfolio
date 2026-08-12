@@ -33,7 +33,7 @@ const testimonials = [
   },
   {
     content:
-      "Working with Muhammad on contact list building was a great experience. He's detail-oriented, reliable, and actually cares about quality.",
+      "Working with GoLeadFinder on contact list building was a great experience. The team is detail-oriented, reliable, and actually cares about quality.",
     name: "Michael Chen",
     role: "Founder",
     company: "Growth Agency",
@@ -47,14 +47,14 @@ const testimonials = [
   },
   {
     content:
-      "Great working with Muhammad — highly recommend. Delivered exactly what was needed, on time and within budget.",
+      "Great working with the GoLeadFinder team — highly recommend. Delivered exactly what was needed, on time and within budget.",
     name: "David Kim",
     role: "CEO",
     company: "StartupLaunch",
   },
   {
     content:
-      "Muhammad cleaned 50,000+ CRM records for us. The database went from unusable to organized and error-free in under two weeks.",
+      "The team cleaned 50,000+ CRM records for us. The database went from unusable to organized and error-free in under two weeks.",
     name: "James Wilson",
     role: "Operations Lead",
     company: "Enterprise SaaS",

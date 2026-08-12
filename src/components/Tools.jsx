@@ -29,8 +29,12 @@ const Tools = () => {
             Tools & platforms
           </span>
           <h2 className="section__title">
-            What I Use
+            Our stack
           </h2>
+          <p className="section__lede">
+            The platforms and tools our team uses across research, verification,
+            enrichment, and CRM delivery.
+          </p>
         </div>
 
         <div className="premium-card" style={{ overflow: "hidden", padding: 0 }}>

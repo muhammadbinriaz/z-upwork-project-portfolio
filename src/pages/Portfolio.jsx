@@ -1,7 +1,7 @@
 import React from "react";
 import PortfolioComponent from "../components/Portfolio";
 import Testimonials from "../components/Testimonials";
-import Contact from "../components/Contact";
+import PortfolioDeliveryLab from "../components/PortfolioDeliveryLab";
 
 const Portfolio = () => {
   return (
@@ -34,8 +34,8 @@ const Portfolio = () => {
       {/* Testimonials */}
       <Testimonials />
 
-      {/* Contact */}
-      <Contact />
+      {/* Interactive delivery preview */}
+      <PortfolioDeliveryLab />
     </>
   );
 };

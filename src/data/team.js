@@ -10,7 +10,7 @@ export const teamMembers = [
     bioLead:
       "Top Rated Plus on Upwork · 128+ projects delivered · 5.0 client rating",
     bio:
-      "Muhammad founded GoLeadFinder after seven years in B2B lead research — building a team around one belief: sales reps deserve lists they can trust on the first import, not spreadsheets that need a week of cleanup.",
+      "Muhammad Zaryab founded GoLeadFinder after seven years in B2B lead research — building a team around one belief: sales reps deserve lists they can trust on the first import, not spreadsheets that need a week of cleanup.",
     bioExtra:
       "He scopes every project personally — ICP workshops, Sales Navigator boolean strings, title hierarchies, and a final QA pass before anything hits your CRM. Clients work with him when they want a senior researcher who still touches the data, not just delegates it.",
     highlights: [

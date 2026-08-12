@@ -29,7 +29,7 @@ const About = () => {
             </h1>
             <p className="section__lede">
               A small, senior crew focused on B2B research, verified contacts,
-              and CRM-ready delivery — not one freelancer wearing every hat.
+              and CRM-ready delivery — with dedicated specialists for every lane.
             </p>
           </div>
 
