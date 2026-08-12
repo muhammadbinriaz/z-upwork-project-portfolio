@@ -1,5 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactForm from "../components/Contact";
+
+const agencyMetrics = [
+  { value: "6", label: "Core specialists on every build", accent: "mint" },
+  { value: "128+", label: "Projects delivered as a team", accent: "cyan" },
+  { value: "5.0", label: "Upwork client rating", accent: "pear" },
+  { value: "<4h", label: "Avg. first reply to new briefs", accent: "coral" },
+];
 
 const steps = [
   {
@@ -12,12 +19,12 @@ const steps = [
     num: "02",
     color: "var(--color-accent-2)",
     title: "We align on scope",
-    text: "I confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
+    text: "We confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
   },
   {
     num: "03",
     color: "var(--color-accent)",
-    title: "I build your list",
+    title: "The team builds your list",
     text: "Research, verify emails, enrich data, and format everything CRM-ready.",
   },
   {
@@ -30,24 +37,29 @@ const steps = [
 
 const faqs = [
   {
+    accent: "mint",
     q: "What information do you need to get started?",
     a: "Your ideal customer profile (industry, company size, job titles, geography), expected list size, and preferred deliverable format (Google Sheets, Excel, HubSpot, etc.).",
   },
   {
+    accent: "cyan",
     q: "How quickly can you deliver a prospect list?",
     a: "Most projects are delivered within 3–7 business days depending on list size and complexity. Rush delivery is available for smaller lists.",
   },
   {
+    accent: "pear",
     q: "What tools do you use for verification?",
     a: "Apollo, LinkedIn Sales Navigator, Hunter, NeverBounce, ZeroBounce, Clay, and ContactOut — chosen based on your data requirements.",
   },
   {
+    accent: "coral",
     q: "Do you work with agencies and teams?",
-    a: "Yes. I work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
+    a: "Yes. We work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
   },
 ];
 
 const Contact = () => {
+  const [openFaq, setOpenFaq] = useState(0);
   return (
     <>
       {/* Hero */}
@@ -65,24 +77,32 @@ const Contact = () => {
               Get in <em className="hl hl--mint">touch</em>
             </h1>
             <p className="section__lede">
-              Ready to get accurate B2B leads that your sales team can actually
-              use? Send me a message or book a consultation — I reply within 24 hours.
+              Ready for a verified prospect list your sales team can import on day one?
+              Tell us your ICP — we assign the right specialists and reply within 24 hours.
             </p>
           </div>
 
-          <div className="contact-stats">
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">128+</div>
-              <p className="contact-stat__label">Projects completed on Upwork</p>
+          <div className="contact-trust">
+            <div className="contact-trust__head">
+              <span className="contact-trust__eyebrow">
+                <span className="eyebrow__dot eyebrow__dot--mint"></span>
+                GoLeadFinder · Agency track record
+              </span>
+              <p className="contact-trust__note">
+                Not a solo freelancer — a coordinated research crew on every project.
+              </p>
             </div>
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">5.0</div>
-              <p className="contact-stat__label">Client rating · Top Rated Plus</p>
-            </div>
-            <div className="premium-card contact-stat">
-              <div className="contact-stat__num">&lt;4h</div>
-              <p className="contact-stat__label">Average response time</p>
-            </div>
+            <ul className="contact-trust__metrics">
+              {agencyMetrics.map((metric) => (
+                <li
+                  key={metric.label}
+                  className={`contact-trust__metric contact-trust__metric--${metric.accent}`}
+                >
+                  <span className="contact-trust__value">{metric.value}</span>
+                  <span className="contact-trust__label">{metric.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -111,13 +131,25 @@ const Contact = () => {
 
           <div className="contact-steps">
             {steps.map((step) => (
-              <article key={step.num} className="premium-card contact-step">
-                <p className="contact-step__num">
-                  <span className="contact-step__dot" style={{ background: step.color }}></span>
+              <article key={step.num} className="premium-card contact-step process-step-card">
+                <span
+                  className="process-step__bg"
+                  style={{ "--step-accent": step.color }}
+                  aria-hidden="true"
+                >
                   {step.num}
-                </p>
-                <h3 className="contact-step__title">{step.title}</h3>
-                <p className="contact-step__text">{step.text}</p>
+                </span>
+                <div className="process-step__body">
+                  <h3 className="contact-step__title">
+                    <span
+                      className="contact-step__dot"
+                      style={{ background: step.color }}
+                      aria-hidden="true"
+                    />
+                    {step.title}
+                  </h3>
+                  <p className="contact-step__text">{step.text}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -137,13 +169,40 @@ const Contact = () => {
             </h2>
           </div>
 
-          <div className="faq-list">
-            {faqs.map((faq) => (
-              <article key={faq.q} className="premium-card faq-item">
-                <h3 className="faq-item__q">{faq.q}</h3>
-                <p className="faq-item__a">{faq.a}</p>
-              </article>
-            ))}
+          <div className="faq-accordion">
+            {faqs.map((faq, i) => {
+              const isOpen = openFaq === i;
+              const panelId = `faq-panel-${i}`;
+
+              return (
+                <article
+                  key={faq.q}
+                  className={`faq-item faq-item--${faq.accent}${isOpen ? " is-open" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="faq-item__trigger"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenFaq(isOpen ? -1 : i)}
+                  >
+                    <span className="faq-item__index">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="faq-item__q">{faq.q}</span>
+                    <span className="faq-item__icon" aria-hidden="true" />
+                  </button>
+                  <div
+                    id={panelId}
+                    className="faq-item__body"
+                    role="region"
+                    aria-hidden={!isOpen}
+                  >
+                    <div className="faq-item__body-inner">
+                      <p className="faq-item__a">{faq.a}</p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

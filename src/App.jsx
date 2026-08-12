@@ -11,18 +11,26 @@ import Contact from "./pages/Contact";
 import useLenis from "./hooks/useLenis";
 import useFpsCap from "./hooks/useFpsCap";
 
-function ScrollToTop() {
+function ScrollToTop({ lenisRef, navRef }) {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [pathname]);
+    navRef.current?.classList.remove("is-floating");
+
+    const lenis = lenisRef.current;
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, lenisRef, navRef]);
+
   return null;
 }
 
 export const AnimationContext = React.createContext(false);
 
 function App() {
-  useLenis();
+  const lenisRef = useLenis();
   useFpsCap(60);
 
   const [initialLoadDone, setInitialLoadDone] = useState(false);
@@ -55,7 +63,7 @@ function App() {
 
   return (
     <AnimationContext.Provider value={animationReady}>
-      <ScrollToTop />
+      <ScrollToTop lenisRef={lenisRef} navRef={navRef} />
       {!initialLoadDone && <Loading onComplete={handleLoadingComplete} />}
 
       {initialLoadDone && (

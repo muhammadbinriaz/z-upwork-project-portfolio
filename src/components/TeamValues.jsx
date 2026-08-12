@@ -23,12 +23,16 @@ const TeamValues = () => (
         {teamValues.map((value) => (
           <li key={value.id}>
             <article
-              className={`team-process__card premium-card team-process__card--${value.accent}`}
+              className={`team-process__card premium-card process-step-card team-process__card--${value.accent}`}
             >
-              <span className="team-process__step">{value.step}</span>
-              <h3 className="team-process__label">{value.label}</h3>
-              <p className="team-process__title">{value.title}</p>
-              <p className="team-process__text">{value.text}</p>
+              <span className="process-step__bg" aria-hidden="true">
+                {value.step}
+              </span>
+              <div className="process-step__body">
+                <h3 className="team-process__label">{value.label}</h3>
+                <p className="team-process__title">{value.title}</p>
+                <p className="team-process__text">{value.text}</p>
+              </div>
             </article>
           </li>
         ))}
