@@ -15,7 +15,7 @@ const rotatingPhrases = [
   "verified contacts",
   "CRM-ready data",
   "LinkedIn research",
-  "Clay automations",
+  "Automations",
   "data enrichment",
 ];
 
