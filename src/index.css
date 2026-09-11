@@ -1,6 +1,64 @@
 @import "tailwindcss";
 @import "../tokens.css";
 
+/* Canela — display / wordmark */
+@font-face {
+  font-family: "Canela";
+  src: url("./assets/fonts/Canela-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Söhne — UI / body / labels
+ * Buch  ≈ Regular (400–500)
+ * Halbfett ≈ Semibold (600–700)
+ * Schmal Dreiviertelfett kept available for rare condensed sans moments */
+@font-face {
+  font-family: "Söhne";
+  src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Söhne";
+  src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Söhne";
+  src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Söhne";
+  src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Söhne Schmal";
+  src: url("./assets/fonts/sohne-schmal-dreiviertelfett.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Source Code Pro — data tables / spreadsheet mock */
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("./assets/fonts/SourceCodePro-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Hide scrollbars everywhere */
 * { scrollbar-width: none !important; }
 *::-webkit-scrollbar { display: none !important; }
@@ -1102,29 +1160,52 @@ textarea.input { resize: vertical; min-height: 6rem; }
   .contact-trust__label { max-width: none; }
 }
 
-.contact-steps { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+.contact-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  align-items: stretch;
+}
 @media (min-width: 640px) {
   .contact-steps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 960px) {
   .contact-steps { grid-template-columns: repeat(4, 1fr); }
 }
-.contact-step { padding: var(--space-lg); min-height: 100%; }
+.contact-step {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  min-height: 100%;
+}
+.contact-step .process-step__body {
+  flex: 1;
+  min-height: 8.5rem;
+  height: auto;
+  gap: var(--space-sm);
+}
 .contact-step__title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--text-lg);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   font-weight: 600;
   color: var(--color-ink);
-  margin-bottom: var(--space-xs);
+  margin: 0;
   line-height: 1.3;
 }
 .contact-step__dot {
   width: 0.85rem; height: 2px; border-radius: 1px; flex-shrink: 0;
   background: var(--color-mint-deep);
 }
-.contact-step__text { font-size: var(--text-sm); color: var(--color-muted); line-height: 1.55; margin: 0; }
+.contact-step__text {
+  font-size: var(--text-md);
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0;
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
 
 /* Shared process step — big watermark number */
 .process-step-card {

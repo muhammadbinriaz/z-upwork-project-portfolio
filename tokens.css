@@ -1,28 +1,28 @@
 /* GoLeadFinder — design tokens
  *
- * Identity: warm paper & ink, one accent.
- * A single evergreen accent carries every interactive and emphatic state.
- * Secondary hues (brass, slate, clay) exist only as data states inside the
- * delivery table — never as decoration. Adding a sixth decorative hue is how
- * this palette drifts back into looking templated.
+ * Identity: sage paper & ink, one accent.
+ * Light surfaces use soft green pinches (not flat white / cream) so the page
+ * breathes with the evergreen accent. A single accent carries every interactive
+ * and emphatic state. Secondary hues (brass, slate, clay) exist only as data
+ * states inside the delivery table — never as decoration.
  *
- * Type: Instrument Serif (display) · Instrument Sans (UI/body) · JetBrains Mono (data tables only)
- * v2.0.0
+ * Type: Canela (display) · Söhne (UI/body) · Source Code Pro (data tables)
+ * v2.3.0
  */
 
 :root, [data-theme="hum"] {
   color-scheme: light;
 
-  /* ── Neutrals · warm paper ── */
-  --color-paper:      oklch(97% 0.009 85);
-  --color-paper-2:    oklch(94.5% 0.011 85);
-  --color-paper-3:    oklch(91.5% 0.013 85);
-  --color-rule:       oklch(88% 0.011 85);
-  --color-rule-2:     oklch(76% 0.013 85);
-  --color-muted:      oklch(50% 0.011 85);
-  --color-neutral:    oklch(38% 0.011 85);
-  --color-ink-2:      oklch(32% 0.010 250);
-  --color-ink:        oklch(18% 0.010 250);
+  /* ── Neutrals · sage paper (pinches of green light, ~#E8EBE2 ladder) ── */
+  --color-paper:      oklch(97.2% 0.007 140);
+  --color-paper-2:    oklch(93.6% 0.012 138);  /* ~#E8EBE2 */
+  --color-paper-3:    oklch(90.2% 0.016 142);
+  --color-rule:       oklch(86.5% 0.013 142);
+  --color-rule-2:     oklch(74% 0.015 145);
+  --color-muted:      oklch(50% 0.014 150);
+  --color-neutral:    oklch(38% 0.013 150);
+  --color-ink-2:      oklch(32% 0.012 160);
+  --color-ink:        oklch(18% 0.014 165);
 
   /* ── The accent · evergreen ──
    * -fill is a solid surface (always takes --color-on-accent for text).
@@ -41,27 +41,26 @@
   --color-lavender-deep: oklch(40% 0.045 285);
 
   --color-focus:      oklch(45% 0.100 158);
-  --color-on-dark:    oklch(97% 0.009 85);
-  --color-on-accent:  oklch(98% 0.006 85);
-  --nav-bg:           oklch(97% 0.009 85 / 0.80);
-  --nav-bg-float:     oklch(97% 0.009 85 / 0.92);
+  --color-on-dark:    oklch(97.2% 0.007 140);
+  --color-on-accent:  oklch(97.5% 0.008 140);
+  --nav-bg:           oklch(97.2% 0.007 140 / 0.80);
+  --nav-bg-float:     oklch(97.2% 0.007 140 / 0.92);
   --selection-bg:     oklch(45% 0.100 158 / 0.18);
 
   /* ── Surface tints ──
-   * Only --tint-accent carries hue. Cards separate by hierarchy, not colour,
-   * so the legacy per-card tints all resolve to one neutral wash. */
+   * Accent wash + a quiet sage wash so elevated surfaces stay in-family. */
   --tint-accent:   oklch(45% 0.100 158 / 0.07);
-  --tint-neutral:  oklch(18% 0.010 250 / 0.035);
+  --tint-neutral:  oklch(45% 0.040 145 / 0.06);
   /* Hairline for accent-bearing surfaces. Resolves per theme because the inner
    * var()s are substituted in the consuming element's context. */
   --rule-accent:   color-mix(in oklch, var(--color-mint) 30%, var(--color-rule));
 
   /* ── Type ── */
-  --font-display:  "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --font-ui:       "Instrument Sans", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display:  "Canela", "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-ui:       "Söhne", "Sohne", "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-body:     var(--font-ui);
   --font-label:    var(--font-ui);
-  --font-mono:     "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono:     "Source Code Pro", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --font-wordmark: var(--font-display);
 
   --text-xs:        0.75rem;
@@ -141,7 +140,7 @@
 [data-theme="dark"], [data-theme="hum-dark"] {
   color-scheme: dark;
 
-  /* Warm charcoal, not near-black slate — pairs with the cream light theme. */
+  /* Warm charcoal — pairs with sage light paper without going cold slate. */
   --color-paper:      oklch(20.5% 0.008 75);
   --color-paper-2:    oklch(24% 0.009 75);
   --color-paper-3:    oklch(28% 0.010 75);
@@ -150,7 +149,7 @@
   --color-muted:      oklch(66% 0.009 80);
   --color-neutral:    oklch(74% 0.008 80);
   --color-ink-2:      oklch(84% 0.007 80);
-  --color-ink:        oklch(96% 0.005 85);
+  --color-ink:        oklch(96% 0.005 140);
 
   --color-mint:       oklch(52% 0.105 158);
   --color-mint-deep:  oklch(77% 0.095 158);
@@ -165,14 +164,14 @@
   --color-lavender-deep: oklch(74% 0.050 285);
 
   --color-focus:      oklch(77% 0.095 158);
-  --color-on-dark:    oklch(96% 0.005 85);
-  --color-on-accent:  oklch(97% 0.006 85);
+  --color-on-dark:    oklch(96% 0.005 140);
+  --color-on-accent:  oklch(97.5% 0.008 140);
   --nav-bg:           oklch(20.5% 0.008 75 / 0.84);
   --nav-bg-float:     oklch(24% 0.009 75 / 0.94);
   --selection-bg:     oklch(52% 0.105 158 / 0.35);
 
   --tint-accent:   oklch(70% 0.100 158 / 0.10);
-  --tint-neutral:  oklch(96% 0.005 85 / 0.042);
+  --tint-neutral:  oklch(96% 0.005 140 / 0.042);
 
   --shadow-card:        0 1px 2px oklch(0% 0 0 / 0.28),
                         0 10px 28px -20px oklch(0% 0 0 / 0.55);
