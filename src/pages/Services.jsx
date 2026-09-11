@@ -1,13 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ServicesComponent from "../components/Services";
 import Tools from "../components/Tools";
-import Contact from "../components/Contact";
 import Pricing from "../components/Pricing";
 
 const Services = () => {
   return (
     <>
-      {/* Hero */}
       <section
         className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
@@ -30,17 +29,21 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services grid */}
       <ServicesComponent showHead={false} />
-
-      {/* Tools */}
       <Tools />
-
-      {/* Pricing */}
       <Pricing />
 
-      {/* Contact */}
-      <Contact />
+      <section className="section section--mint about-cta">
+        <div className="container-page about-cta__inner">
+          <h2 className="about-cta__title">Ready to scope a list build?</h2>
+          <p className="about-cta__lede">
+            Tell us your ICP and timeline — we reply within 24 hours with a clear plan.
+          </p>
+          <Link to="/contact" className="btn btn--mint btn--lg">
+            Start a project
+          </Link>
+        </div>
+      </section>
     </>
   );
 };

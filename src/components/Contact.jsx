@@ -59,7 +59,7 @@ const Contact = ({ embedded = true }) => {
 
         <div className="grid grid--contact">
           <aside className="contact-aside">
-            <div className="premium-card contact-aside__card">
+            <div className="contact-aside__card">
               <div className="contact-aside__head">
                 <span className="eyebrow">
                   <span className="eyebrow__dot eyebrow__dot--mint"></span>
@@ -137,7 +137,7 @@ const Contact = ({ embedded = true }) => {
             </div>
           </aside>
 
-          <form onSubmit={handleSubmit} className="premium-card contact-form">
+          <form onSubmit={handleSubmit} className="contact-form">
             {!embedded && (
               <div className="contact-form__head">
                 <h2 className="contact-form__title">Send a message</h2>

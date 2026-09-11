@@ -73,7 +73,7 @@ const PortfolioDeliveryLab = () => {
           </p>
         </div>
 
-        <div className="agency-hub__panel premium-card">
+        <div className="agency-hub__panel">
           <div className="agency-hub__stats">
             <div className="agency-hub__stat">
               <span className="agency-hub__stat-value">128+</span>

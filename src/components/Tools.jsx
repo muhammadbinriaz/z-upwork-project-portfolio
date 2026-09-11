@@ -1,7 +1,5 @@
 import React from "react";
 
-const ACCENTS = ["mint", "cyan", "pear", "coral"];
-
 const tools = [
   { name: "Apollo", use: "Sales intelligence & lead database" },
   { name: "LinkedIn Sales Navigator", use: "Advanced lead & company research" },
@@ -28,39 +26,35 @@ const Tools = () => {
             <span className="eyebrow__dot eyebrow__dot--cyan"></span>
             Tools & platforms
           </span>
-          <h2 className="section__title">
-            Our stack
-          </h2>
+          <h2 className="section__title">Our stack</h2>
           <p className="section__lede">
             The platforms and tools our team uses across research, verification,
             enrichment, and CRM delivery.
           </p>
         </div>
 
-        <div className="premium-card" style={{ overflow: "hidden", padding: 0 }}>
-          <div style={{ overflowX: "auto" }}>
-            <table className="spec-sheet">
-              <thead>
-                <tr>
-                  <th>Tool</th>
-                  <th>Use</th>
+        <div className="spec-sheet-wrap">
+          <table className="spec-sheet">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tools.map((tool) => (
+                <tr key={tool.name}>
+                  <td>
+                    <span className="spec-sheet__tool">
+                      <span className="spec-sheet__dot" aria-hidden="true"></span>
+                      {tool.name}
+                    </span>
+                  </td>
+                  <td>{tool.use}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {tools.map((tool, i) => (
-                  <tr key={tool.name} data-accent={ACCENTS[i % ACCENTS.length]}>
-                    <td>
-                      <span className="spec-sheet__tool">
-                        <span className="spec-sheet__dot" aria-hidden="true"></span>
-                        {tool.name}
-                      </span>
-                    </td>
-                    <td>{tool.use}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

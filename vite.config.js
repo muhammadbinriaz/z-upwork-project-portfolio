@@ -7,4 +7,13 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    watch: {
+      ignored: [
+        '**/src/assets/_canela-preview/**',
+        '**/src/assets/canela-font-family.zip',
+        '**/.design-audit/**',
+      ],
+    },
+  },
 })

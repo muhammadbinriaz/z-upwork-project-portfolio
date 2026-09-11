@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ACCENTS = ["mint", "cyan", "pear", "coral"];
-
 const services = [
   {
     title: "B2B Lead Generation",
@@ -55,9 +53,7 @@ const Services = ({ showHead = true }) => {
               <span className="eyebrow__dot eyebrow__dot--mint"></span>
               What we do
             </span>
-            <h2 className="section__title">
-              Services
-            </h2>
+            <h2 className="section__title">Services</h2>
             <p className="section__lede">
               Lead research, data ops, automations, email, and web — scoped and
               delivered by the right specialists on our team.
@@ -65,46 +61,31 @@ const Services = ({ showHead = true }) => {
           </div>
         )}
 
-        <div className="grid grid--3">
+        <ol className="service-list">
           {services.map((service, i) => (
-            <div
-              key={service.title}
-              className={`premium-card service-card service-card--${ACCENTS[i % ACCENTS.length]}`}
-              style={{ padding: "var(--space-lg)" }}
-            >
-              <h3
-                style={{
-                  fontSize: "var(--text-xl)",
-                  color: "var(--color-ink)",
-                  marginBottom: "var(--space-xs)",
-                }}
-              >
-                {service.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "var(--text-sm)",
-                  color: "var(--color-muted)",
-                  lineHeight: 1.5,
-                  marginBottom: "var(--space-md)",
-                }}
-              >
-                {service.description}
-              </p>
-              <div style={{ display: "flex", gap: "var(--space-xs)", flexWrap: "wrap" }}>
-                {service.tags.map((tag) => (
-                  <span key={tag} className="chip" style={{ fontSize: "var(--text-xs)" }}>
-                    {tag}
-                  </span>
-                ))}
+            <li key={service.title} className="service-row">
+              <span className="service-row__index" aria-hidden="true">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="service-row__main">
+                <h3 className="service-row__title">{service.title}</h3>
+                <p className="service-row__text">{service.description}</p>
               </div>
-            </div>
+              <ul className="service-row__tags">
+                {service.tags.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <div style={{ marginTop: "var(--space-3xl)", textAlign: "center" }}>
-          <Link to="/contact" className="btn btn--mint">
-            View Rates
+        <div className="service-list__cta">
+          <Link to="/services#pricing" className="btn btn--mint">
+            View rates
+          </Link>
+          <Link to="/contact" className="btn btn--text">
+            Or start a project →
           </Link>
         </div>
       </div>

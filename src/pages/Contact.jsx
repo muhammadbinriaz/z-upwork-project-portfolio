@@ -112,7 +112,7 @@ const Contact = () => {
         style={{ borderBlock: "1px solid var(--color-rule)" }}
       >
         <div className="container-page">
-          <div className="section__head section__head--center">
+          <div className="section__head">
             <span className="eyebrow">
               <span className="eyebrow__dot eyebrow__dot--mint"></span>
               What happens next
@@ -125,22 +125,19 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="contact-steps">
+          <ol className="step-rail step-rail--compact">
             {steps.map((step) => (
-              <article key={step.num} className="premium-card contact-step process-step-card">
-                <span className="process-step__bg" aria-hidden="true">
+              <li key={step.num} className="step-rail__item">
+                <span className="step-rail__num" aria-hidden="true">
                   {step.num}
                 </span>
-                <div className="process-step__body">
-                  <h3 className="contact-step__title">
-                    <span className="contact-step__dot" aria-hidden="true" />
-                    {step.title}
-                  </h3>
-                  <p className="contact-step__text">{step.text}</p>
+                <div className="step-rail__body">
+                  <h3 className="step-rail__title">{step.title}</h3>
+                  <p className="step-rail__text">{step.text}</p>
                 </div>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 

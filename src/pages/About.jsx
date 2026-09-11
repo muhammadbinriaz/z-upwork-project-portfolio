@@ -76,17 +76,17 @@ const About = () => {
               </div>
             </div>
 
-            <div className="about-mission__stats">
+            <dl className="about-mission__stats">
               {teamStats.map((stat) => (
-                <article
+                <div
                   key={stat.label}
-                  className={`about-mission__stat premium-card about-mission__stat--${stat.accent}`}
+                  className={`about-mission__stat about-mission__stat--${stat.accent}`}
                 >
-                  <p className="about-mission__stat-value">{stat.value}</p>
-                  <p className="about-mission__stat-label">{stat.label}</p>
-                </article>
+                  <dt className="about-mission__stat-value">{stat.value}</dt>
+                  <dd className="about-mission__stat-label">{stat.label}</dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </div>
         </div>
       </section>

@@ -1,12 +1,10 @@
 import React from "react";
 import PortfolioComponent from "../components/Portfolio";
-import Testimonials from "../components/Testimonials";
 import PortfolioDeliveryLab from "../components/PortfolioDeliveryLab";
 
 const Portfolio = () => {
   return (
     <>
-      {/* Hero */}
       <section
         className="section section--page-hero"
         style={{ borderBottom: "1px solid var(--color-rule)" }}
@@ -28,13 +26,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Portfolio grid */}
       <PortfolioComponent showHead={false} />
-
-      {/* Testimonials */}
-      <Testimonials />
-
-      {/* Interactive delivery preview */}
       <PortfolioDeliveryLab />
     </>
   );
