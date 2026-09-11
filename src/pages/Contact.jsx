@@ -11,25 +11,21 @@ const agencyMetrics = [
 const steps = [
   {
     num: "01",
-    color: "var(--color-mint)",
     title: "You reach out",
     text: "Send the form or book a consultation. Include your ICP, industry, and list size.",
   },
   {
     num: "02",
-    color: "var(--color-accent-2)",
     title: "We align on scope",
     text: "We confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
   },
   {
     num: "03",
-    color: "var(--color-accent)",
     title: "The team builds your list",
     text: "Research, verify emails, enrich data, and format everything CRM-ready.",
   },
   {
     num: "04",
-    color: "var(--color-accent-3)",
     title: "You get clean data",
     text: "Delivered in Google Sheets, Excel, or direct CRM import — ready for outreach.",
   },
@@ -132,20 +128,12 @@ const Contact = () => {
           <div className="contact-steps">
             {steps.map((step) => (
               <article key={step.num} className="premium-card contact-step process-step-card">
-                <span
-                  className="process-step__bg"
-                  style={{ "--step-accent": step.color }}
-                  aria-hidden="true"
-                >
+                <span className="process-step__bg" aria-hidden="true">
                   {step.num}
                 </span>
                 <div className="process-step__body">
                   <h3 className="contact-step__title">
-                    <span
-                      className="contact-step__dot"
-                      style={{ background: step.color }}
-                      aria-hidden="true"
-                    />
+                    <span className="contact-step__dot" aria-hidden="true" />
                     {step.title}
                   </h3>
                   <p className="contact-step__text">{step.text}</p>

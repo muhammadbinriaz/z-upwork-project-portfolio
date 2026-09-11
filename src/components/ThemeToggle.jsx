@@ -18,7 +18,7 @@ const ThemeToggle = () => {
 
     const meta = document.querySelector('meta[name="theme-color"]:not([media])');
     if (meta) {
-      meta.setAttribute("content", theme === "hum-dark" ? "#1a1f28" : "#faf6ee");
+      meta.setAttribute("content", theme === "hum-dark" ? "#1a1815" : "#f9f6ef");
     }
   }, [theme]);
 

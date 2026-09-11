@@ -109,7 +109,7 @@ const Portfolio = ({ showHead = true }) => {
               <p
                 style={{
                   fontSize: "var(--text-lg)",
-                  color: "var(--color-accent-2-deep)",
+                  color: "var(--color-mint-deep)",
                   fontFamily: "var(--font-label)",
                   fontWeight: 500,
                   marginBottom: "var(--space-md)",

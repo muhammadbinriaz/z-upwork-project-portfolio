@@ -123,7 +123,7 @@ const RotatingWords = ({ words, interval = 3200, className = "" }) => {
     >
       <em
         ref={textRef}
-        className="hl hl--mint rotating-words__word"
+        className="rotating-words__word"
         aria-label={words[index]}
       />
     </span>
