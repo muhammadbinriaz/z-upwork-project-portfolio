@@ -429,23 +429,18 @@ body {
   width: fit-content;
   isolation: isolate;
 }
-/* Editorial cut — a paper knockout stripe through the first line (~28% from top). */
+/* Editorial cut — accent stripe through the first line (~28% from top). */
 .section__title::before {
   content: "";
   position: absolute;
   left: -0.02em;
   right: -0.02em;
   top: 0.28em;
-  height: 0.075em;
-  background: var(--color-paper);
+  height: 0.07em;
+  background: var(--color-mint-deep);
+  opacity: 0.72;
   z-index: 1;
   pointer-events: none;
-}
-.section--band .section__title::before {
-  background: var(--color-paper-2);
-}
-.section--mint .section__title::before {
-  background: color-mix(in oklch, var(--color-mint) 7%, var(--color-paper));
 }
 .section__head--center .section__title { margin-inline: auto; }
 .section__lede { font-size: var(--text-md); line-height: 1.62; color: var(--color-ink-2); max-width: 54ch; margin: 1.1rem 0 0; }
@@ -638,23 +633,9 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 .hero__title-line,
 .hero__title-rotate { display: block; }
-.hero__title-line {
-  position: relative;
-  isolation: isolate;
-  text-wrap: balance;
-  width: fit-content;
-}
-.hero__title-line::before {
-  content: "";
-  position: absolute;
-  left: -0.02em;
-  right: -0.02em;
-  top: 0.28em;
-  height: 0.07em;
-  background: var(--color-paper);
-  z-index: 1;
-  pointer-events: none;
-}
+/* Each line is its own block, so balancing happens within the line rather than
+ * across the headline — this is what keeps "tools." off a line by itself. */
+.hero__title-line { text-wrap: balance; }
 .hero__title-rotate {
   min-height: 1.08em;
   margin: 0.02em 0 0.06em;
@@ -2394,8 +2375,9 @@ textarea.input { resize: vertical; min-height: 6rem; }
   left: -0.02em;
   right: -0.02em;
   top: 0.28em;
-  height: 0.075em;
-  background: color-mix(in oklch, var(--color-mint) 7%, var(--color-paper));
+  height: 0.07em;
+  background: var(--color-mint-deep);
+  opacity: 0.72;
   z-index: 1;
   pointer-events: none;
 }
