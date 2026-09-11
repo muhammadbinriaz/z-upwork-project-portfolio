@@ -421,10 +421,31 @@ body {
 .section__head--center { text-align: center; margin-inline: auto; }
 .section__head--center .eyebrow { justify-content: center; }
 .section__title {
+  position: relative;
   font-family: var(--font-display); font-weight: 400;
   font-size: clamp(2.2rem, 3.8vw + 0.5rem, 3.6rem);
   line-height: 1.1; letter-spacing: var(--tracking-display);
   color: var(--color-ink); margin: 0; max-width: 24ch; text-wrap: balance;
+  width: fit-content;
+  isolation: isolate;
+}
+/* Editorial cut — a paper knockout stripe through the first line (~28% from top). */
+.section__title::before {
+  content: "";
+  position: absolute;
+  left: -0.02em;
+  right: -0.02em;
+  top: 0.28em;
+  height: 0.075em;
+  background: var(--color-paper);
+  z-index: 1;
+  pointer-events: none;
+}
+.section--band .section__title::before {
+  background: var(--color-paper-2);
+}
+.section--mint .section__title::before {
+  background: color-mix(in oklch, var(--color-mint) 7%, var(--color-paper));
 }
 .section__head--center .section__title { margin-inline: auto; }
 .section__lede { font-size: var(--text-md); line-height: 1.62; color: var(--color-ink-2); max-width: 54ch; margin: 1.1rem 0 0; }
@@ -617,9 +638,23 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 .hero__title-line,
 .hero__title-rotate { display: block; }
-/* Each line is its own block, so balancing happens within the line rather than
- * across the headline — this is what keeps "tools." off a line by itself. */
-.hero__title-line { text-wrap: balance; }
+.hero__title-line {
+  position: relative;
+  isolation: isolate;
+  text-wrap: balance;
+  width: fit-content;
+}
+.hero__title-line::before {
+  content: "";
+  position: absolute;
+  left: -0.02em;
+  right: -0.02em;
+  top: 0.28em;
+  height: 0.07em;
+  background: var(--color-paper);
+  z-index: 1;
+  pointer-events: none;
+}
 .hero__title-rotate {
   min-height: 1.08em;
   margin: 0.02em 0 0.06em;
@@ -2343,12 +2378,26 @@ textarea.input { resize: vertical; min-height: 6rem; }
 .about-cta { text-align: center; border-top: 1px solid var(--color-rule); }
 .about-cta__inner { max-width: 40rem; margin-inline: auto; }
 .about-cta__title {
+  position: relative;
+  isolation: isolate;
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.3vw, 2.9rem);
   letter-spacing: var(--tracking-display);
   color: var(--color-ink);
-  margin: 0 0 var(--space-md);
+  margin: 0 auto var(--space-md);
   text-wrap: balance;
+  width: fit-content;
+}
+.about-cta__title::before {
+  content: "";
+  position: absolute;
+  left: -0.02em;
+  right: -0.02em;
+  top: 0.28em;
+  height: 0.075em;
+  background: color-mix(in oklch, var(--color-mint) 7%, var(--color-paper));
+  z-index: 1;
+  pointer-events: none;
 }
 .about-cta__lede {
   font-size: 1.0625rem;
