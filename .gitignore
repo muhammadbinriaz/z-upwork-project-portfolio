@@ -15,6 +15,10 @@ dist-ssr
 # Local visual-regression screenshots
 .design-audit
 
+# Trial / unlicensed font dumps (use src/assets/fonts for licensed web cuts only)
+src/assets/canela-font-family.zip
+src/assets/_canela-preview/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
