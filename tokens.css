@@ -6,10 +6,10 @@
  * and emphatic state. Secondary hues (brass, slate, clay) exist only as data
  * states inside the delivery table — never as decoration.
  *
- * Type: Canela (display) · Söhne (UI) · Source Code Pro (data).
- * Font binaries stay gitignored — place them in src/assets/fonts/ locally
- * and include them in the production build host (not the public git repo).
- * v2.3.2
+ * Type: Canela → Instrument Serif (display) · Söhne → Instrument Sans (UI)
+ *       · Source Code Pro (data, from Google Fonts on deploy).
+ * Paid .woff2 stay gitignored for local; Vercel uses licensed Google Fonts.
+ * v2.3.3
  */
 
 :root, [data-theme="hum"] {

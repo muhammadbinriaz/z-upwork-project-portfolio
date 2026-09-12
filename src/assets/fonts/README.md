@@ -1,12 +1,4 @@
-# Fonts (gitignored) — needed for production builds
+# Fonts
 
-Place these files in `src/assets/fonts/` on your machine and on the
-deploy host / CI before `npm run build`. Do **not** commit them.
-
-- Canela-Regular.woff2
-- sohne-buch.woff2
-- sohne-halbfett.woff2
-- sohne-schmal-dreiviertelfett.woff2 (optional)
-- SourceCodePro-Medium.woff2
-
-Local `npm run dev` already picks them up if the files are present.
+- **Local:** drop Canela / Söhne `.woff2` here — `npm run dev` will use them.
+- **Vercel:** these files are gitignored, so the live site uses Instrument Serif + Instrument Sans + Source Code Pro from Google Fonts (licensed). Same editorial feel; no paid binaries on GitHub.
