@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/inject-fonts.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fonts:export": "node scripts/export-font-secrets.mjs",
+    "fonts:push": "node scripts/push-font-secrets.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

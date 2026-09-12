@@ -1,49 +1,49 @@
 @import "tailwindcss";
 @import "../tokens.css";
 
-/* Self-hosted cuts (gitignored). font-display:optional = if missing on Vercel,
- * skip and use Instrument Serif / Sans from Google instead of broken empty faces. */
+/* Self-hosted cuts (gitignored). Local files or Vercel FONT_*_B64 inject
+ * via scripts/inject-fonts.mjs. If missing, Instrument Serif/Sans from Google. */
 @font-face {
   font-family: "Canela";
   src: url("./assets/fonts/Canela-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne Schmal";
   src: url("./assets/fonts/sohne-schmal-dreiviertelfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 /* Hide scrollbars everywhere */
