@@ -35,3 +35,5 @@ src/assets/_canela-preview/
 *.njsproj
 *.sln
 *.sw?
+.vercel
+.env*
