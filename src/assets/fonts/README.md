@@ -6,9 +6,9 @@ Paid Canela / Söhne `.woff2` stay **out of git**.
 
 Drop the files in this folder — `npm run dev` uses them.
 
-## Vercel (private inject)
+## Vercel (private Blob inject)
 
-One-time:
+Vercel caps **all** Environment Variables at 64KB total, so fonts cannot be stored as base64 secrets. Instead:
 
 ```bash
 npx vercel login
@@ -16,8 +16,12 @@ npx vercel link
 npm run fonts:push
 ```
 
-That uploads four sensitive env vars (`FONT_*_B64`) for Production + Preview. On each deploy, `prebuild` runs `scripts/inject-fonts.mjs`, writes the `.woff2` files, and Vite bundles them.
+That:
 
-Manual alternative: `npm run fonts:export` and paste into Vercel → Settings → Environment Variables.
+1. Creates a private Blob store `goleadfinder-fonts` (once)
+2. Uploads the four `.woff2` files
+3. Saves short `FONT_*_URL` secrets + links `BLOB_READ_WRITE_TOKEN` to the project
 
-If an env var is missing, the site falls back to Instrument Serif / Sans from Google Fonts.
+On each deploy, `prebuild` downloads them into this folder and Vite bundles them.
+
+If URLs/token are missing, the site falls back to Instrument Serif / Sans from Google Fonts.
