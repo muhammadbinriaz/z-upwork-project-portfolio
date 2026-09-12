@@ -35,7 +35,7 @@ const About = () => {
 
           <div className="page-hero__bignum">
             <div className="bignum">
-              <span className="bignum__pre">128</span>+
+              128<span className="bignum__u">+</span>
             </div>
             <p className="bignum__k">
               Projects completed on Upwork with a 5.0 client rating

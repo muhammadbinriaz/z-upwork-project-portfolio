@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import RotatingWords from "./RotatingWords";
 
 const steps = [
-  { num: "01", label: "research", color: "var(--color-mint)" },
-  { num: "02", label: "verify", color: "var(--color-accent-2)" },
-  { num: "03", label: "enrich", color: "var(--color-accent)" },
-  { num: "04", label: "deliver", color: "var(--color-accent-3)" },
+  { num: "01", label: "research" },
+  { num: "02", label: "verify" },
+  { num: "03", label: "enrich" },
+  { num: "04", label: "deliver" },
 ];
 
 const rotatingPhrases = [
@@ -15,7 +15,7 @@ const rotatingPhrases = [
   "verified contacts",
   "CRM-ready data",
   "LinkedIn research",
-  "Automations",
+  "outreach automations",
   "data enrichment",
 ];
 
@@ -38,7 +38,6 @@ const Hero = () => {
                 <React.Fragment key={step.label}>
                   {i > 0 && <span className="process__link" aria-hidden="true"></span>}
                   <span className="process__step">
-                    <span className="process__dot" style={{ background: step.color }}></span>
                     <span className="num">{step.num}</span> {step.label}
                   </span>
                 </React.Fragment>
@@ -50,7 +49,7 @@ const Hero = () => {
               <span className="hero__title-rotate">
                 <RotatingWords words={rotatingPhrases} />
               </span>
-              <span className="hero__title-line">that actually convert.</span>
+              <span className="hero__title-line">checked by people, not just tools.</span>
             </h1>
 
             <p className="hero__lede">

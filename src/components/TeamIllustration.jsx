@@ -1,38 +1,43 @@
+/* One warm neutral backdrop and one accent family across the whole team. Skin
+ * and hair still vary per person; the backdrop does not, because five portraits
+ * on five pastel backgrounds read as a swatch set rather than as colleagues. */
+const BACKDROP = "#EAE4D8";
+
 const palettes = {
   mint: {
-    bg: "#D4F0E4",
-    skin: "#F5D6C6",
+    bg: BACKDROP,
+    skin: "#F0D2C0",
     hair: "#2D3142",
-    shirt: "#5BB98A",
-    accent: "#3D9970",
+    shirt: "#2F6B4A",
+    accent: "#1F4E35",
   },
   cyan: {
-    bg: "#D6E8F7",
-    skin: "#EBC9B0",
+    bg: BACKDROP,
+    skin: "#E5C3AA",
     hair: "#1E2A3A",
-    shirt: "#4A90C4",
-    accent: "#2E6FA8",
+    shirt: "#3C7D57",
+    accent: "#265A3E",
   },
   coral: {
-    bg: "#FBE4DC",
+    bg: BACKDROP,
     skin: "#C68642",
     hair: "#1A1A1A",
-    shirt: "#E06B52",
-    accent: "#C44D38",
+    shirt: "#24573B",
+    accent: "#173F2A",
   },
   pear: {
-    bg: "#F5F0C8",
-    skin: "#F0D1B8",
+    bg: BACKDROP,
+    skin: "#EACBB2",
     hair: "#4A3728",
-    shirt: "#D4C44A",
-    accent: "#A89A2E",
+    shirt: "#458A63",
+    accent: "#2C6446",
   },
   lavender: {
-    bg: "#E8E0F5",
+    bg: BACKDROP,
     skin: "#D4A574",
     hair: "#2A2035",
-    shirt: "#9B7FD4",
-    accent: "#7258B0",
+    shirt: "#316D4E",
+    accent: "#204A35",
   },
 };
 
