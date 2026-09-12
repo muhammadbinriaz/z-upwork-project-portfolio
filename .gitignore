@@ -15,7 +15,12 @@ dist-ssr
 # Local visual-regression screenshots
 .design-audit
 
-# Trial / unlicensed font dumps (use src/assets/fonts for licensed web cuts only)
+# Fonts stay local only (commercial / self-hosted cuts — never publish binaries)
+src/assets/fonts/
+src/assets/**/*.woff
+src/assets/**/*.woff2
+src/assets/**/*.otf
+src/assets/**/*.ttf
 src/assets/canela-font-family.zip
 src/assets/_canela-preview/
 
