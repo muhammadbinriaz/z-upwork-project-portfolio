@@ -6,10 +6,10 @@
  * and emphatic state. Secondary hues (brass, slate, clay) exist only as data
  * states inside the delivery table — never as decoration.
  *
- * Type: Canela/Instrument Serif (display) · Söhne/Instrument Sans (UI)
- *       · Source Code Pro (data). Paid cuts stay local-only; production uses
- *       free licensed Google Fonts so deploy never looks broken.
- * v2.3.1
+ * Type: Canela (display) · Söhne (UI) · Source Code Pro (data).
+ * Font binaries stay gitignored — place them in src/assets/fonts/ locally
+ * and include them in the production build host (not the public git repo).
+ * v2.3.2
  */
 
 :root, [data-theme="hum"] {

@@ -16,7 +16,8 @@ dist-ssr
 .design-audit
 
 # Fonts stay local only (commercial / self-hosted cuts — never publish binaries)
-src/assets/fonts/
+src/assets/fonts/**
+!src/assets/fonts/README.md
 src/assets/**/*.woff
 src/assets/**/*.woff2
 src/assets/**/*.otf

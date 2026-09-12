@@ -1,49 +1,56 @@
 @import "tailwindcss";
 @import "../tokens.css";
 
-/* Local paid cuts (gitignored). font-display:optional → if missing on deploy,
- * skip fast and use Instrument Serif / Sans from Google Fonts instead. */
+/* Self-hosted cuts — files live in src/assets/fonts/ and are gitignored.
+ * Drop the .woff2 files locally (and on the host at build time) to get Canela / Söhne. */
 @font-face {
   font-family: "Canela";
   src: url("./assets/fonts/Canela-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 @font-face {
   font-family: "Söhne Schmal";
   src: url("./assets/fonts/sohne-schmal-dreiviertelfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("./assets/fonts/SourceCodePro-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Hide scrollbars everywhere */
