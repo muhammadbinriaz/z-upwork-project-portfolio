@@ -1,0 +1,4 @@
+#!/bin/sh
+# Drop injected co-author trailers so commits stay sole-authored.
+sed -i '/^Co-authored-by:/d' "$1" 2>/dev/null || \
+  sed -i '' '/^Co-authored-by:/d' "$1"
