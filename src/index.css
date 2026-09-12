@@ -1,62 +1,49 @@
 @import "tailwindcss";
 @import "../tokens.css";
 
-/* Canela — display / wordmark */
+/* Local paid cuts (gitignored). font-display:optional → if missing on deploy,
+ * skip fast and use Instrument Serif / Sans from Google Fonts instead. */
 @font-face {
   font-family: "Canela";
   src: url("./assets/fonts/Canela-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
-
-/* Söhne — UI / body / labels
- * Buch  ≈ Regular (400–500)
- * Halbfett ≈ Semibold (600–700)
- * Schmal Dreiviertelfett kept available for rare condensed sans moments */
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-buch.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Söhne";
   src: url("./assets/fonts/sohne-halbfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 @font-face {
   font-family: "Söhne Schmal";
   src: url("./assets/fonts/sohne-schmal-dreiviertelfett.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-
-/* Source Code Pro — data tables / spreadsheet mock */
-@font-face {
-  font-family: "Source Code Pro";
-  src: url("./assets/fonts/SourceCodePro-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 /* Hide scrollbars everywhere */
