@@ -721,6 +721,32 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 
 .section--tight { padding-block: clamp(2.5rem, 6vw, var(--space-2xl)); }
+
+.site-footer {
+  border-top: 1px solid var(--color-rule);
+}
+.site-footer__link {
+  font-size: var(--text-sm);
+  color: var(--color-ink-2);
+}
+.site-footer__link:hover {
+  color: var(--color-ink);
+}
+.site-footer__copy {
+  margin: var(--space-xl) 0 0;
+  font-size: var(--text-xs);
+  line-height: 1.55;
+  color: var(--color-ink-2);
+}
+@media (max-width: 899px) {
+  .site-footer {
+    padding-bottom: calc(clamp(2.5rem, 6vw, var(--space-2xl)) + 1.75rem + env(safe-area-inset-bottom, 0px));
+  }
+  .site-footer__copy {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+  }
+}
 .section--hero {
   position: relative;
   isolation: isolate;
