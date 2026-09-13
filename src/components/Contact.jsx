@@ -7,6 +7,7 @@ const services = [
   "Email List Building",
   "LinkedIn Research",
   "CRM Data Cleaning",
+  "Web Development",
 ];
 
 const Contact = ({ embedded = true }) => {
@@ -49,10 +50,10 @@ const Contact = ({ embedded = true }) => {
               Get in touch
             </span>
             <h2 className="section__title">
-              Ready to get accurate B2B leads?
+              Ready to start a project with the team?
             </h2>
             <p className="section__lede">
-              Send us a message or book a consultation to discuss your project.
+              Lead research, data ops, automations, or web — send a brief or book a consultation.
             </p>
           </div>
         )}
@@ -107,7 +108,7 @@ const Contact = ({ embedded = true }) => {
                   <div className="contact-aside__rates">
                     <div className="contact-aside__rate contact-aside__rate--mint">
                       <span className="contact-aside__rate-value">$5</span>
-                      <span className="contact-aside__rate-label">/hr lead gen &amp; research</span>
+                      <span className="contact-aside__rate-label">/hr research, data &amp; delivery</span>
                     </div>
                     <div className="contact-aside__rate contact-aside__rate--pear">
                       <span className="contact-aside__rate-value">$20</span>
@@ -142,8 +143,8 @@ const Contact = ({ embedded = true }) => {
               <div className="contact-form__head">
                 <h2 className="contact-form__title">Send a message</h2>
                 <p className="contact-form__lede">
-                  Tell us about your target audience, industry, and how many leads you need.
-                  We&apos;ll reply with a plan and timeline.
+                  Tell us what you need — research, enrichment, CRM cleanup, automations, or web —
+                  and we&apos;ll reply with a plan and timeline.
                 </p>
               </div>
             )}
@@ -198,8 +199,10 @@ const Contact = ({ embedded = true }) => {
                 <option value="contact-research">Contact Research</option>
                 <option value="data-enrichment">Data Enrichment</option>
                 <option value="email-list">Email List Building</option>
+                <option value="linkedin-research">LinkedIn Research</option>
                 <option value="crm-cleanup">CRM Data Cleaning</option>
-                <option value="other">Other</option>
+                <option value="web-development">Web Development</option>
+                <option value="other">Other / multi-service</option>
               </select>
             </div>
 
@@ -215,7 +218,7 @@ const Contact = ({ embedded = true }) => {
                 required
                 rows={embedded ? 5 : 6}
                 className="input"
-                placeholder="Tell us about your project, target audience, and ideal contact criteria..."
+                placeholder="Project goals, audience or stack, timeline, and which services you need..."
               />
             </div>
 

@@ -11,12 +11,12 @@ const steps = [
 
 const rotatingPhrases = [
   "prospect lists",
-  "cold email lists",
   "verified contacts",
-  "CRM-ready data",
+  "data enrichment",
+  "CRM cleanup",
   "LinkedIn research",
   "outreach automations",
-  "data enrichment",
+  "web builds",
 ];
 
 const sheetRows = [
@@ -54,7 +54,7 @@ const Hero = () => {
 
             <p className="hero__lede">
               A senior B2B agency on Upwork — Top Rated Plus, 128+ projects delivered.
-              You send the ICP, we hand back a clean sheet your sales team can use today.
+              Lead research, data ops, automations, and web — scoped and owned by specialists.
             </p>
 
             <div className="hero__cta">

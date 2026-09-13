@@ -12,22 +12,22 @@ const steps = [
   {
     num: "01",
     title: "You reach out",
-    text: "Send the form or book a consultation. Include your ICP, industry, and list size.",
+    text: "Send the form or book a consultation. Share goals, ICP or stack, scope, and timeline.",
   },
   {
     num: "02",
     title: "We align on scope",
-    text: "We confirm targeting criteria, tools, deliverable format, and timeline within 24 hours.",
+    text: "We confirm services, deliverables, tools, and timeline within 24 hours — and assign the right specialists.",
   },
   {
     num: "03",
-    title: "The team builds your list",
-    text: "Research, verify emails, enrich data, and format everything CRM-ready.",
+    title: "The team executes",
+    text: "Research, verify, enrich, clean CRM data, automate, or build web — owned by the lane that fits.",
   },
   {
     num: "04",
-    title: "You get clean data",
-    text: "Delivered in Google Sheets, Excel, or direct CRM import — ready for outreach.",
+    title: "You get delivery",
+    text: "CRM-ready files, verified data, automations, or shipped web work — ready to use.",
   },
 ];
 
@@ -35,12 +35,12 @@ const faqs = [
   {
     accent: "mint",
     q: "What information do you need to get started?",
-    a: "Your ideal customer profile (industry, company size, job titles, geography), expected list size, and preferred deliverable format (Google Sheets, Excel, HubSpot, etc.).",
+    a: "Project goals, which services you need (research, enrichment, CRM cleanup, automations, web), audience or stack details, and preferred deliverable format when data is involved.",
   },
   {
     accent: "cyan",
-    q: "How quickly can you deliver a prospect list?",
-    a: "Most projects are delivered within 3–7 business days depending on list size and complexity. Rush delivery is available for smaller lists.",
+    q: "How quickly can you deliver?",
+    a: "Most research and data projects ship in 3–7 business days depending on scope. Web and automation timelines are scoped on the brief. Rush options are available for smaller builds.",
   },
   {
     accent: "pear",
@@ -50,7 +50,7 @@ const faqs = [
   {
     accent: "coral",
     q: "Do you work with agencies and teams?",
-    a: "Yes. We work with SaaS companies, marketing agencies, sales teams, and solo founders. Recurring monthly lists and one-off projects both welcome.",
+    a: "Yes. We work with SaaS companies, marketing agencies, sales teams, and founders — one-off projects, recurring research retainers, and multi-service engagements.",
   },
 ];
 
@@ -73,8 +73,8 @@ const Contact = () => {
               Get in <em className="hl hl--mint">touch</em>
             </h1>
             <p className="section__lede">
-              Ready for a verified prospect list your sales team can import on day one?
-              Tell us your ICP — we assign the right specialists and reply within 24 hours.
+              Need lead research, data ops, automations, or a web build?
+              Tell us the brief — we assign the right specialists and reply within 24 hours.
             </p>
           </div>
 
@@ -103,9 +103,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Form + contact info */}
-      <ContactForm embedded={false} />
-
       {/* What happens next */}
       <section
         className="section section--band section--mint"
@@ -118,7 +115,7 @@ const Contact = () => {
               What happens next
             </span>
             <h2 className="section__title" style={{ maxWidth: "none" }}>
-              From first message to CRM-ready list.
+              From first message to delivered work.
             </h2>
             <p className="section__lede">
               A straightforward process — no endless back-and-forth, no mystery deliverables.
@@ -191,6 +188,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+
+      {/* Form last — page CTA after context */}
+      <ContactForm embedded={false} />
     </>
   );
 };

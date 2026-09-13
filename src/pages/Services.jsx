@@ -35,9 +35,9 @@ const Services = () => {
 
       <section className="section section--mint about-cta">
         <div className="container-page about-cta__inner">
-          <h2 className="about-cta__title">Ready to scope a list build?</h2>
+          <h2 className="about-cta__title">Ready to scope a project?</h2>
           <p className="about-cta__lede">
-            Tell us your ICP and timeline — we reply within 24 hours with a clear plan.
+            Tell us your goals and timeline — we reply within 24 hours with a clear plan.
           </p>
           <Link to="/contact" className="btn btn--mint btn--lg">
             Start a project

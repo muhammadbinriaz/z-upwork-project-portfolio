@@ -18,7 +18,7 @@ const Pricing = () => {
             <div className="rate-sheet__meta">
               <span className="rate-sheet__label">Hourly projects</span>
               <p className="rate-sheet__desc">
-                B2B lead generation, contact research, data enrichment, and CRM cleaning.
+                B2B lead generation, contact research, data enrichment, CRM cleaning, and related delivery.
               </p>
             </div>
             <div className="rate-sheet__price">
@@ -34,7 +34,7 @@ const Pricing = () => {
             <div className="rate-sheet__meta">
               <span className="rate-sheet__label">Consultation</span>
               <p className="rate-sheet__desc">
-                Zoom to align on ICP, audience, and how we build your prospect list.
+                Zoom to align on goals, ICP or stack, and which services the team should own.
               </p>
             </div>
             <div className="rate-sheet__price">

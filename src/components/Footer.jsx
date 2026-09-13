@@ -15,7 +15,7 @@ const Footer = () => {
             marginBottom: "var(--space-2xl)",
           }}
         >
-          Let's build your next prospect list.
+          Let&apos;s scope your next agency project.
         </h2>
 
         <div

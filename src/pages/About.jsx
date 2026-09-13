@@ -28,8 +28,8 @@ const About = () => {
               <span className="hl hl--mint">GoLeadFinder</span>.
             </h1>
             <p className="section__lede">
-              A small, senior crew focused on B2B research, verified contacts,
-              and CRM-ready delivery — with dedicated specialists for every lane.
+              A small, senior crew for B2B research, data ops, automations, and web —
+              with dedicated specialists for every lane.
             </p>
           </div>
 
@@ -53,13 +53,14 @@ const About = () => {
                 Our mission
               </span>
               <h2 className="about-mission__title">
-                Prospect lists that sales teams actually trust.
+                Agency delivery sales and ops teams can trust.
               </h2>
               <p className="about-mission__text">
                 GoLeadFinder started with one obsession: stop sending reps
                 into outreach with stale spreadsheets. Today we&apos;re a
-                coordinated team — strategists, verifiers, and CRM operators —
-                shipping ICP-mapped lists your pipeline can use immediately.
+                coordinated team — strategists, researchers, verifiers, CRM
+                operators, and builders — shipping ICP-mapped data, clean systems,
+                and web work your pipeline can use immediately.
               </p>
               <p className="about-mission__text">
                 We combine Sales Navigator, Apollo, Clay, and verification
@@ -97,10 +98,10 @@ const About = () => {
       <section className="section section--mint about-cta">
         <div className="container-page about-cta__inner">
           <h2 className="about-cta__title">
-            Ready to meet the team on your next list build?
+            Ready to meet the team on your next project?
           </h2>
           <p className="about-cta__lede">
-            Tell us your ICP, stack, and timeline — we&apos;ll scope a project
+            Tell us your goals, stack, and timeline — we&apos;ll scope the work
             and assign the right specialists from day one.
           </p>
           <Link to="/contact" className="btn btn--mint btn--lg">

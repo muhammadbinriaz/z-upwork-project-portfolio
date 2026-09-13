@@ -10,12 +10,12 @@ const TeamValues = () => (
           How we work
         </span>
         <h2 className="section__title">
-          Four steps from brief to CRM-ready list.
+          Four steps from brief to delivery.
         </h2>
         <p className="section__lede">
-          A repeatable workflow — not one person guessing at your ICP over a
-          spreadsheet. Every project moves through the same research, verify,
-          and deliver pipeline.
+          A repeatable workflow — not one person guessing over a spreadsheet.
+          Every engagement moves through research, verify, and deliver with the
+          right specialists on the job.
         </p>
       </div>
 
