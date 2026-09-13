@@ -24,7 +24,6 @@ const SELECTOR = [
   "main .contact-trust",
   "main .page-hero__bignum",
   "main .spec-sheet",
-  "footer .container-page > *",
 ].join(", ");
 
 /**

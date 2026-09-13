@@ -21,8 +21,17 @@ function ScrollToTop({ navRef }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
     navRef.current?.classList.remove("is-floating");
-    if (!isTransitioning()) resetScroll();
+    // Always pin top on route change (including under the cover while busy).
+    resetScroll();
+    const id = window.requestAnimationFrame(() => resetScroll());
+    return () => window.cancelAnimationFrame(id);
   }, [pathname, navRef]);
 
   return null;

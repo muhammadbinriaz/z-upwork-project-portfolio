@@ -186,6 +186,15 @@ body {
 html.route-covering .nav {
   pointer-events: none;
 }
+
+/* Freeze scroll for the whole cover→reveal window so a mid-wipe
+ * wheel/touch can't fight the top settle and yank the page twice. */
+html.route-scroll-lock,
+html.route-scroll-lock body {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
 @media (max-width: 768px) {
   .tn {
     font-size: clamp(1.35rem, 7vw, 2.6rem);
@@ -727,7 +736,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 .site-footer__link {
   font-size: var(--text-sm);
-  color: var(--color-ink-2);
+  color: var(--color-neutral);
 }
 .site-footer__link:hover {
   color: var(--color-ink);
@@ -736,7 +745,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
   margin: var(--space-xl) 0 0;
   font-size: var(--text-xs);
   line-height: 1.55;
-  color: var(--color-ink-2);
+  color: var(--color-ink);
 }
 @media (max-width: 899px) {
   .site-footer {
