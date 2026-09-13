@@ -1526,7 +1526,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
   display: grid;
   grid-template-columns: 3.25rem minmax(0, 1fr);
   gap: var(--space-md) var(--space-lg);
-  padding: var(--space-lg) 0;
+  padding: var(--space-xl) 0;
   border-bottom: 1px solid var(--color-rule);
 }
 @media (min-width: 900px) {
@@ -1538,9 +1538,12 @@ textarea.input { resize: vertical; min-height: 6rem; }
   .step-rail:not(.step-rail--compact) .step-rail__item {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
-    padding: 0 var(--space-lg) 0 0;
+    padding: 0 clamp(1.15rem, 2.2vw, 1.85rem);
     border-bottom: 0;
     border-right: 1px solid var(--color-rule);
+  }
+  .step-rail:not(.step-rail--compact) .step-rail__item:first-child {
+    padding-left: 0;
   }
   .step-rail:not(.step-rail--compact) .step-rail__item:last-child {
     border-right: 0;
@@ -2528,7 +2531,16 @@ textarea.input { resize: vertical; min-height: 6rem; }
 .team-detail--mint, .team-detail--cyan, .team-detail--coral,
 .team-detail--pear, .team-detail--lavender { border-color: var(--color-rule); }
 
-.team-process { border-top: 1px solid var(--color-rule); }
+.team-process {
+  /* section--band already draws the block rules */
+  border-top: 0;
+}
+.team-process .section__head {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.team-process .step-rail {
+  margin-top: 0;
+}
 
 .about-cta { text-align: center; border-top: 1px solid var(--color-rule); }
 .about-cta__inner { max-width: 40rem; margin-inline: auto; }
