@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { setLenis } from "../lib/scroll";
 
 const useLenis = () => {
   const lenisRef = useRef(null);
@@ -13,17 +14,20 @@ const useLenis = () => {
     });
 
     lenisRef.current = lenis;
+    setLenis(lenis);
 
+    let rafId = 0;
     const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
-
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisRef.current = null;
+      setLenis(null);
     };
   }, []);
 

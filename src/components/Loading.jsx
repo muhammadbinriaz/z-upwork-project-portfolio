@@ -1,103 +1,67 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import SplitType from "split-type";
+import { prefersReducedMotion } from "../lib/motion";
 
-const Loading = ({ onComplete }) => {
-  const curtainRef = useRef(null);
-  const textRef = useRef(null);
-  const containerRef = useRef(null);
-  const completedRef = useRef(false);
+export default function Loading({ onComplete }) {
+  const wrapRef = useRef(null);
+  const counterRef = useRef(null);
 
   useEffect(() => {
-    const curtain = curtainRef.current;
-    const text = textRef.current;
-    const container = containerRef.current;
-
-    const split = new SplitType(text, { types: "chars" });
-
     const finish = () => {
-      if (completedRef.current) return;
-      completedRef.current = true;
-      split.revert();
-      if (onComplete) onComplete();
+      document.body.style.overflow = "";
+      onComplete?.();
     };
 
-    gsap.set(split.chars, { opacity: 0 });
-    gsap.set(container, { visibility: "visible" });
+    if (prefersReducedMotion()) {
+      finish();
+      return;
+    }
 
-    const tl = gsap.timeline({ onComplete: finish });
+    document.body.style.overflow = "hidden";
+    gsap.set(wrapRef.current, { y: 0, force3D: true });
 
-    tl.fromTo(
-      curtain,
-      { y: "-100%" },
-      { y: "0%", duration: 0.7, ease: "power3.inOut" },
-    );
+    const mid = 4 + Math.floor(Math.random() * 2);
+    const pts = new Set();
+    while (pts.size < mid) pts.add(10 + Math.floor(Math.random() * 80));
+    const values = [...pts].sort((a, b) => a - b);
+    values.push(100);
 
-    tl.fromTo(
-      split.chars,
-      { opacity: 0, y: 40, rotateX: -90 },
-      {
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        duration: 0.6,
-        stagger: 0.04,
-        ease: "back.out(1.4)",
-      },
-    );
+    let i = 0;
+    let timer;
+    let exit;
 
-    tl.to({}, { duration: 0.5 });
+    function tick() {
+      const v = values[i];
+      if (counterRef.current) counterRef.current.textContent = String(v);
+      i += 1;
+      if (i >= values.length) {
+        exit = gsap.to(wrapRef.current, {
+          y: -window.innerHeight,
+          duration: 0.85,
+          delay: 0.28,
+          ease: "power3.inOut",
+          force3D: true,
+          onComplete: finish,
+        });
+        return;
+      }
+      timer = setTimeout(tick, Math.floor(Math.random() * 200) + 260);
+    }
 
-    tl.to(curtain, { y: "-100%", duration: 0.6, ease: "power3.inOut" }, "lift");
+    timer = setTimeout(tick, 320);
 
     return () => {
-      if (!completedRef.current && tl.progress() >= 0.95) finish();
-      tl.kill();
+      document.body.style.overflow = "";
+      clearTimeout(timer);
+      if (exit) exit.kill();
     };
   }, [onComplete]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 9999,
-        pointerEvents: "none",
-        visibility: "hidden",
-      }}
-      aria-hidden="true"
-    >
-      <div
-        ref={curtainRef}
-        className="loading-curtain"
-        style={{
-          position: "absolute",
-          inset: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "var(--color-paper)",
-        }}
-      >
-        <h1
-          ref={textRef}
-          style={{
-            fontFamily: "var(--font-wordmark)",
-            fontSize: "clamp(2.5rem, 6vw, 5rem)",
-            fontWeight: 400,
-            color: "var(--color-ink)",
-            letterSpacing: "-0.02em",
-            textAlign: "center",
-            paddingInline: "1rem",
-            perspective: "400px",
-          }}
-        >
-          GoLeadFinder
-        </h1>
-      </div>
+    <div className="loader-screen" ref={wrapRef} aria-hidden="true">
+      <p className="loader-num" ref={counterRef}>
+        0
+      </p>
     </div>
   );
-};
-
-export default Loading;
+}

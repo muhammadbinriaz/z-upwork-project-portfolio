@@ -72,7 +72,7 @@ const Navbar = ({ navRef }) => {
           </nav>
 
           <div className="nav__actions">
-            <ThemeToggle />
+            <ThemeToggle className="nav__theme" />
             <a
               href="https://www.upwork.com/freelancers/muhammadz67"
               target="_blank"
@@ -183,7 +183,6 @@ const Navbar = ({ navRef }) => {
               </a>
             </div>
             <div className="nav__mobile-actions">
-              <ThemeToggle />
               <a
                 href="https://www.upwork.com/freelancers/muhammadz67"
                 target="_blank"

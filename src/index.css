@@ -101,6 +101,98 @@ body {
   color: var(--color-ink);
 }
 
+/* ═══ First-load counter + route cover (portfolio-style) ═══ */
+/* ═══ First-load counter + route cover (portfolio-style) ═══ */
+.loader-screen {
+  position: fixed;
+  inset: -2px 0;
+  z-index: 300000;
+  background: var(--color-paper-2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  will-change: transform;
+}
+.loader-num {
+  margin: 0;
+  padding: 0.12em 0.28em;
+  font-family: var(--font-display);
+  font-size: 18vw;
+  font-weight: 400;
+  line-height: 0.85;
+  color: var(--color-ink);
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 640px) {
+  .loader-screen {
+    align-items: center;
+    justify-content: center;
+  }
+  .loader-num {
+    font-size: 32vw;
+    padding: 0;
+  }
+}
+
+.transition {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  pointer-events: none;
+  overflow: hidden;
+}
+.transition-panel {
+  position: absolute;
+  inset: -8px 0;
+  background: var(--color-paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  will-change: transform;
+}
+.tn {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: var(--tracking-display);
+  line-height: 1;
+  white-space: nowrap;
+  font-size: clamp(2rem, 5.2vw, 4.5rem);
+  -webkit-font-smoothing: antialiased;
+}
+.tn-ghost {
+  display: block;
+  color: color-mix(in oklch, var(--color-ink) 28%, transparent);
+}
+.tn-mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+}
+.tn-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+html.route-covering .nav {
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .tn {
+    font-size: clamp(1.35rem, 7vw, 2.6rem);
+    max-width: calc(100vw - 32px);
+  }
+}
+
 /* ═══ BUTTONS ═══
  * Flat, near-square, one accent. The old hard bottom "edge" shadow and full
  * pill radius are what made these read as a toy UI kit rather than a vendor. */
@@ -192,6 +284,21 @@ body {
 }
 .nav__links a:hover, .nav__links a.active { color: var(--color-ink); background: var(--color-paper-2); }
 .nav__actions { display: flex; align-items: center; gap: 0.5rem; margin-left: 0.4rem; flex-shrink: 0; }
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  padding: 0;
+  gap: 0;
+  flex-shrink: 0;
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+}
+.theme-toggle:hover {
+  background: var(--color-paper-3);
+  border-color: var(--color-rule-2);
+}
 
 /* Mobile nav toggle + full-screen menu (Integrated Bio–style) */
 .nav__toggle {
@@ -360,9 +467,11 @@ body {
 @media (max-width: 880px) {
   .nav__links { display: none; }
   .nav__actions .btn--hire { display: none; }
-  .nav__actions .btn--soft { display: none; }
   .nav__toggle { display: inline-flex; }
-  .nav__actions { margin-left: 0.35rem; }
+  .nav__actions {
+    margin-left: auto;
+    margin-right: 0.15rem;
+  }
   .nav.is-floating .nav__inner {
     max-width: min(calc(100% - 1rem), 36rem);
     transform: translateY(0.55rem);
