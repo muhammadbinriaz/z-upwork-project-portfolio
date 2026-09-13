@@ -82,24 +82,23 @@ const Navbar = ({ navRef }) => {
             >
               Hire on Upwork
             </a>
+            <button
+              type="button"
+              className="nav__toggle"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="nav-mobile"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="nav__toggle-label" aria-hidden="true">
+                {menuOpen ? "Close" : "Menu"}
+              </span>
+              <span className="nav__toggle-icon" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
           </div>
-
-          <button
-            type="button"
-            className="nav__toggle"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="nav-mobile"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span className="nav__toggle-label" aria-hidden="true">
-              {menuOpen ? "Close" : "Menu"}
-            </span>
-            <span className="nav__toggle-icon" aria-hidden="true">
-              <span></span>
-              <span></span>
-            </span>
-          </button>
         </div>
       </header>
 

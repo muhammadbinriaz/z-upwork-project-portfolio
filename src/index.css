@@ -193,6 +193,28 @@ html.route-covering .nav {
   }
 }
 
+/* ═══ Cursor follower (desktop / fine pointer) ═══ */
+html .minicircle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 99999999;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.14s ease-out;
+}
+@media (hover: none), (pointer: coarse) {
+  html .minicircle {
+    display: none;
+  }
+}
+
 /* ═══ BUTTONS ═══
  * Flat, near-square, one accent. The old hard bottom "edge" shadow and full
  * pill radius are what made these read as a toy UI kit rather than a vendor. */
@@ -303,7 +325,7 @@ html.route-covering .nav {
 /* Mobile nav toggle + full-screen menu (Integrated Bio–style) */
 .nav__toggle {
   display: none; align-items: center; justify-content: center; gap: 0.55rem;
-  height: 40px; padding: 0 0.85rem 0 1rem; margin-left: auto;
+  height: 40px; padding: 0 0.85rem 0 1rem; margin-left: 0;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-rule);
   background: var(--color-paper-2);
@@ -470,7 +492,7 @@ html.route-covering .nav {
   .nav__toggle { display: inline-flex; }
   .nav__actions {
     margin-left: auto;
-    margin-right: 0.15rem;
+    gap: 0.4rem;
   }
   .nav.is-floating .nav__inner {
     max-width: min(calc(100% - 1rem), 36rem);

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Loading from "./components/Loading";
 import TransitionOverlay from "./components/TransitionOverlay";
+import Cursor from "./components/Cursor";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -130,6 +131,7 @@ function App() {
   return (
     <AnimationContext.Provider value={animationReady}>
       <TransitionOverlay />
+      <Cursor />
       <ScrollToTop navRef={navRef} />
       {!initialLoadDone && <Loading onComplete={handleLoadingComplete} />}
 
