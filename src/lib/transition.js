@@ -1,6 +1,11 @@
 import gsap from "gsap";
 import { prefersReducedMotion } from "./motion";
-import { pauseLenis, resumeLenis, resetScroll } from "./scroll";
+import {
+  freezeScrollInput,
+  lockScrollAtTop,
+  unlockScroll,
+  resetScroll,
+} from "./scroll";
 
 /* Matched in/out so the wipe doesn't feel faster one way than the other */
 const EASE = "power2.inOut";
@@ -98,7 +103,11 @@ function snapMenuClosed() {
   if (nav) nav.classList.remove("is-menu-open");
   document.documentElement.style.overflow = "";
   document.body.style.overflow = "";
-  resumeLenis();
+}
+
+/** Only call once the cover fully hides the outgoing page. */
+function settleUnderCover() {
+  lockScrollAtTop();
 }
 
 export function cover() {
@@ -108,7 +117,8 @@ export function cover() {
 
     busy = true;
     if (shell()) shell().style.pointerEvents = "auto";
-    pauseLenis();
+    // Keep the scrolled page where it is — only block further input.
+    freezeScrollInput();
 
     const h = window.innerHeight;
     const mask = maskEl();
@@ -121,7 +131,7 @@ export function cover() {
       if (ghost) gsap.set(ghost, { opacity: 0 });
       hideNav();
       snapMenuClosed();
-      resetScroll();
+      settleUnderCover();
       return resolve();
     }
 
@@ -134,7 +144,7 @@ export function cover() {
 
     const tl = gsap.timeline({
       onComplete: () => {
-        resetScroll();
+        settleUnderCover();
         resolve();
       },
     });
@@ -144,8 +154,10 @@ export function cover() {
       duration: coverDur,
       ease: EASE,
       onComplete: () => {
+        // Panel now fully covers — safe to jump the (hidden) page to top.
         hideNav();
         snapMenuClosed();
+        settleUnderCover();
       },
     });
 
@@ -177,6 +189,7 @@ export function reveal() {
       if (shell()) shell().style.pointerEvents = "none";
       resetScroll();
       showNav();
+      unlockScroll();
       busy = false;
       flushRevealDone();
       resolve();
@@ -186,12 +199,13 @@ export function reveal() {
     if (!el || prefersReducedMotion()) return done();
 
     hideNav();
+    // Still under cover — keep new route pinned at top for the wipe-out.
+    settleUnderCover();
 
     gsap.killTweensOf(el);
     if (mask) gsap.killTweensOf(mask);
     if (ghost) gsap.killTweensOf(ghost);
 
-    // Same duration + ease as cover-in so exit mirrors entrance
     gsap.fromTo(
       el,
       { y: 0, autoAlpha: 1 },
