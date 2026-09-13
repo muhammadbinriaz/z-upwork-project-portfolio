@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="section section--tight" style={{ borderTop: "1px solid var(--color-rule)" }}>
+    <footer className="section section--tight site-footer">
       <div className="container-page">
         {/* Statement */}
         <h2
@@ -53,36 +53,30 @@ const Footer = () => {
               flexWrap: "wrap",
             }}
           >
-            <Link to="/services" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
+            <Link to="/services" className="site-footer__link">
               Services
             </Link>
-            <Link to="/portfolio" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
+            <Link to="/portfolio" className="site-footer__link">
               Portfolio
             </Link>
-            <Link to="/about" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
+            <Link to="/about" className="site-footer__link">
               About
             </Link>
-            <Link to="/contact" style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}>
+            <Link to="/contact" className="site-footer__link">
               Contact
             </Link>
             <a
               href="https://www.upwork.com/freelancers/muhammadz67"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ fontSize: "var(--text-sm)", color: "var(--color-muted)" }}
+              className="site-footer__link"
             >
               Upwork ↗
             </a>
           </div>
         </div>
 
-        <p
-          style={{
-            marginTop: "var(--space-xl)",
-            fontSize: "var(--text-xs)",
-            color: "var(--color-muted)",
-          }}
-        >
+        <p className="site-footer__copy">
           &copy; {new Date().getFullYear()} GoLeadFinder. B2B research and
           data projects delivered worldwide.
         </p>
