@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import useLenis from "./hooks/useLenis";
 import useFpsCap from "./hooks/useFpsCap";
+import useScrollReveal from "./hooks/useScrollReveal";
 import { cover, reveal, isTransitioning } from "./lib/transition";
 import { resetScroll } from "./lib/scroll";
 import { prefersReducedMotion } from "./lib/motion";
@@ -43,6 +44,8 @@ function App() {
     return prefersReducedMotion();
   });
   const [animationReady, setAnimationReady] = useState(() => prefersReducedMotion());
+
+  useScrollReveal(initialLoadDone, location.pathname);
 
   useEffect(() => {
     if (!initialLoadDone) return;

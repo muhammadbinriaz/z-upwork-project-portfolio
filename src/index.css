@@ -1356,7 +1356,10 @@ textarea.input { resize: vertical; min-height: 6rem; }
   background: var(--color-paper-2);
   color: var(--color-ink-2);
 }
-.contact-aside__cta { margin-top: 0.15rem; }
+.contact-aside__cta {
+  margin-top: 0.15rem;
+  color: var(--color-on-accent);
+}
 
 .contact-form {
   display: flex;

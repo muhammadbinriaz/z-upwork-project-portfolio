@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { setLenis } from "../lib/scroll";
 
 const useLenis = () => {
@@ -16,6 +17,10 @@ const useLenis = () => {
     lenisRef.current = lenis;
     setLenis(lenis);
 
+    // Keep ScrollTrigger in sync with smooth scroll
+    const onScroll = () => ScrollTrigger.update();
+    lenis.on("scroll", onScroll);
+
     let rafId = 0;
     const raf = (time) => {
       lenis.raf(time);
@@ -25,6 +30,7 @@ const useLenis = () => {
 
     return () => {
       cancelAnimationFrame(rafId);
+      lenis.off("scroll", onScroll);
       lenis.destroy();
       lenisRef.current = null;
       setLenis(null);

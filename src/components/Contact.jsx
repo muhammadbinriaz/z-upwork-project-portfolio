@@ -129,7 +129,7 @@ const Contact = ({ embedded = true }) => {
                     href="https://www.upwork.com/freelancers/muhammadz67"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn--outline btn--mint btn--block contact-aside__cta"
+                    className="btn btn--mint btn--block contact-aside__cta"
                   >
                     Hire on Upwork
                   </a>
